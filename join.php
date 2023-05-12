@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyGoodsStore</title>
   <link rel="stylesheet" href="join.css">
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
   <div id="mainDiv">
@@ -58,14 +59,16 @@
           <input type="text" name="phone2" id="phone2" maxlength="4" placeholder="0000"> &nbsp;&nbsp;-&nbsp;&nbsp;
           <input type="text" name="phone3" id="phone3" maxlength="4" placeholder="0000"><br>
           <label id="label_phone"></label>
-          <input type="text" name="id" id="id" minlength="4" maxlength="16" placeholder="아이디는 4~16글자로 입력해주세요."><br>
+          <input type="text" name="id" id="id" minlength="4" maxlength="16" placeholder="아이디는 4~16글자로 입력해주세요.">
+          <input type="button" onClick="idCheck();" value="아이디 중복체크" id="searchIdBtn"><br>
           <label id="label_id"></label>
+          <input type="hidden" name="tempId" id="tempId" value="">
           <input type="password" name="pwd" id="pwd" minlength="6" maxlength="16" placeholder="비밀번호는 6~16글자로 입력해주세요."><br>
           <label id="label_pwd"></label>
           <input type="password" name="pwdChk" id="pwdChk" minlength="6" maxlength="16"><br>
           <label id="label_pwdChk"></label>
           <input type="text" id="sample6_postcode" placeholder="우편번호" name="address1" readonly>
-			    <input type="button" onClick="sample6_execDaumPostcode()" value="주소찾기" id="searchAddBtn"><br>
+			    <input type="button" onClick="sample6_execDaumPostcode();" value="주소찾기" id="searchAddBtn"><br>
           <input type="text" id="sample6_address" placeholder="주소" name="address2" readonly><br>
           <input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address3">
           <input type="text" id="sample6_extraAddress" placeholder="참고항목" name="address4" readonly><br>

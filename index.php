@@ -8,12 +8,24 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
+  <?php
+    session_start();
+    $memberNo = isset($_SESSION["memberNo"]) ? $_SESSION["memberNo"] : 0;
+    $name = isset($_SESSION["memberNo"]) ? $_SESSION["name"] : 0;
+    $id = isset($_SESSION["memberNo"]) ? $_SESSION["id"] : 0;
+  ?>
+
   <div id="mainDiv">
 
     <div id="topDiv">
       <div id="topDivMent">
-        <a href="login.php" id="loginBtn">LOGIN</a> 
-        <a href="join.php" id="joinBtn">JOIN</a>x`
+        <?php if($memberNo > 0): ?>
+          <span id="myName"><?=$name ?>(<?=$id?>)님</span>
+          <a href="logoutProc.php" id="logoutBtn">LOGOUT</a>
+          <?php else: ?>
+            <a href="login.php" id="loginBtn">LOGIN</a> 
+            <a href="join.php" id="joinBtn">JOIN</a>
+        <?php endif; ?>
       </div>
     </div>
 

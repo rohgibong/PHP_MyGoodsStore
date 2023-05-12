@@ -7,6 +7,7 @@ let phone1 = document.joinForm.phone1;
 let phone2 = document.joinForm.phone2;
 let phone3 = document.joinForm.phone3;
 let id = document.joinForm.id;
+let tempId = document.joinForm.tempId;
 let pwd = document.joinForm.pwd;
 let pwdChk = document.joinForm.pwdChk;
 let address1 = document.joinForm.address1;
@@ -42,6 +43,49 @@ phone3.addEventListener("input", function() {
     id.focus();
   }
 });
+
+function idCheck(){
+  if(id.value == ""){
+    label_id.innerHTML = "아이디를 입력해주세요.";
+    label_id.style.color = "red";
+    label_id.style.fontSize = "8px";
+    id.style.borderBottom = "1px solid red";
+    id.focus();
+    return;
+  }
+  if(id.value.length < 4){
+    label_id.innerHTML = "아이디가 너무 짧습니다.";
+    label_id.style.color = "red";
+    label_id.style.fontSize = "8px";
+    id.style.borderBottom = "1px solid red";
+    id.select();
+    return;
+  }
+  label_id.innerHTML = "잠시만 기다려주세요...";
+  label_id.style.color = "black";
+  label_id.style.fontSize = "8px";
+  let param = "id=" + id.value;
+  $.ajax({
+		type: "post",
+		data: param,
+		url: "join_idCheck.php",
+		success : function(result){
+			if(result > 0){
+        label_id.innerHTML = "이미 사용중인 아이디입니다.";
+        label_id.style.color = "red";
+        label_id.style.fontSize = "8px";
+        id.style.borderBottom = "1px solid red";
+        tempId.value = "";
+			} else{
+        label_id.innerHTML = "사용 가능한 아이디입니다.";
+        label_id.style.color = "blue";
+        label_id.style.fontSize = "8px";
+        id.style.borderBottom = "1px solid lightgray";
+        tempId.value = id.value;
+			}
+		}
+	});
+}
 
 function join(){
   let err1, err2, err3, err4, err5, err6, err7, err8, errCode = 0;
@@ -234,5 +278,5 @@ function join(){
   } else {
     alert('통과');
   }
-  // document.joinForm.submit();
+  // document.joinForm.submit();    다 만들면 주석풀기 !!!!!!!!!!!!!!!!!!!!!!!!!!
 }

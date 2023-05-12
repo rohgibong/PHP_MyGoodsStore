@@ -33,7 +33,7 @@ function login(){
   if(errCounter > 0){
     return;
   } else {
-    alert("다통과됨~");
+    document.loginForm.submit();
   }
 
 }
