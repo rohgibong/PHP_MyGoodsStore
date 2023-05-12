@@ -1,0 +1,96 @@
+#mainDiv{
+  border: 0px solid red;
+  width: 1000px;
+  height: 700px;
+  margin: auto;
+}
+#titleDiv{
+  border: 0px solid black;
+  height: 130px;
+  margin-top: 20px;
+}
+#mainTitleDiv{
+  border: 0px solid blue;
+  width: 180px;
+  height: 100px;
+  margin: auto;
+}
+#mainTitleDiv:hover{
+  cursor: pointer;
+}
+#loginDiv{
+  border: 2px solid black;
+  width: 500px;
+  height: 400px;
+  padding-top: 40px;
+  margin: auto;
+  text-align: center;
+  border-radius: 10px;
+}
+
+#mentDiv{
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-left: 40px;
+  padding-top: 15px;
+}
+#idTitle, #pwdTitle{
+  font-weight: bold;
+  font-size: 18px;
+}
+#inputDiv{
+  width: 330px;
+  height: 100px;
+  float: right;
+  margin-right: 20px;
+}
+#id, #pwd {
+  width: 300px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 10px;
+  margin-top: 12px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+}
+#id {
+  margin-top: 7px;
+}
+#id:focus, #pwd:focus{
+  outline: none;
+}
+#label_id, #label_pwd{
+  width: 120px;
+  text-align: left;
+  position: absolute;
+  margin-top: 45px;
+  margin-left: 15px;
+}
+#label_pwd{
+  margin-top: 90px;
+}
+#btnDiv{
+  border: 0px solid red;
+  margin-top: 160px;
+  height: 150px;
+}
+#loginBtn, #joinBtn{
+  height: 50px;
+  width: 350px;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+#joinBtn{
+  margin-top: 10px;
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+}

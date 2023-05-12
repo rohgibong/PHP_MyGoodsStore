@@ -1,0 +1,70 @@
+#mainDiv{
+  border: 1px solid red;
+  width: 1300px;
+  height: 2000px;
+  margin: auto;
+}
+#topDiv{
+  border: 1px solid blue;
+  text-align: right;
+}
+#topDivMent{
+  margin-right: 40px;
+  font-size: 14px;
+}
+#loginBtn{
+  margin-right: 20px;
+}
+#loginBtn, #joinBtn{
+  text-decoration-line: none;
+  font-weight: bold;
+  color: black;
+}
+#titleDiv{
+  border: 1px solid purple;
+  height: 80px;
+}
+#mainTitleDiv{
+  border: 1px solid red;
+  position: absolute;
+  margin-left: 50px;
+  margin-top: -20px;
+  height: 100px;
+}
+#mainTitleDiv:hover{
+  cursor: pointer;
+}
+#searchDiv{
+  border: 2px solid black;
+  width: 770px;
+  height: 43px;
+  margin-top: 20px;
+  margin-left: 290px;
+
+}
+#searchInput{
+  width: 700px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  padding-left: 20px;
+  border: none;
+  position: absolute;
+}
+#searchInput:focus{
+  outline: none;
+}
+#searchBtn{
+  background-color: white;
+  border: none;
+  position: absolute;
+  margin-left: 720px;
+  margin-top: 6px;
+}
+#searchBtn:hover{
+  cursor: pointer;
+}
+#categoryDiv{
+  border: 1px solid darkcyan;
+  height: 50px;
+}
