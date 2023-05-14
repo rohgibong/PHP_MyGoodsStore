@@ -1,11 +1,12 @@
 #mainDiv{
-  border: 1px solid red;
+  border: 0px solid red;
   width: 1300px;
   height: 2000px;
   margin: auto;
 }
 #topDiv{
-  border: 1px solid blue;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   text-align: right;
 }
 #topDivMent{
@@ -20,39 +21,55 @@
 #loginBtn{
   margin-right: 20px;
 }
-#loginBtn, #joinBtn, #logoutBtn{
+#loginBtn, #joinBtn, #logoutBtn, .categoryName{
   text-decoration-line: none;
   font-weight: bold;
   color: black;
 }
 #titleDiv{
-  border: 1px solid purple;
-  height: 80px;
+  border: 1px solid white;
+  height: 100px;
 }
 #mainTitleDiv{
-  border: 1px solid red;
+  border: 0px solid red;
   position: absolute;
-  margin-left: 50px;
-  margin-top: -20px;
+  margin-left: 560px;
+  margin-top: 0px;
   height: 100px;
 }
 #mainTitleDiv:hover{
   cursor: pointer;
 }
+#usercartDiv{
+  border: 0px solid red;
+  float: right;
+  width: 120px;
+  height: 50px;
+  margin-right: 50px;
+}
+#userImg, #basketImg{
+  position: absolute;
+  cursor: pointer;
+}
+#userImg{
+  margin-top: 8px;;
+}
+#basketImg{
+  margin-left: 60px;
+}
 #searchDiv{
   border: 2px solid black;
-  width: 770px;
-  height: 43px;
-  margin-top: 20px;
-  margin-left: 290px;
-
+  width: 260px;
+  height: 33px;
+  margin-top: 55px;
+  margin-left: 1000px;
 }
 #searchInput{
-  width: 700px;
-  height: 40px;
-  font-size: 18px;
+  width: 200px;
+  height: 30px;
+  font-size: 14px;
   font-weight: bold;
-  padding-left: 20px;
+  padding-left: 10px;
   border: none;
   position: absolute;
 }
@@ -63,13 +80,31 @@
   background-color: white;
   border: none;
   position: absolute;
-  margin-left: 720px;
-  margin-top: 6px;
+  margin-left: 225px;
+  margin-top: 3px;
 }
 #searchBtn:hover{
   cursor: pointer;
 }
 #categoryDiv{
-  border: 1px solid darkcyan;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   height: 50px;
+}
+#categoryNameDiv{
+  border: 0px solid blue;
+  width: 1100px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 100px;
+  padding-top: 4px;
+  text-align: center;
+}
+.categoryName{
+  margin-left: 50px;
+  margin-right: 50px;
+  transition: all 0.4s;
+}
+.categoryName:hover{
+  color: rgb(99, 99, 99);
 }

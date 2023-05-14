@@ -78,7 +78,7 @@
           <label id="label_email"></label>
         </div>
         <button type="button" onClick="join();" id="joinBtn">JOIN</button>
-        <button type="button" onClick="location.href='index.php'" id="cancelBtn">CANCEL</button>
+        <button type="button" onClick="goBack();" id="cancelBtn">CANCEL</button>
       </div>
 
 
@@ -89,19 +89,14 @@
       <h1>이 페이지 추가할 항목</h1>
 
                             [에러잡기]
-                            생년월일 네자리, 한자리or두자리, 두자리로 받기
-                            휴대폰번호 네자리 네자리 받기
                             아이디 특수기호 못넣게 예외처리하기
                             아이디비번 자릿수 제한하기
                             비밀번호 한글 입력 되는지안되는지 확인해보기
                             address4(나머지주소)는 null이 될수있음!
                             email2 . 스플릿 기준으로 오른쪽이 com, net 등등이 아니면 이메일 똑디 입력하라고 멘트
-
-
-                            [위에거 다 하고..]
-                            아이디 확인 버튼
+                            <!-- [위에거 다 하고..]
                             생년월일도 다 select로 만들어버릴가보다..
-                            이메일 select창 시간나면 만들거고 아니면 버릴거
+                            이메일 select창 시간나면 만들거고 아니면 버릴거 -->
 
                             이정도 하면 이 페이지는 졸업아닐까?
       </pre>

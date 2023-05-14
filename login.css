@@ -85,12 +85,23 @@
   background-color: black;
   border: none;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 30px;
   margin-top: 20px;
+  border: 2px solid black;
+  transition: all 0.4s;
 }
 #joinBtn{
   margin-top: 10px;
   color: black;
   background-color: white;
-  border: 2px solid black;
+}
+#loginBtn:hover{
+  border: none;
+  background-color: rgb(99, 99, 99);
+  color: whitesmoke;
+}
+#joinBtn:hover{
+  border: 2px solid rgb(225, 225, 225);
+  background-color: rgb(225, 225, 225);
+  color: rgb(84, 84, 84);
 }

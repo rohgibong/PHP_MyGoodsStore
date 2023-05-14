@@ -108,10 +108,11 @@ function join(){
     err1 = 0;
   }
 
-  if(birthYear.value == "" || birthMonth.value == "" || birthDay.value == ""){
+  if(birthYear.value == "" || birthYear.value.length != 4 || birthMonth.value == ""  || birthDay.value == ""){
     label_birth.innerHTML = "생년월일을 입력해주세요.";
     label_birth.style.color = "red";
     label_birth.style.fontSize = "8px";
+    
     if(birthYear.value == ""){
       birthYear.style.borderBottom = "1px solid red";
     } else {
@@ -126,6 +127,14 @@ function join(){
       birthDay.style.borderBottom = "1px solid red";
     } else {
       birthDay.style.borderBottom = "1px solid lightgray";
+    }
+    if(birthYear.value.length != 0 && birthYear.value.length != 4){
+      label_birth.innerHTML = "생년월일을 정확히 입력해주세요.";
+      label_birth.style.color = "red";
+      label_birth.style.fontSize = "8px";
+      birthYear.style.borderBottom = "1px solid red";
+    } else {
+      birthYear.style.borderBottom = "1px solid lightgray";
     }
     err2 = 1;
   } else {
@@ -157,6 +166,22 @@ function join(){
     phone3.style.borderBottom = "1px solid lightgray";
     err3 = 0;
   }
+  
+  if((phone2.value != "" && phone2.value.length != 4) || (phone3.value != "" && phone3.value.length != 4)){
+    label_phone.innerHTML = "휴대폰 번호를 정확히 입력해주세요.";
+    label_phone.style.color = "red";
+    label_phone.style.fontSize = "8px";
+    if(phone2.value.length != 4){
+      phone2.style.borderBottom = "1px solid red";
+    } else {
+      phone2.style.borderBottom = "1px solid lightgray";
+    }
+    if(phone3.value.length != 4){
+      phone3.style.borderBottom = "1px solid red";
+    } else {
+      phone3.style.borderBottom = "1px solid lightgray";
+    }
+  }
 
   if(id.value == ""){
     label_id.innerHTML = "아이디를 입력해주세요.";
@@ -164,12 +189,17 @@ function join(){
     label_id.style.fontSize = "8px";
     id.style.borderBottom = "1px solid red";
     err4 = 1;
-  } else if(id.value.length < 4){
-    label_id.innerHTML = "아이디가 너무 짧습니다.";
+  } else if(tempId.value == ""){
+    label_id.innerHTML = "아이디 확인을 해주세요.";
     label_id.style.color = "red";
     label_id.style.fontSize = "8px";
     id.style.borderBottom = "1px solid red";
-    id.focus();
+    err4 = 1;
+  } else if(id.value != tempId.value){
+    label_id.innerHTML = "아이디 확인을 해주세요.";
+    label_id.style.color = "red";
+    label_id.style.fontSize = "8px";
+    id.style.borderBottom = "1px solid red";
     err4 = 1;
   } else {
     label_id.innerHTML = "";
@@ -279,4 +309,8 @@ function join(){
     alert('통과');
   }
   // document.joinForm.submit();    다 만들면 주석풀기 !!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+function goBack(){
+  window.history.back();
 }
