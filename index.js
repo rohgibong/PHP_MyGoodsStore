@@ -4,9 +4,9 @@ function search(){
 
 function moveUserPage(){
   if(memberNo > 0){
-    alert('로그인 상태');
+    location.href='member_pwCheck.php';
   } else {
-    alert('로그인 안한 상태');
+    location.href='login.php';
   }
 }
 

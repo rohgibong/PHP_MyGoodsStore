@@ -37,7 +37,7 @@
 
     mysqli_close($con);
 
-
+ 
     // echo "이름 : ".$name;
     // echo "년 : ".$birthYear;
     // echo "월 : ".$birthMonth;
