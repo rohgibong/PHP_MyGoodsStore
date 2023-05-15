@@ -305,10 +305,8 @@ function join(){
   errCode = (err1 + err2 + err3 + err4 + err5 + err6 + err7 + err8);
   if(errCode != 0){
     return;
-  } else {
-    alert('통과');
   }
-  // document.joinForm.submit();    다 만들면 주석풀기 !!!!!!!!!!!!!!!!!!!!!!!!!!
+   document.joinForm.submit();
 }
 
 function goBack(){

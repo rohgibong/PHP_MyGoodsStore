@@ -38,9 +38,9 @@ function search(){
 
 function moveUserPage(){
   if(memberNo > 0){
-    location.href='member_pwCheck.php';
+    location.href='./member/member_pwCheck.php';
   } else {
-    location.href='login.php';
+    location.href='./login/login.php';
   }
 }
 

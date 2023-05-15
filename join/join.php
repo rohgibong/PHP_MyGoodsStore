@@ -13,7 +13,7 @@
 
     <div id="titleDiv">
       <div id="mainTitleDiv">
-        <img src="./img/MyGoodsStoreLogoBlack.png" alt="logoImg" width="180px" id="logoImg" onClick="location.href='index.php'">
+        <img src="../img/MyGoodsStoreLogoBlack.png" alt="logoImg" width="180px" id="logoImg" onClick="location.href='../index.php'">
       </div>
     </div>
 

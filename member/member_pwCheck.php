@@ -18,14 +18,14 @@
     const memberNo = <?php echo $memberNo ?>;
     if(memberNo <= 0){
       alert('잘못된 접근입니다.');
-      location.href='index.php';
+      location.href='../index.php';
     }
   </script>
 
 <div id="mainDiv">
   <div id="titleDiv">
     <div id="mainTitleDiv">
-      <img src="./img/MyGoodsStoreLogoBlack.png" alt="logoImg" width="180px" id="logoImg" onClick="location.href='index.php'">
+      <img src="../img/MyGoodsStoreLogoBlack.png" alt="logoImg" width="180px" id="logoImg" onClick="location.href='../index.php'">
     </div>
   </div>
 

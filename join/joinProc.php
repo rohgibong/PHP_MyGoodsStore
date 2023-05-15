@@ -30,7 +30,7 @@
     $level = 1;
     $point = 2000;
 
-    $con = mysqli_connect("localhost", "user1", "12345", "sample");
+    $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
     $sql = "insert into storemember(name, birth1, birth2, birth3, gender, phone1, phone2, phone3, id, pwd, address1, address2, address3, address4, email1, email2, regidate, level, point) values ('$name', $birthYear, $birthMonth, $birthDay, '$gender', $phone1, $phone2, $phone3, '$id', '$pwd', $address1, '$address2', '$address3', '$address4', '$email1', '$email2', '$regidate', $level, $point)";
 
     mysqli_query($con, $sql);
@@ -60,7 +60,7 @@
   ?>
   <script>
     alert("가입이 완료되었습니다.\n로그인 페이지로 이동합니다.");
-    location.href="login.php";
+    location.href="../login/login.php";
   </script>
 </body>
 </html>

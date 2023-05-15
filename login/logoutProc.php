@@ -5,7 +5,7 @@
   echo "
     <script>
       alert('정상적으로 로그아웃되었습니다.');
-      location.href = 'index.php';
+      location.href = '../index.php';
     </script>
   ";
 ?>

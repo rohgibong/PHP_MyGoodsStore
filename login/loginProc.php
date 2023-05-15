@@ -11,7 +11,7 @@
     $id = $_POST["id"];
     $pwd = $_POST["pwd"];
 
-    $con = mysqli_connect("localhost", "user1", "12345", "sample");
+    $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
     $sql = "select memberNo, name from storemember where id = '$id' and pwd = '$pwd';";
 
     $result = mysqli_query($con, $sql);
@@ -37,7 +37,7 @@
       echo "
         <script>
           alert('$name($id)님 환영합니다.');
-          location.href = 'index.php';
+          location.href = '../index.php';
         </script>
       ";
     }

@@ -12,7 +12,7 @@
 
     <div id="titleDiv">
       <div id="mainTitleDiv">
-        <img src="./img/MyGoodsStoreLogoBlack.png" alt="logoImg" width="180px" id="logoImg" onClick="location.href='index.php'">
+        <img src="../img/MyGoodsStoreLogoBlack.png" alt="logoImg" width="180px" id="logoImg" onClick="location.href='../index.php'">
       </div>
     </div>
 
@@ -35,7 +35,7 @@
 
         <div id="btnDiv">
           <button type="button" onClick="login();" id="loginBtn">LOGIN</button>
-          <button type="button" onClick="location.href='join.php'" id="joinBtn">JOIN US</button>
+          <button type="button" onClick="location.href='../join/join.php'" id="joinBtn">JOIN US</button>
         </div>
       </div>
     </form>

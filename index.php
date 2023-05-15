@@ -24,10 +24,10 @@
       <div id="topDivMent">
         <?php if($memberNo > 0): ?>
           <span id="myName"><?=$name ?>(<?=$id?>)님</span>
-          <a href="logoutProc.php" id="logoutBtn" class="btnClass">LOGOUT</a>
+          <a href="./login/logoutProc.php" id="logoutBtn" class="btnClass">LOGOUT</a>
           <?php else: ?>
-            <a href="login.php" id="loginBtn" class="btnClass">LOGIN</a> 
-            <a href="join.php" id="joinBtn" class="btnClass">JOIN</a>
+            <a href="./login/login.php" id="loginBtn" class="btnClass">LOGIN</a> 
+            <a href="./join/join.php" id="joinBtn" class="btnClass">JOIN</a>
         <?php endif; ?>
       </div>
     </div>
