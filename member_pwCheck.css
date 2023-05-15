@@ -4,9 +4,6 @@
   height: 600px;
   margin: auto;
 }
-#topDiv{
-  height: 20px;
-}
 #titleDiv{
   border: 1px solid white;
   height: 100px;
@@ -18,50 +15,6 @@
   height: 100px;
 }
 #mainTitleDiv:hover{
-  cursor: pointer;
-}
-#usercartDiv{
-  border: 0px solid red;
-  float: right;
-  width: 120px;
-  height: 50px;
-  margin-right: 50px;
-}
-#userImg, #basketImg{
-  position: absolute;
-  cursor: pointer;
-}
-#userImg{
-  margin-top: 8px;;
-}
-#basketImg{
-  margin-left: 60px;
-}
-#searchDiv{
-  border: 2px solid black;
-  width: 260px;
-  height: 33px;
-  margin-top: 55px;
-  margin-left: 1000px;
-}
-#searchInput{
-  width: 200px;
-  height: 30px;
-  font-size: 14px;
-  font-weight: bold;
-  padding-left: 10px;
-  border: none;
-  position: absolute;
-}
-#searchInput:focus{
-  outline: none;
-}
-#searchBtn{
-  background-color: white;
-  border: none;
-  position: absolute;
-  margin-left: 225px;
-  margin-top: 3px;
   cursor: pointer;
 }
 #contentDiv{
