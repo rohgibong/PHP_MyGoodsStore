@@ -1,3 +1,4 @@
+let num = document.getElementById('tempNum');
 let counter = 1;
 let timerId;
 
@@ -30,7 +31,34 @@ setTimeout(function(){
   }, 5000);
 }, 0);
 
+function goLeft(){
+  if(num.value == 1){
+    counter--;
+  }
+  num.innerHTML = num.value++;
+  counter--;
+  if(counter < 1){
+    counter = 4;
+  }
+  document.getElementById('radio' + counter).click;
+  document.getElementById('radio' + counter).checked = true;
+  
+}
 
+function goRight(){
+  clearInterval(timerId);
+  timerId = setInterval(function() {
+    document.getElementById('radio' + counter).checked = true;
+    counter++;
+    if (counter > 4) {
+      counter = 1;
+    }
+  }, 5000);
+  document.getElementById('radio' + counter).click();
+  if (counter > 4) {
+    counter = 1;
+  }
+}
 
 function search(){
   alert("검색");

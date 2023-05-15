@@ -19,7 +19,6 @@
   </script>
 
   <div id="mainDiv">
-
     <div id="topDiv">
       <div id="topDivMent">
         <?php if($memberNo > 0): ?>
@@ -99,6 +98,9 @@
       </section>
     </div>
 
+    <button onClick="goLeft();"><</button>
+    <button onClick="goRight();">></button>
+    <input type="hidden" value="1" id="tempNum">
 
   </div>
 <script src="index.js"></script>
