@@ -40,7 +40,7 @@
         <img src="./img/basket.png" alt="basketImg" width="50px" id="basketImg" onClick="momveCartPage();">
       </div>
       <div id="searchDiv">
-        <input type="text" name="searchInput" id="searchInput">  
+        <input type="text" name="searchInput" id="searchInput" onkeydown="if(event.keyCode==13) search()">  
         <!-- placeholder="찾고 싶은 상품을 검색해보세요!" -->
         <button type="button" id="searchBtn" onClick="search();">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 20">
@@ -98,11 +98,17 @@
       </section>
     </div>
 
-    <button onClick="goLeft();"><</button>
-    <button onClick="goRight();">></button>
     <input type="hidden" value="1" id="tempNum">
 
   </div>
+  <div id="leftArrowDiv" onClick="goLeft();">
+    <img src="./img/arrowLeft.png" alt="leftArrow" id="leftArrow">
+  </div>
+  <div id="rightArrowDiv" onClick="goRight();">
+    <img src="./img/arrowRight.png" alt="rightArrow" id="rightArrow">
+  </div>
+
+
 <script src="index.js"></script>
 </body>
 </html>

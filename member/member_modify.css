@@ -1,0 +1,67 @@
+#mainDiv{
+  border: 0px solid red;
+  width: 1300px;
+  height: 1000px;
+  margin: auto;
+}
+#titleDiv{
+  border: 1px solid white;
+  height: 100px;
+}
+#mainTitleDiv{
+  border: 0px solid red;
+  position: absolute;
+  margin-left: 560px;
+  height: 100px;
+}
+#mainTitleDiv:hover{
+  cursor: pointer;
+}
+#contentDiv{
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 700px;
+  width: 1000px;
+  margin: auto;
+  margin-top: 20px;
+  padding-top: 50px;
+  text-align: center;
+}
+#titleMentDiv{
+  border-bottom: 1px solid lightgray;
+  width: 900px;
+  height: 30px;
+  margin: auto;
+  text-align: left;
+}
+#titleMent{
+  font-weight: bold;
+  color: #2E2E2E;
+  margin-left: 10px;
+}
+/* #subTitleDiv{
+  border: 1px solid red;
+  width: 200px;
+  height: 500px;
+  float: left;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+#modifyDiv{
+  border: 1px solid red;
+  width: 700px;
+  height: 500px;
+  float: right;
+  margin-top: 50px;
+  margin-right: 50px;
+} */
+#modifyTable{
+  border-collapse: collapse;
+  margin: auto;
+  margin-top: 50px;
+  text-align: left;
+}
+#btnDiv{
+  height: 50px;
+  margin-top: 170px;
+}

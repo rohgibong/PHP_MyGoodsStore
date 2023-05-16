@@ -104,7 +104,7 @@
   transition: all 0.4s;
 }
 .categoryName:hover{
-  color: rgb(99, 99, 99);
+  color: crimson;
 }
 #slideDiv{
   margin: auto;
@@ -202,4 +202,30 @@
 }
 #radio4:checked ~ .nav-auto .a-b4{
   background-color: black;
+}
+#leftArrowDiv{
+  width: 180px;
+  height: 450px;
+  float: left;
+  margin-left: 120px;
+  margin-top: -500px;
+  cursor: pointer;
+}
+#rightArrowDiv{
+  width: 180px;
+  height: 450px;
+  float: right;
+  margin-right: 120px;
+  margin-top: -500px;
+  cursor: pointer;
+}
+#leftArrow, #rightArrow{
+  width: 70px;
+  margin-top: 190px;
+}
+#leftArrow{
+  margin-left: 50px;
+}
+#rightArrow{
+  margin-left: 50px;
 }

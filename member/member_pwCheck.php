@@ -29,32 +29,31 @@
     </div>
   </div>
 
-  <div id="contentDiv">
-    <h1>회원정보 확인</h1>
+  <form name="checkForm" action="member_pwCheckProc.php" method="post">
+    <div id="contentDiv">
+      <h1>회원정보 확인</h1>
 
-    <div id="subTitleDiv">
-      <span id="subTitleSpan"><?=$name ?>(<?=$id ?>)</span>님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.
+      <div id="subTitleDiv">
+        <span id="subTitleSpan"><?=$name ?>(<?=$id ?>)</span>님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.
+      </div>
+
+      <div id="mentDiv">
+        <span id="idTitle">ID</span><br><br>
+        <span id="pwdTitle">PASSWORD</span>
+      </div>
+
+      <div id="inputDiv">
+        <input type="text" name="id" id="id" value="<?=$id ?>" readonly><br>
+        <input type="password" name="pwd" id="pwd" onkeydown="if(event.keyCode==13) check()"><br>
+      </div>
+      <label id="label_pwd"></label>
+      <div id="btnDiv">
+        <button type="button" onClick="check();" id="checkBtn">확인</button>
+        <button type="button" onClick="location.href='../index.php';" id="cancelBtn">취소</button>
+      </div>
     </div>
-
-    <div id="mentDiv">
-      <span id="idTitle">ID</span><br><br>
-      <span id="pwdTitle">PASSWORD</span>
-    </div>
-
-    <div id="inputDiv">
-      <input type="text" name="id" id="id" value="<?=$id ?>" readonly><br>
-      <input type="password" name="pwd" id="pwd"><br>
-    </div>
-    <label id="label_pwd"></label>
-
-    <div id="btnDiv">
-      <button type="button">확인</button>
-    </div>
-
-  </div>
-
-
+  </form>
 </div>
-  
+<script src="member_pwCheck.js"></script>
 </body>
 </html>

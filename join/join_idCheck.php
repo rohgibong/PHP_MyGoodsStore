@@ -10,4 +10,5 @@
   } else {
     echo "0";
   }
+  mysqli_close($con);
 ?>

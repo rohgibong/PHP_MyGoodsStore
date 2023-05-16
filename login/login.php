@@ -27,20 +27,20 @@
         </div>
 
         <div id="inputDiv">
-          <input type="text" name="id" id="id"><br>
-          <input type="password" name="pwd" id="pwd"><br>
+          <input type="text" name="id" id="id" onkeydown="if(event.keyCode==13) login()"><br>
+          <input type="password" name="pwd" id="pwd" onkeydown="if(event.keyCode==13) login()"><br>
         </div>
         <label id="label_id"></label>
         <label id="label_pwd"></label>
 
         <div id="btnDiv">
-          <button type="button" onClick="login();" id="loginBtn">LOGIN</button>
+          <button type="button" onClick="login();" id="loginBtn" >LOGIN</button>
           <button type="button" onClick="location.href='../join/join.php'" id="joinBtn">JOIN US</button>
         </div>
       </div>
     </form>
-    <script src="login.js"></script>
-
+    
   </div>
+  <script src="login.js"></script>
 </body>
 </html>

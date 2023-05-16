@@ -28,7 +28,6 @@
   text-align: center;
 }
 #subTitleDiv{
-  border: 0px solid salmon;
   height: 20px;
   text-align: left;
   padding-left: 20px;
@@ -76,7 +75,6 @@
   outline: none;
 }
 #label_pwd{
-  border: 1px solid red;
   width: 120px;
   text-align: left;
   position: absolute;
@@ -84,7 +82,35 @@
   margin-left: 35px;
 }
 #btnDiv{
-  border: 0px solid red;
   height: 50px;
-  margin-top: 160px;
+  margin-top: 170px;
+}
+#checkBtn, #cancelBtn{
+  width: 100px;
+  height: 40px;
+  border-radius: 30px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.4s;
+  margin-right: 10px;
+}
+#cancelBtn{
+  color: black; 
+  background-color: white;
+  border: 2px solid black;
+  margin-right: 0px;
+  margin-left: 10px;
+}
+#checkBtn:hover{
+  border: none;
+  background-color: rgb(99, 99, 99);
+  color: whitesmoke;
+}
+#cancelBtn:hover{
+  border: 2px solid rgb(225, 225, 225);
+  background-color: rgb(225, 225, 225);
+  color: rgb(84, 84, 84);
 }

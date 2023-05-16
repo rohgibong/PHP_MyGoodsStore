@@ -31,7 +31,7 @@
     $point = 2000;
 
     $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
-    $sql = "insert into storemember(name, birth1, birth2, birth3, gender, phone1, phone2, phone3, id, pwd, address1, address2, address3, address4, email1, email2, regidate, level, point) values ('$name', $birthYear, $birthMonth, $birthDay, '$gender', $phone1, $phone2, $phone3, '$id', '$pwd', $address1, '$address2', '$address3', '$address4', '$email1', '$email2', '$regidate', $level, $point)";
+    $sql = "insert into storemember(name, birth1, birth2, birth3, gender, phone1, phone2, phone3, id, pwd, address1, address2, address3, address4, email1, email2, regidate, level, point) values ('$name', '$birthYear', '$birthMonth', '$birthDay', '$gender', '$phone1', '$phone2', '$phone3', '$id', '$pwd', $address1, '$address2', '$address3', '$address4', '$email1', '$email2', '$regidate', $level, $point)";
 
     mysqli_query($con, $sql);
 
