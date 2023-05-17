@@ -33,6 +33,11 @@ birthMonth.addEventListener("input", function() {
     birthDay.focus();
   }
 });
+phone1.addEventListener("input", function() {
+  if (phone1.value.length === 3) {
+    phone2.focus();
+  }
+});
 phone2.addEventListener("input", function() {
   if (phone2.value.length === 4) {
     phone3.focus();
@@ -70,6 +75,7 @@ function idCheck(){
 		data: param,
 		url: "join_idCheck.php",
 		success : function(result){
+      console.log(result);
 			if(result > 0){
         label_id.innerHTML = "이미 사용중인 아이디입니다.";
         label_id.style.color = "red";
@@ -107,8 +113,7 @@ function join(){
     name.style.borderBottom = "1px solid lightgray";
     err1 = 0;
   }
-
-  if(birthYear.value == "" || birthYear.value.length != 4 || birthMonth.value == ""  || birthDay.value == ""){
+  if(birthYear.value == "" || birthMonth.value == ""  || birthDay.value == ""){
     label_birth.innerHTML = "생년월일을 입력해주세요.";
     label_birth.style.color = "red";
     label_birth.style.fontSize = "8px";
@@ -128,27 +133,34 @@ function join(){
     } else {
       birthDay.style.borderBottom = "1px solid lightgray";
     }
-    if(birthYear.value.length != 0 && birthYear.value.length != 4){
+    err2 = 1;
+  }
+  else {
+    label_birth.innerHTML = "";
+    birthMonth.style.borderBottom = "1px solid lightgray";
+    birthDay.style.borderBottom = "1px solid lightgray";
+    err2 = 0;
+    if(birthYear.value.length != 4){
       label_birth.innerHTML = "생년월일을 정확히 입력해주세요.";
       label_birth.style.color = "red";
       label_birth.style.fontSize = "8px";
       birthYear.style.borderBottom = "1px solid red";
+      err2 = 1;
     } else {
       birthYear.style.borderBottom = "1px solid lightgray";
+      err2 = 0;
     }
-    err2 = 1;
-  } else {
-    label_birth.innerHTML = "";
-    birthYear.style.borderBottom = "1px solid lightgray";
-    birthMonth.style.borderBottom = "1px solid lightgray";
-    birthDay.style.borderBottom = "1px solid lightgray";
-    err2 = 0;
   }
-  
-  if(phone2.value == "" || phone3.value == ""){
+
+  if(phone1.value == "" || phone2.value == "" || phone3.value == ""){
     label_phone.innerHTML = "휴대폰 번호를 입력해주세요.";
     label_phone.style.color = "red";
     label_phone.style.fontSize = "8px";
+    if(phone1.value == ""){
+      phone1.style.borderBottom = "1px solid red";
+    } else {
+      phone1.style.borderBottom = "1px solid lightgray";
+    }
     if(phone2.value == ""){
       phone2.style.borderBottom = "1px solid red";
     } else {
@@ -162,15 +174,21 @@ function join(){
     err3 = 1;
   } else {
     label_phone.innerHTML = "";
+    phone1.style.borderBottom = "1px solid lightgray";
     phone2.style.borderBottom = "1px solid lightgray";
     phone3.style.borderBottom = "1px solid lightgray";
     err3 = 0;
   }
-  
-  if((phone2.value != "" && phone2.value.length != 4) || (phone3.value != "" && phone3.value.length != 4)){
+
+  if((phone1.value != "" && phone2.value != "" && phone3.value != "") && (phone1.value.length != 3 || phone2.value.length != 4 || phone3.value.length != 4)){
     label_phone.innerHTML = "휴대폰 번호를 정확히 입력해주세요.";
     label_phone.style.color = "red";
     label_phone.style.fontSize = "8px";
+    if(phone1.value.length != 3){
+      phone1.style.borderBottom = "1px solid red";
+    } else {
+      phone1.style.borderBottom = "1px solid lightgray";
+    }
     if(phone2.value.length != 4){
       phone2.style.borderBottom = "1px solid red";
     } else {
@@ -181,6 +199,24 @@ function join(){
     } else {
       phone3.style.borderBottom = "1px solid lightgray";
     }
+  } else {
+    label_phone.innerHTML = "";
+    phone1.style.borderBottom = "1px solid lightgray";
+    phone2.style.borderBottom = "1px solid lightgray";
+    phone3.style.borderBottom = "1px solid lightgray";
+    err3 = 0;
+  }
+
+  if((phone1.value != "") && (phone1.value.length == 3) && (phone1.value != "010" || phone1.value != "011" || phone1.value != "016" || phone1.value != "017" || phone1.value != "018" || phone1.value != "019")){
+    label_phone.innerHTML = "휴대폰 번호를 정확히 입력해주세요.";
+    label_phone.style.color = "red";
+    label_phone.style.fontSize = "8px";
+    phone1.style.borderBottom = "1px solid red";
+    err3 = 1;
+  } else {
+    label_phone.innerHTML = "";
+    phone1.style.borderBottom = "1px solid lightgray";
+    err3 = 0;
   }
 
   if(id.value == ""){

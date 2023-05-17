@@ -20,7 +20,7 @@
 #contentDiv{
   border: 2px solid black;
   border-radius: 10px;
-  height: 700px;
+  height: 800px;
   width: 1000px;
   margin: auto;
   margin-top: 20px;
@@ -28,7 +28,7 @@
   text-align: center;
 }
 #titleMentDiv{
-  border-bottom: 1px solid lightgray;
+  border-bottom: 2px solid lightgray;
   width: 900px;
   height: 30px;
   margin: auto;
@@ -39,29 +39,119 @@
   color: #2E2E2E;
   margin-left: 10px;
 }
-/* #subTitleDiv{
-  border: 1px solid red;
-  width: 200px;
-  height: 500px;
-  float: left;
-  margin-top: 50px;
-  margin-left: 20px;
-}
-#modifyDiv{
-  border: 1px solid red;
-  width: 700px;
-  height: 500px;
-  float: right;
-  margin-top: 50px;
-  margin-right: 50px;
-} */
 #modifyTable{
   border-collapse: collapse;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 30px;
   text-align: left;
 }
+td{
+  border-bottom: 1px solid lightgray;
+  height: 60px;
+}
+.titleTd{
+  width: 140px;
+  border-right: 1px solid lightgray;
+  padding-left: 30px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.contentTd{
+  width: 700px;
+}
+#id, #pwd, #pwdChk, #name, #birth1, #birth2, #birth3, #phone1, #phone2, #phone3, #sample6_postcode, #sample6_address, #sample6_detailAddress, #sample6_extraAddress, #email1, #email2{
+  width: 200px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 10px;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid lightgray;
+}
+#id, #name{
+  cursor: default;
+  border: none;
+}
+#birth1, #birth2, #birth3{
+  width: 50px;
+  padding-left: 0px;
+  text-align: center;
+}
+#genderMan, #genderWoman{
+  margin-left: 20px;
+}
+#phone1, #phone2, #phone3{
+  width: 60px;
+  padding-left: 0px;
+  text-align: center;
+}
+#phone2, #phone3, #sample6_postcode {
+  width: 100px;
+}
+#searchAddBtn{
+  width: 100px;
+  height: 40px;
+  border-radius: 30px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 50px;
+  transition: all 0.4s;
+}
+#searchAddBtn:hover{
+  border: none;
+  background-color: rgb(99, 99, 99);
+  color: whitesmoke;
+}
+#sample6_address{
+  width: 527px;
+}
+#sample6_extraAddress{
+  width: 300px;
+}
+#lastTd{
+  border-bottom: none;
+}
 #btnDiv{
-  height: 50px;
-  margin-top: 170px;
+  margin-top: 50px;
+}
+#modifyBtn, #cancelBtn{
+  width: 100px;
+  height: 40px;
+  border-radius: 30px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.4s;
+  margin-right: 10px;
+}
+#cancelBtn{
+  color: black; 
+  background-color: white;
+  border: 2px solid black;
+  margin-right: 0px;
+  margin-left: 10px;
+}
+#modifyBtn:hover{
+  border: none;
+  background-color: rgb(99, 99, 99);
+  color: whitesmoke;
+}
+#cancelBtn:hover{
+  border: 2px solid rgb(225, 225, 225);
+  background-color: rgb(225, 225, 225);
+  color: rgb(84, 84, 84);
+}
+#deleteMemberBtn{
+  margin-left: 870px;
+  font-size: 12px;
+  font-weight: bold;
+  color: crimson;
+  cursor: pointer;
 }

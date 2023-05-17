@@ -48,7 +48,7 @@
     // echo "년 : ".$birth1."<br>";
     // echo "월 : ".$birth2."<br>";
     // echo "일 : ".$birth3."<br>";
-    // echo "성별 : ".$gender."<br>";
+    //echo "성별 : ".$gender."<br>";
     // echo "폰1 : ".$phone1."<br>";
     // echo "폰2 : ".$phone2."<br>";
     // echo "폰3 : ".$phone3."<br>";
@@ -69,69 +69,70 @@
     </div>
   </div>
 
-  <form name="checkForm" action="member_pwCheckProc.php" method="post">
+  <form name="modifyForm" action="member_modifyProc.php" method="post">
     <div id="contentDiv">
       <div id="titleMentDiv">
         <span id="titleMent">회원 정보 수정</span>
       </div>
-
-      <!-- <div id="subTitleDiv">
-        
-      </div>
+      <input type="hidden" value="<?=$memberNo ?>" name="memberNo">
       
-      <div id="modifyDiv">
-        
-      </div> -->
-
-      <table border="1" id="modifyTable">
+      <table id="modifyTable">
         <tr>
-          <td>아이디</td>
-          <td>
-            <input type="text" value="<?=$id ?>">
+          <td class="titleTd">아이디</td>
+          <td class="contentTd">
+            <input type="text" value="<?=$id ?>" name="id" id="id" readonly>
           </td>
         </tr>
         <tr>
-          <td>비밀번호</td>
-          <td>
-            <input type="password">
+          <td class="titleTd">비밀번호</td>
+          <td class="contentTd">
+            <input type="password" name="pwd" id="pwd">
           </td>
         </tr>
         <tr>
-          <td>비밀번호확인</td>
-          <td>
-            <input type="password">
+          <td class="titleTd">비밀번호확인</td>
+          <td class="contentTd">
+            <input type="password" name="pwdChk" id="pwdChk">
           </td>
         </tr>
         <tr>
-          <td>이름</td>
-          <td>
-            <input type="text" value="<?=$name ?>" readonly>
+          <td class="titleTd">이름</td>
+          <td class="contentTd">
+            <input type="text" value="<?=$name ?>" name="name" id="name" readonly>
           </td>
         </tr>
         <tr>
-          <td>생년월일</td>
-          <td>
-            <input type="text" value="<?=$birth1 ?>">
-            <input type="text" value="<?=$birth2 ?>">
-            <input type="text" value="<?=$birth3 ?>">
+          <td class="titleTd">생년월일</td>
+          <td class="contentTd">
+            <input type="text" value="<?=$birth1 ?>" name="birth1" id="birth1"> 년
+            <input type="text" value="<?=$birth2 ?>" name="birth2" id="birth2"> 월
+            <input type="text" value="<?=$birth3 ?>" name="birth3" id="birth3"> 일
           </td>
         </tr>
         <tr>
-          <td>성별</td>
-          <td>
-            <input type="radio" name="gender" id="genderMan" value="남"> 남자
-            <input type="radio" name="gender" id="genderWoman" value="여"> 여자
+          <td class="titleTd">성별</td>
+          <td class="contentTd">
+            <?php if($gender == '남'): ?>
+              <input type="radio" id="genderMan" value="남" checked disabled> 남자
+              <input type="radio" id="genderWoman" value="여" disabled> 여자
+              <?php else: ?>
+                <input type="radio" id="genderMan" value="남" disabled> 남자
+                <input type="radio" id="genderWoman" value="여" checked disabled> 여자
+                <?php endif; ?>
+            <input type="hidden" name="gender" value="<?=$gender ?>" readonly>
           </td>
         </tr>
         <tr>
-          <td>휴대폰</td>
-          <td>
-
+          <td class="titleTd">휴대폰</td>
+          <td class="contentTd">
+            <input type="text" value="<?=$phone1 ?>" name="phone1" id="phone1"> -
+            <input type="text" value="<?=$phone2 ?>" name="phone2" id="phone2"> -
+            <input type="text" value="<?=$phone3 ?>" name="phone3" id="phone3">
           </td>
         </tr>
         <tr>
-          <td>주소</td>
-          <td>
+          <td class="titleTd">주소</td>
+          <td class="contentTd">
             <input type="text" id="sample6_postcode" placeholder="우편번호" name="address1" value="<?=$address1 ?>" readonly>
             <input type="button" onClick="sample6_execDaumPostcode();" value="주소찾기" id="searchAddBtn"><br>
             <input type="text" id="sample6_address" placeholder="주소" name="address2" value="<?=$address2 ?>" readonly><br>
@@ -140,10 +141,10 @@
           </td>
         </tr>
         <tr>
-          <td>이메일</td>
-          <td>
-            <input type="text" value="<?=$email1 ?>"> @
-            <input type="text" value="<?=$email2 ?>">
+          <td class="titleTd" id="lastTd">이메일</td>
+          <td class="contentTd" id="lastTd">
+            <input type="text" value="<?=$email1 ?>" name="email1" id="email1"> @
+            <input type="text" value="<?=$email2 ?>" name="email2" id="email2">
           </td>
         </tr>
       </table>
@@ -151,13 +152,18 @@
 
         
         <div id="btnDiv">
-          <!-- <button type="button" onClick="check();" id="checkBtn">확인</button>
-          <button type="button" onClick="location.href='../index.php';" id="cancelBtn">취소</button> -->
+         <button type="button" onClick="modify();" id="modifyBtn">확인</button>
+          
+          <button type="button" onClick="location.href='../index.php';" id="cancelBtn">취소</button>
         </div>
+        <span id="deleteMemberBtn" onClick="deleteMember();">회원탈퇴</span>
     </div>
   </form>
 
 
 </div>
+<script src="member_modify.js"></script>
+<script src="../join/join_Address.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>

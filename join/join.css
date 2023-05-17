@@ -62,7 +62,7 @@ h1{
 #emailTitle{
   margin-top: 50px;
 }
-#name, #birthYear, #birthMonth, #birthDay, #phone2, #phone3, #id, #pwd, #pwdChk, #sample6_postcode, #sample6_address, #sample6_detailAddress, #sample6_extraAddress, #email1, #email2 {
+#name, #birthYear, #birthMonth, #birthDay, #phone1, #phone2, #phone3, #id, #pwd, #pwdChk, #sample6_postcode, #sample6_address, #sample6_detailAddress, #sample6_extraAddress, #email1, #email2 {
   width: 352px;
   height: 30px;
   font-size: 15px;
@@ -70,32 +70,27 @@ h1{
   padding-left: 10px;
   margin-top: 27px;
   border: none;
+  outline: none;
   border-bottom: 1px solid lightgray;
 }
 #birthYear, #birthMonth, #birthDay{
   margin-top: 23px;
   width: 50px;
-}
-#name:focus, #birthYear:focus, #birthMonth:focus, #birthDay:focus, #phone1:focus, #phone2:focus, #phone3:focus, #id:focus, #pwd:focus, #pwdChk:focus, #sample6_postcode:focus, #sample6_address:focus, #sample6_detailAddress:focus, #sample6_extraAddress:focus, #email1:focus, #email2:focus{
-  outline: none;
+  padding-left: 0px;
+  text-align: center;
 }
 #genderMan, #genderWoman{
   margin-top: 33px;
 }
-#phone1{
-  width: 100px;
-  height: 30px;
-  margin-top: 28px;
-  border: none;
-  border-bottom: 1px solid lightgray;
+#phone1, #phone2, #phone3{
   font-size: 14px;
-  font-weight: bold;
-  padding-left: 10px;
+  width: 60px;
+  margin-top: 29px;
+  padding-left: 0px;
+  text-align: center;
 }
 #phone2, #phone3 {
-  font-size: 14px;
-  width: 80px;
-  margin-top: 29px;
+  width: 100px;
 }
 #id{
   width: 250px;
@@ -113,6 +108,7 @@ h1{
   background-color: black;
   color: white;
   font-weight: bold;
+  font-size: 14px;
   cursor: pointer;
   transition: all 0.4s;
 }

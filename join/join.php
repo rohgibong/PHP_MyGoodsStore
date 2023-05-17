@@ -48,14 +48,7 @@
           <label id="label_birth"></label>
           <input type="radio" name="gender" id="genderMan" value="남" checked> <label for="genderMan">남자</label> &nbsp;&nbsp;
           <input type="radio" name="gender" id="genderWoman" value="여"> <label for="genderWoman">여자</label><br>
-          <select name="phone1" id="phone1">
-            <option value="010">010</option>
-            <option value="011">011</option>
-            <option value="016">016</option>
-            <option value="017">017</option>
-            <option value="018">018</option>
-            <option value="019">019</option>
-          </select> &nbsp;&nbsp;-&nbsp;&nbsp;
+          <input type="text" name="phone1" id="phone1" maxlength="3" placeholder="000"> &nbsp;&nbsp;-&nbsp;&nbsp;
           <input type="text" name="phone2" id="phone2" maxlength="4" placeholder="0000"> &nbsp;&nbsp;-&nbsp;&nbsp;
           <input type="text" name="phone3" id="phone3" maxlength="4" placeholder="0000"><br>
           <label id="label_phone"></label>
