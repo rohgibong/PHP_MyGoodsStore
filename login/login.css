@@ -14,8 +14,6 @@
   width: 180px;
   height: 100px;
   margin: auto;
-}
-#mainTitleDiv:hover{
   cursor: pointer;
 }
 #loginDiv{

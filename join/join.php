@@ -53,15 +53,15 @@
         <div id="contentDiv">
           <input type="text" name="name" id="name"><br>
           <label id="label_name"></label>
-          <input type="text" name="birthYear" id="birthYear" maxlength="4" placeholder="0000"> 년
-          <input type="text" name="birthMonth" id="birthMonth" maxlength="2" placeholder="00"> 월
-          <input type="text" name="birthDay" id="birthDay" maxlength="2" placeholder="00"> 일 <br>
+          <input type="text" name="birthYear" id="birthYear" maxlength="4" placeholder="0000" oninput="this.value = this.value.replace(/\D/g, '');"> 년
+          <input type="text" name="birthMonth" id="birthMonth" maxlength="2" placeholder="00" oninput="this.value = this.value.replace(/\D/g, '');"> 월
+          <input type="text" name="birthDay" id="birthDay" maxlength="2" placeholder="00" oninput="this.value = this.value.replace(/\D/g, '');"> 일 <br>
           <label id="label_birth"></label>
           <input type="radio" name="gender" id="genderMan" value="남" checked> <label for="genderMan">남자</label> &nbsp;&nbsp;
           <input type="radio" name="gender" id="genderWoman" value="여"> <label for="genderWoman">여자</label><br>
-          <input type="text" name="phone1" id="phone1" maxlength="3" placeholder="000"> &nbsp;&nbsp;-&nbsp;&nbsp;
-          <input type="text" name="phone2" id="phone2" maxlength="4" placeholder="0000"> &nbsp;&nbsp;-&nbsp;&nbsp;
-          <input type="text" name="phone3" id="phone3" maxlength="4" placeholder="0000"><br>
+          <input type="text" name="phone1" id="phone1" maxlength="3" placeholder="000" oninput="this.value = this.value.replace(/\D/g, '');"> &nbsp;&nbsp;-&nbsp;&nbsp;
+          <input type="text" name="phone2" id="phone2" maxlength="4" placeholder="0000" oninput="this.value = this.value.replace(/\D/g, '');"> &nbsp;&nbsp;-&nbsp;&nbsp;
+          <input type="text" name="phone3" id="phone3" maxlength="4" placeholder="0000" oninput="this.value = this.value.replace(/\D/g, '');"><br>
           <label id="label_phone"></label>
           <input type="text" name="id" id="id" minlength="4" maxlength="16" placeholder="아이디는 4~16글자로 입력해주세요.">
           <input type="button" onClick="idCheck();" value="아이디 중복체크" id="searchIdBtn"><br>

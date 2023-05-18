@@ -22,7 +22,7 @@
     <div id="topDiv">
       <div id="topDivMent">
         <?php if($memberNo == 1 ): ?>
-            <a href="./manage/addProduct.php" id="addProductBtn">물품등록</a>
+            <a href="./manage/productList.php" id="productListBtn">상품관리</a>
             <span id="adminMent">[관리자]</span><span id="myName"><?=$name ?>(<?=$id?>)님</span>
             <a href="./login/logoutProc.php" id="logoutBtn">LOGOUT</a>
           <?php elseif($memberNo > 1): ?>

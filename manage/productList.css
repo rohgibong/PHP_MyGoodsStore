@@ -1,0 +1,49 @@
+#mainDiv{
+  border: 0px solid red;
+  width: 1300px;
+  height: 1000px;
+  margin: auto;
+}
+#titleDiv{
+  border: 1px solid white;
+  height: 100px;
+}
+#mainTitleDiv{
+  border: 0px solid red;
+  position: absolute;
+  margin-left: 560px;
+  height: 100px;
+}
+#mainTitleDiv:hover{
+  cursor: pointer;
+}
+#contentDiv{
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 800px;
+  width: 1000px;
+  margin: auto;
+  margin-top: 20px;
+  padding-top: 50px;
+  text-align: center;
+}
+#titleMentDiv{
+  border-bottom: 2px solid lightgray;
+  width: 900px;
+  height: 30px;
+  margin: auto;
+  text-align: left;
+  padding-bottom: 10px;
+}
+#titleMent{
+  font-weight: bold;
+  font-size: 20px;
+  color: #2E2E2E;
+  margin-left: 10px;
+}
+#productAddBtn{
+  margin-left: 870px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}

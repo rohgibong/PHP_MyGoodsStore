@@ -23,14 +23,14 @@
   margin-right: 10px;
   font-size: 13px;
 }
-#addProductBtn{
+#productListBtn{
   float: left;
   margin-left: 50px;
 }
 #loginBtn{
   margin-right: 20px;
 }
-#addProductBtn, #loginBtn, #joinBtn, #logoutBtn, .categoryName{
+#productListBtn, #loginBtn, #joinBtn, #logoutBtn, .categoryName{
   text-decoration-line: none;
   font-weight: bold;
   color: black;
@@ -216,7 +216,7 @@
   width: 180px;
   height: 450px;
   float: left;
-  margin-left: 120px;
+  margin-left: 70px;
   margin-top: -500px;
   cursor: pointer;
 }
@@ -224,7 +224,7 @@
   width: 180px;
   height: 450px;
   float: right;
-  margin-right: 120px;
+  margin-right: 70px;
   margin-top: -500px;
   cursor: pointer;
 }

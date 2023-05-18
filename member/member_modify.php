@@ -91,7 +91,7 @@
         <tr>
           <td class="titleTd">비밀번호확인</td>
           <td class="contentTd">
-            <input type="password" name="pwdChk" id="pwdChk" minlength="6" maxlength="16">
+            <input type="password" name="pwdChk" id="pwdChk" minlength="6" maxlength="16" onkeydown="if(event.keyCode==13) modify()">
             <label id="label_pwdChk"></label>
           </td>
         </tr>
