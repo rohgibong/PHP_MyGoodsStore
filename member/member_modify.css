@@ -74,6 +74,9 @@ td{
   cursor: default;
   border: none;
 }
+#pwd, #pwdChk{
+  width: 300px;
+}
 #birth1, #birth2, #birth3{
   width: 50px;
   padding-left: 0px;
@@ -154,4 +157,7 @@ td{
   font-weight: bold;
   color: crimson;
   cursor: pointer;
+}
+label{
+  margin-left: 10px;
 }

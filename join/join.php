@@ -9,6 +9,17 @@
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
+  <?php
+    session_start();
+    $memberNo = isset($_SESSION["memberNo"]) ? $_SESSION["memberNo"] : 0;
+  ?>
+  <script>
+    const memberNo = <?php echo $memberNo ?>;
+    if(memberNo > 0){
+      alert('이미 로그인 된 상태입니다.');
+      location.href='../index.php';
+    }
+  </script>
   <div id="mainDiv">
 
     <div id="titleDiv">

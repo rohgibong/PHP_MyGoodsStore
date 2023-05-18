@@ -11,19 +11,17 @@
   <?php
     session_start();
     $memberNo = isset($_SESSION["memberNo"]) ? $_SESSION["memberNo"] : 0;
-    $myNo =isset($_GET["memberNo"]) ? $_GET["memberNo"] : 0;
   ?>
   <script>
     const memberNo = <?php echo $memberNo ?>;
-    const myNo = <?php echo $myNo ?>;
-    if(myNo <= 0 || (memberNo != myNo)){
+    if(memberNo <= 0){
       alert('잘못된 접근입니다.');
       location.href='../index.php';
     }
   </script>
   <?php
     $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
-    $sql = "select * from storemember where memberNo = '$myNo';";
+    $sql = "select * from storemember where memberNo = '$memberNo';";
     $result = mysqli_query($con, $sql);
     $row_cnt = mysqli_num_rows($result);
     while($row = mysqli_fetch_assoc($result)){
@@ -86,13 +84,15 @@
         <tr>
           <td class="titleTd">비밀번호</td>
           <td class="contentTd">
-            <input type="password" name="pwd" id="pwd">
+            <input type="password" name="pwd" id="pwd" minlength="6" maxlength="16" placeholder="비밀번호는 6~16글자로 입력해주세요.">
+            <label id="label_pwd"></label>
           </td>
         </tr>
         <tr>
           <td class="titleTd">비밀번호확인</td>
           <td class="contentTd">
-            <input type="password" name="pwdChk" id="pwdChk">
+            <input type="password" name="pwdChk" id="pwdChk" minlength="6" maxlength="16">
+            <label id="label_pwdChk"></label>
           </td>
         </tr>
         <tr>
@@ -104,9 +104,10 @@
         <tr>
           <td class="titleTd">생년월일</td>
           <td class="contentTd">
-            <input type="text" value="<?=$birth1 ?>" name="birth1" id="birth1"> 년
-            <input type="text" value="<?=$birth2 ?>" name="birth2" id="birth2"> 월
-            <input type="text" value="<?=$birth3 ?>" name="birth3" id="birth3"> 일
+            <input type="text" value="<?=$birth1 ?>" name="birth1" id="birth1" maxlength="4" placeholder="0000"> 년
+            <input type="text" value="<?=$birth2 ?>" name="birth2" id="birth2" maxlength="2" placeholder="00"> 월
+            <input type="text" value="<?=$birth3 ?>" name="birth3" id="birth3" maxlength="2" placeholder="00"> 일
+            <label id="label_birth"></label>
           </td>
         </tr>
         <tr>
@@ -125,9 +126,10 @@
         <tr>
           <td class="titleTd">휴대폰</td>
           <td class="contentTd">
-            <input type="text" value="<?=$phone1 ?>" name="phone1" id="phone1"> -
-            <input type="text" value="<?=$phone2 ?>" name="phone2" id="phone2"> -
-            <input type="text" value="<?=$phone3 ?>" name="phone3" id="phone3">
+            <input type="text" value="<?=$phone1 ?>" name="phone1" id="phone1" maxlength="3" placeholder="000"> -
+            <input type="text" value="<?=$phone2 ?>" name="phone2" id="phone2" maxlength="4" placeholder="0000"> -
+            <input type="text" value="<?=$phone3 ?>" name="phone3" id="phone3" maxlength="4" placeholder="0000">
+            <label id="label_phone"></label>
           </td>
         </tr>
         <tr>
@@ -138,13 +140,15 @@
             <input type="text" id="sample6_address" placeholder="주소" name="address2" value="<?=$address2 ?>" readonly><br>
             <input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address3" value="<?=$address3 ?>">
             <input type="text" id="sample6_extraAddress" placeholder="참고항목" name="address4" value="<?=$address4 ?>" readonly>
+            <label id="label_address"></label>
           </td>
         </tr>
         <tr>
           <td class="titleTd" id="lastTd">이메일</td>
           <td class="contentTd" id="lastTd">
             <input type="text" value="<?=$email1 ?>" name="email1" id="email1"> @
-            <input type="text" value="<?=$email2 ?>" name="email2" id="email2">
+            <input type="text" value="<?=$email2 ?>" name="email2" id="email2" placeholder="xxx.com">
+            <label id="label_email"></label>
           </td>
         </tr>
       </table>

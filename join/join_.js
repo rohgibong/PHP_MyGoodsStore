@@ -20,6 +20,8 @@ let label_name = document.getElementById("label_name");
 let label_birth = document.getElementById("label_birth");
 let label_phone = document.getElementById("label_phone");
 let label_id = document.getElementById("label_id");
+let label_pwd = document.getElementById("label_pwd");
+let label_pwdChk = document.getElementById("label_pwdChk");
 let label_address = document.getElementById("label_address");
 let label_email = document.getElementById("label_email");
 
@@ -94,7 +96,7 @@ function idCheck(){
 }
 
 function join(){
-  let err1, err2, err3, err4, err5, err6, err7, err8, errCode = 0;
+  let err1, err2, err3, err4, err5, err6, err7, err8, err9, err10, errCode = 0;
   if(name.value == ""){
     label_name.innerHTML = "이름을 입력해주세요.";
     label_name.style.color = "red";
@@ -180,43 +182,48 @@ function join(){
     err3 = 0;
   }
 
-  if((phone1.value != "" && phone2.value != "" && phone3.value != "") && (phone1.value.length != 3 || phone2.value.length != 4 || phone3.value.length != 4)){
-    label_phone.innerHTML = "휴대폰 번호를 정확히 입력해주세요.";
-    label_phone.style.color = "red";
-    label_phone.style.fontSize = "8px";
-    if(phone1.value.length != 3){
-      phone1.style.borderBottom = "1px solid red";
+  if(err3 == 0){
+    if(phone1.value.length != 3 || phone2.value.length != 4 || phone3.value.length != 4){
+      label_phone.innerHTML = "휴대폰 번호를 정확히 입력해주세요.";
+      label_phone.style.color = "red";
+      label_phone.style.fontSize = "8px";
+      if(phone1.value.length != 3){
+        phone1.style.borderBottom = "1px solid red";
+      } else {
+        phone1.style.borderBottom = "1px solid lightgray";
+      }
+      if(phone2.value.length != 4){
+        phone2.style.borderBottom = "1px solid red";
+      } else {
+        phone2.style.borderBottom = "1px solid lightgray";
+      }
+      if(phone3.value.length != 4){
+        phone3.style.borderBottom = "1px solid red";
+      } else {
+        phone3.style.borderBottom = "1px solid lightgray";
+      }
+      err9 = 1;
     } else {
+      label_phone.innerHTML = "";
       phone1.style.borderBottom = "1px solid lightgray";
-    }
-    if(phone2.value.length != 4){
-      phone2.style.borderBottom = "1px solid red";
-    } else {
       phone2.style.borderBottom = "1px solid lightgray";
-    }
-    if(phone3.value.length != 4){
-      phone3.style.borderBottom = "1px solid red";
-    } else {
       phone3.style.borderBottom = "1px solid lightgray";
+      err9 = 0;
     }
-  } else {
-    label_phone.innerHTML = "";
-    phone1.style.borderBottom = "1px solid lightgray";
-    phone2.style.borderBottom = "1px solid lightgray";
-    phone3.style.borderBottom = "1px solid lightgray";
-    err3 = 0;
-  }
-
-  if((phone1.value != "") && (phone1.value.length == 3) && (phone1.value != "010" || phone1.value != "011" || phone1.value != "016" || phone1.value != "017" || phone1.value != "018" || phone1.value != "019")){
-    label_phone.innerHTML = "휴대폰 번호를 정확히 입력해주세요.";
-    label_phone.style.color = "red";
-    label_phone.style.fontSize = "8px";
-    phone1.style.borderBottom = "1px solid red";
-    err3 = 1;
-  } else {
-    label_phone.innerHTML = "";
-    phone1.style.borderBottom = "1px solid lightgray";
-    err3 = 0;
+    
+    if(err9 == 0){
+      if(phone1.value == "010" || phone1.value == "011" || phone1.value == "016" || phone1.value == "017" || phone1.value == "018" || phone1.value == "019"){
+        label_phone.innerHTML = "";
+        phone1.style.borderBottom = "1px solid lightgray";
+        err10 = 0;
+      } else {
+        label_phone.innerHTML = "휴대폰 번호를 정확히 입력해주세요.";
+        label_phone.style.color = "red";
+        label_phone.style.fontSize = "8px";
+        phone1.style.borderBottom = "1px solid red";
+        err10 = 1;
+      }
+    }
   }
 
   if(id.value == ""){

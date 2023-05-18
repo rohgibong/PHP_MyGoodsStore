@@ -13,15 +13,24 @@
   margin-right: 40px;
   font-size: 14px;
 }
+#adminMent{
+  font-weight: bold;
+  color: red;
+  margin-right: 5px;
+}
 #myName{
   font-weight: bold;
   margin-right: 10px;
   font-size: 13px;
 }
+#addProductBtn{
+  float: left;
+  margin-left: 50px;
+}
 #loginBtn{
   margin-right: 20px;
 }
-#loginBtn, #joinBtn, #logoutBtn, .categoryName{
+#addProductBtn, #loginBtn, #joinBtn, #logoutBtn, .categoryName{
   text-decoration-line: none;
   font-weight: bold;
   color: black;

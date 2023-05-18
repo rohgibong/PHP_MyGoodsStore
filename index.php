@@ -21,9 +21,13 @@
   <div id="mainDiv">
     <div id="topDiv">
       <div id="topDivMent">
-        <?php if($memberNo > 0): ?>
-          <span id="myName"><?=$name ?>(<?=$id?>)님</span>
-          <a href="./login/logoutProc.php" id="logoutBtn" class="btnClass">LOGOUT</a>
+        <?php if($memberNo == 1 ): ?>
+            <a href="./manage/addProduct.php" id="addProductBtn">물품등록</a>
+            <span id="adminMent">[관리자]</span><span id="myName"><?=$name ?>(<?=$id?>)님</span>
+            <a href="./login/logoutProc.php" id="logoutBtn">LOGOUT</a>
+          <?php elseif($memberNo > 1): ?>
+            <span id="myName"><?=$name ?>(<?=$id?>)님</span>
+            <a href="./login/logoutProc.php" id="logoutBtn" class="btnClass">LOGOUT</a>
           <?php else: ?>
             <a href="./login/login.php" id="loginBtn" class="btnClass">LOGIN</a> 
             <a href="./join/join.php" id="joinBtn" class="btnClass">JOIN</a>
@@ -52,12 +56,12 @@
 
     <div id="categoryDiv">
       <div id="categoryNameDiv">
-        <a href="" id="categoryMusic" class="categoryName">MUSIC</a>
-        <a href="" id="categoryPhoto" class="categoryName">PHOTO</a>
-        <a href="" id="categoryFashion" class="categoryName">FASHION</a>
-        <a href="" id="categoryConcert" class="categoryName">CONCERT</a>
-        <a href="" id="categoryFunding" class="categoryName">FUNDING</a>
-        <a href="" id="categoryEvent" class="categoryName">EVENT</a>
+        <a href="./product/list.php?cateCode=1" id="categoryMusic" class="categoryName">MUSIC</a>
+        <a href="./product/list.php?cateCode=2" id="categoryPhoto" class="categoryName">PHOTO</a>
+        <a href="./product/list.php?cateCode=3" id="categoryFashion" class="categoryName">FASHION</a>
+        <a href="./product/list.php?cateCode=4" id="categoryConcert" class="categoryName">CONCERT</a>
+        <a href="./funding/list.php" id="categoryFunding" class="categoryName">FUNDING</a>
+        <a href="./eventPage/list.php" id="categoryEvent" class="categoryName">EVENT</a>
       </div>
     </div>
 

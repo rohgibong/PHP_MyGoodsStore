@@ -28,7 +28,7 @@
       }
       echo "
         <script>
-          location.href='member_modify.php?memberNo=$memberNo';
+          location.href='member_modify.php';
         </script>
       ";
     }
