@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyGoodsStore</title>
-</head>
-<body>
   <?php
     $memberNo = $_POST["memberNo"];
     $birth1 = $_POST["birth1"];
@@ -31,20 +22,20 @@
     mysqli_close($con);
 
 
-    echo "멤버번호 : ".$memberNo."<br>";
-    echo "년 : ".$birth1."<br>";
-    echo "월 : ".$birth2."<br>";
-    echo "일 : ".$birth3."<br>";
-    echo "폰1 : ".$phone1."<br>";
-    echo "폰2 : ".$phone2."<br>";
-    echo "폰3 : ".$phone3."<br>";
-    echo "비번 : ".$pwd."<br>";
-    echo "주소1 : ".$address1."<br>";
-    echo "주소2 : ".$address2."<br>";
-    echo "주소3: ".$address3."<br>";
-    echo "주소4 : ".$address4."<br>";
-    echo "이멜1 : ".$email1."<br>";
-    echo "이멜2 : ".$email2."<br>";
+    // echo "멤버번호 : ".$memberNo."<br>";
+    // echo "년 : ".$birth1."<br>";
+    // echo "월 : ".$birth2."<br>";
+    // echo "일 : ".$birth3."<br>";
+    // echo "폰1 : ".$phone1."<br>";
+    // echo "폰2 : ".$phone2."<br>";
+    // echo "폰3 : ".$phone3."<br>";
+    // echo "비번 : ".$pwd."<br>";
+    // echo "주소1 : ".$address1."<br>";
+    // echo "주소2 : ".$address2."<br>";
+    // echo "주소3: ".$address3."<br>";
+    // echo "주소4 : ".$address4."<br>";
+    // echo "이멜1 : ".$email1."<br>";
+    // echo "이멜2 : ".$email2."<br>";
 
 
 
@@ -53,5 +44,3 @@
     alert("수정이 완료되었습니다.");
     location.href="member_modify.php?memberNo=<?=$memberNo ?>";
   </script>
-</body>
-</html>

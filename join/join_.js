@@ -349,7 +349,9 @@ function join(){
   if(errCode != 0){
     return;
   }
-   document.joinForm.submit();
+  if(confirm("가입 하시겠습니까?")){
+    document.joinForm.submit();
+  }
 }
 
 function goBack(){

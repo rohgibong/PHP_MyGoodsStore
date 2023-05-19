@@ -19,6 +19,38 @@
       location.href='../index.php';
     }
   </script>
+  <?php
+    $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
+    $sql = "select * from storeproduct order by soldout desc, regidate desc";
+    $result = mysqli_query($con, $sql);
+    $row_cnt = mysqli_num_rows($result);
+    $count = 0;
+    $num = 0;
+
+    if($row_cnt != 0){
+      while($row = mysqli_fetch_assoc($result)){
+        $num++;//아랫부분 수정해야됨 불러오는 값 너무 많음. 필요한거만
+        $product[$num]['productCode'] = $row['productCode'];
+        $product[$num]['productName'] = $row['productName'];
+        $product[$num]['detailName'] = $row['detailName'];
+        $product[$num]['productPrice'] = $row['productPrice'];
+        $product[$num]['artistName'] = $row['artistName'];
+        $product[$num]['stock'] = $row['stock'];
+        $product[$num]['cateCode'] = $row['cateCode'];
+        $product[$num]['delPeriod'] = $row['delPeriod'];
+        $product[$num]['delPrice'] = $row['delPrice'];
+        $product[$num]['titleImgType'] = $row['titleImgType'];
+        $product[$num]['mainImgType'] = $row['mainImgType'];
+        $product[$num]['contentImgType'] = $row['contentImgType'];
+        $product[$num]['titleImg'] = $row['titleImg'];
+        $product[$num]['mainImg'] = $row['mainImg'];
+        $product[$num]['contentImg'] = $row['contentImg'];
+        $product[$num]['soldOut'] = $row['soldOut'];
+        $product[$num]['regiDate'] = $row['regiDate'];
+      }
+    }
+    mysqli_close($con);
+  ?>
   <div id="mainDiv">
   <div id="titleDiv">
     <div id="mainTitleDiv">
@@ -31,12 +63,77 @@
       <div id="titleMentDiv">
         <span id="titleMent">상품 리스트</span>
       </div>
+
       
       
+      <table id="productTable" border="0">
+        <tr>
+          <th>No</th>
+          <th>사진</th>
+          <th>상품명</th>
+          <th>아티스트명</th>
+          <th>카테고리</th>
+          <th>수량</th>
+          <th>품절여부</th>
+          <th>등록일</th>
+        </tr>
+        <?php
+          while($count < $num): 
+          $count++;
+        ?>
+        <tr id="productTr" onClick="move(<?=$product[$count]['productCode']?>);">
+          <td id="firstTd">
+            <?=$count ?>
+          </td>
+          <td id="secondTd">
+            <img src="data:image/<?=$titleImgType ?>;base64,<?php echo base64_encode($product[$count]['titleImg']); ?>" alt="Main Image" width="50px;">
+          </td>
+          <td id="thirdTd">
+            <?=$product[$count]['productName'] ?>
+          </td>
+          <td id="fourthTd">
+            <?=$product[$count]['artistName'] ?>
+          </td>
+          <td id="fifthTd">
+            <?php
+              if($product[$count]['cateCode'] == 1){
+                echo "MUSIC";
+              } else if($product[$count]['cateCode'] == 2){
+                echo "PHOTO";
+              } else if($product[$count]['cateCode'] == 3){
+                echo "FASHION";
+              } else if($product[$count]['cateCode'] == 4){
+                echo "CONCERT";
+              }
+            ?>
+          </td>
+          <td id="sixthTd">
+            <?=$product[$count]['stock'] ?>개
+          </td>
+          <td id="seventhTd">
+            <?=$product[$count]['soldOut'] ?>
+          </td>
+          <td id="eightthTd">
+            <?=$product[$count]['regiDate'] ?>
+          </td>
+        </tr>
+        <?php endwhile; ?>
+      </table>
+      
+      <!-- 
+      <img src="data:image/jpg;base64,<?php echo base64_encode($mainImg); ?>" alt="Main Image" width="50px;">
+      <img src="data:image/jpg;base64,<?php echo base64_encode($contentImg); ?>" alt="Main Image" width="50px;"> -->
+
         
-        
-      <span id="productAddBtn" onClick="productAdd();">상품추가</span>
+       
+      <div id="btnDiv">
+        <span id="productAddBtn" onClick="productAdd();">상품추가</span>
+      </div>
     </div>
+  </form>
+
+  <form name="detailForm" action="product_detail.php" method="post">
+    <input type="hidden" name="productCode" id="productCode">
   </form>
 
 

@@ -92,7 +92,7 @@
             배송비
           </td>
           <td class="contentTd">
-            <input type="text" name="delPrice" id="delPrice"  placeholder="0" oninput="this.value = this.value.replace(/\D/g, '');"> 원
+            <input type="text" name="delPrice" id="delPrice" maxlength="5"  placeholder="0" oninput="this.value = this.value.replace(/\D/g, '');"> 원
           </td>
         </tr>
         <tr>
@@ -112,7 +112,7 @@
           <td class="contentTd" id="lastTd">
             <select name="soldOut" id="soldOut">
               <option value="O">O</option>
-              <option value="X">X</option>
+              <option value="X" selected>X</option>
             </select>
           </td>
         </tr>

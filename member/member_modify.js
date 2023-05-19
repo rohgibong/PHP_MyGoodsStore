@@ -266,10 +266,7 @@ function modify(){
 }
 
 function deleteMember(){
-  if(confirm('ㄹㅇ?')){
-    alert('회원탈퇴');
-  } else {
-    alert('회원탈퇴안함');
+  if(confirm('정말로 탈퇴를 하시겠습니까?\n탈퇴 후에는 모든 정보와 접근 권한이 삭제됩니다.')){
+    document.deleteForm.submit();
   }
-  //document.modifyForm.submit();
 }

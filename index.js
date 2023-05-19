@@ -61,7 +61,12 @@ function goRight(){
 }
 
 function search(){
-  alert("검색");
+  let searchValue = document.getElementById("searchInput").value;
+  if(searchValue == ""){
+    alert("검색어를 입력해주세요.");
+  } else {
+    alert(searchValue);
+  }
 }
 
 function moveUserPage(){

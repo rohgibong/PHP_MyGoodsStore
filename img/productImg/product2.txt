@@ -1,0 +1,12 @@
+code : 
+name : YENA SMiLEY BEHIND BOOK
+detailName : YENA SMiLEY BEHIND BOOK
+price : 32000
+artistName : YENA
+imgInfo : 
+stock : 100
+soldOut : O
+cateCode : 2
+delPeriod 20
+delPrice : 2500
+regiDate : 

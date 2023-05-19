@@ -42,22 +42,7 @@
       $email1 = $row['email1'];
       $email2 = $row['email2'];
     }
-    // echo "이름 : ".$name."<br>";
-    // echo "년 : ".$birth1."<br>";
-    // echo "월 : ".$birth2."<br>";
-    // echo "일 : ".$birth3."<br>";
-    //echo "성별 : ".$gender."<br>";
-    // echo "폰1 : ".$phone1."<br>";
-    // echo "폰2 : ".$phone2."<br>";
-    // echo "폰3 : ".$phone3."<br>";
-    // echo "아이디 : ".$id."<br>";
-    // echo "비번 : ".$pwd."<br>";
-    // echo "주소1 : ".$address1."<br>";
-    // echo "주소2 : ".$address2."<br>";
-    // echo "주소3: ".$address3."<br>";
-    // echo "주소4 : ".$address4."<br>";
-    // echo "이멜1 : ".$email1."<br>";
-    // echo "이멜2 : ".$email2."<br>";
+    mysqli_close($con);
   ?>
 
 <div id="mainDiv">
@@ -162,6 +147,10 @@
         </div>
         <span id="deleteMemberBtn" onClick="deleteMember();">회원탈퇴</span>
     </div>
+  </form>
+
+  <form name="deleteForm" action="member_deleteProc.php" method="post">
+    <input type="hidden" value="<?=$memberNo ?>" name="memberNo">
   </form>
 
 
