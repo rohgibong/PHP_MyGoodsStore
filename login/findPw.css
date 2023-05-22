@@ -70,6 +70,7 @@
   width: 340px;
   height: 100px;
   float: right;
+  text-align: left;
 }
 #content1{
   border: 0px solid red;
@@ -87,7 +88,7 @@
   margin-top: 16px;
 }
 #id, #name, #phone1, #phone2, #phone3{
-  width: 250px;
+  width: 295px;
   height: 30px;
   font-size: 15px;
   font-weight: bold;

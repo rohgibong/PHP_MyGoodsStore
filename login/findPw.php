@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <form name="findForm" action="findProc.php" method="post">
+  <form name="findForm" action="findPwProc.php" method="post">
     <div id="findDiv">
 
       <h1>Find ID/PW</h1>
@@ -55,21 +55,24 @@
         <div id="contentInDiv">
 
           <div id="content1">
-            <input type="text" name="id" id="id" minlength="4" maxlength="16">
+            <input type="text" name="id" id="id" minlength="4" maxlength="16"><br>
+            <label id="label_id"></label>
           </div>
           <div id="content2">
-            <input type="text" name="name" id="name" maxlength="5">
+            <input type="text" name="name" id="name" maxlength="5"><br>
+            <label id="label_name"></label>
           </div>
           <div id="content3">
             <input type="text" name="phone1" id="phone1" maxlength="3" oninput="this.value = this.value.replace(/\D/g, '');"> &nbsp;&nbsp;-&nbsp;&nbsp;
               <input type="text" name="phone2" id="phone2" maxlength="4" oninput="this.value = this.value.replace(/\D/g, '');"> &nbsp;&nbsp;-&nbsp;&nbsp;
-              <input type="text" name="phone3" id="phone3" maxlength="4" oninput="this.value = this.value.replace(/\D/g, '');">
+              <input type="text" name="phone3" id="phone3" maxlength="4" oninput="this.value = this.value.replace(/\D/g, '');"><br>
+              <label id="label_phone"></label>
           </div>
         </div>
       </div>
 
       <div id="btnDiv">
-        <button type="button" onClick="findId();" id="findbtn">확인</button>
+        <button type="button" onClick="findPw();" id="findbtn">확인</button>
       </div>
 
       
