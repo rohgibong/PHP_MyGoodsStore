@@ -1,16 +1,13 @@
 #mainDiv{
-  border: 0px solid red;
   width: 1000px;
   height: 700px;
   margin: auto;
 }
 #titleDiv{
-  border: 0px solid black;
   height: 130px;
   margin-top: 20px;
 }
 #mainTitleDiv{
-  border: 0px solid blue;
   width: 180px;
   height: 100px;
   margin: auto;
@@ -68,8 +65,20 @@
 #label_pwd{
   margin-top: 90px;
 }
+#findDiv{
+  position: absolute;
+  width: 470px;
+  height: 20px;
+  margin-top: 90px;
+  text-align: right;
+}
+#fintIdPw{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+}
 #btnDiv{
-  border: 0px solid red;
   margin-top: 160px;
   height: 150px;
 }

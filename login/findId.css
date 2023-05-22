@@ -1,0 +1,122 @@
+#mainDiv{
+  width: 1000px;
+  height: 700px;
+  margin: auto;
+}
+#titleDiv{
+  height: 130px;
+  margin-top: 20px;
+}
+#mainTitleDiv{
+  width: 180px;
+  height: 100px;
+  margin: auto;
+  cursor: pointer;
+}
+#findDiv{
+  border: 2px solid black;
+  width: 700px;
+  height: 450px;
+  padding-top: 40px;
+  margin: auto;
+  text-align: center;
+  border-radius: 10px;
+}
+#selectDiv{
+  width: 500px;
+  height: 50px;
+  margin: auto;
+  margin-top: 30px;
+}
+#selectId{
+  border-bottom: 2px solid gray;
+  width: 250px;
+  height: 100%;
+  line-height: 50px;
+  float: left;
+  cursor: pointer;
+}
+#selectPw{
+  border-bottom: 1px solid lightgray;
+  width: 250px;
+  height: 100%;
+  line-height: 50px;
+  float: right;
+  cursor: pointer;
+}
+#findIdMent{
+  font-weight: bold;
+}
+#contentDiv{
+  border: 0px solid red;
+  width: 500px;
+  height: 130px;
+  margin: auto;
+  margin-top: 50px;
+}
+#contentNameDiv{
+  border: 0px solid red;
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-left: 50px;
+}
+.subTitleId{
+  font-weight: bold;
+  font-size: 17px;
+}
+#contentInDiv{
+  border: 0px solid blue;
+  width: 340px;
+  height: 100px;
+  float: right;
+}
+#content1{
+  border: 0px solid red;
+  height: 50px;
+  margin-top: -7px;
+}
+#content2{
+  border: 0px solid red;
+  height: 50px;
+  margin-top: 15px;
+}
+#name, #phone1, #phone2, #phone3{
+  width: 250px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid lightgray;
+}
+#phone1, #phone2, #phone3{
+  font-size: 14px;
+  width: 60px;
+  padding-left: 0px;
+  text-align: center;
+}
+#phone2, #phone3{
+  width: 80px;
+}
+#btnDiv{
+  margin-top: 20px;
+}
+#findbtn{
+  height: 50px;
+  width: 350px;
+  font-size: 17px;
+  font-weight: bold;
+  color: white; 
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.4s;
+}
+#findbtn:hover{
+  border: none;
+  background-color: rgb(99, 99, 99);
+  color: whitesmoke;
+}

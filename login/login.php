@@ -44,6 +44,12 @@
         <label id="label_id"></label>
         <label id="label_pwd"></label>
 
+        <div id="findDiv">
+          <a href="findId.php" id="fintIdPw">
+            아이디/비밀번호 찾기
+          </a>
+        </div>
+
         <div id="btnDiv">
           <button type="button" onClick="login();" id="loginBtn" >LOGIN</button>
           <button type="button" onClick="location.href='../join/join.php'" id="joinBtn">JOIN US</button>
