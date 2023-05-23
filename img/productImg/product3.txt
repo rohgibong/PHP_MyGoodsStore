@@ -1,0 +1,12 @@
+code : 
+name : 아이브 정규 1집 [Ive IVE]
+detailName : 아이브 정규 1집 [Ive IVE]
+price : 16000
+artistName : 아이브
+imgInfo : 
+stock : 100
+soldOut : X
+cateCode : 1
+delPeriod 5
+delPrice : 4000
+regiDate : 

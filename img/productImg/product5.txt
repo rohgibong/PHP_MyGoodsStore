@@ -1,0 +1,12 @@
+code : 
+name : STAYC 싱글 앨범 [Teddy Bear]
+detailName : STAYC 싱글 앨범 [Teddy Bear]
+price : 12500
+artistName : 스테이씨
+imgInfo : 
+stock : 100
+soldOut : X
+cateCode : 1
+delPeriod 30
+delPrice : 4000
+regiDate : 

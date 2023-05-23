@@ -1,6 +1,6 @@
 #mainDiv{
   width: 1000px;
-  height: 700px;
+  height: 750px;
   margin: auto;
 }
 #titleDiv{
@@ -16,18 +16,57 @@
 #changeDiv{
   border: 2px solid black;
   width: 700px;
-  height: 450px;
+  height: 440px;
   padding-top: 40px;
   margin: auto;
   text-align: center;
   border-radius: 10px;
 }
 #contentDiv{
-  border: 1px solid red;
+  border: 0px solid lightgray;
   width: 500px;
-  height: 200px;
+  height: 210px;
   margin: auto;
-  margin-top: 50px;
+}
+#contentNameDiv{
+  border: 0px solid red;
+  width: 120px;
+  height: 100px;
+  float: left;
+  margin-left: 30px;
+  margin-top: 70px;
+}
+.subTitleId{
+  font-weight: bold;
+  font-size: 17px;
+}
+#contentInDiv{
+  border: 0px solid blue;
+  width: 340px;
+  height: 100px;
+  float: right;
+  text-align: left;
+  margin-top: 70px;
+}
+#content1{
+  border: 0px solid red;
+  height: 50px;
+  margin-top: -7px;
+}
+#content2{
+  border: 0px solid red;
+  height: 50px;
+  margin-top: 15px;
+}
+#pwd, #pwdChk{
+  width: 295px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid lightgray;
 }
 #btnDiv{
   margin-top: 20px;

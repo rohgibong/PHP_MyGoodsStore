@@ -65,7 +65,7 @@
           <div id="content3">
             <input type="text" name="phone1" id="phone1" maxlength="3" oninput="this.value = this.value.replace(/\D/g, '');"> &nbsp;&nbsp;-&nbsp;&nbsp;
               <input type="text" name="phone2" id="phone2" maxlength="4" oninput="this.value = this.value.replace(/\D/g, '');"> &nbsp;&nbsp;-&nbsp;&nbsp;
-              <input type="text" name="phone3" id="phone3" maxlength="4" oninput="this.value = this.value.replace(/\D/g, '');"><br>
+              <input type="text" name="phone3" id="phone3" maxlength="4" oninput="this.value = this.value.replace(/\D/g, '');" onkeydown="if(event.keyCode==13) findPw()"><br>
               <label id="label_phone"></label>
           </div>
         </div>

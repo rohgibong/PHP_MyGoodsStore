@@ -1,0 +1,12 @@
+code : 
+name : BLACKPINK JISOO FIRST SINGLE ALBUM
+detailName : BLACKPINK JISOO FIRST SINGLE ALBUM
+price : 16300
+artistName : 블랙핑크
+imgInfo : 
+stock : 100
+soldOut : X
+cateCode : 1
+delPeriod 14
+delPrice : 4000
+regiDate : 

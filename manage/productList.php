@@ -29,22 +29,14 @@
 
     if($row_cnt != 0){
       while($row = mysqli_fetch_assoc($result)){
-        $num++;//아랫부분 수정해야됨 불러오는 값 너무 많음. 필요한거만
+        $num++;
         $product[$num]['productCode'] = $row['productCode'];
         $product[$num]['productName'] = $row['productName'];
-        $product[$num]['detailName'] = $row['detailName'];
-        $product[$num]['productPrice'] = $row['productPrice'];
         $product[$num]['artistName'] = $row['artistName'];
         $product[$num]['stock'] = $row['stock'];
         $product[$num]['cateCode'] = $row['cateCode'];
-        $product[$num]['delPeriod'] = $row['delPeriod'];
-        $product[$num]['delPrice'] = $row['delPrice'];
         $product[$num]['titleImgType'] = $row['titleImgType'];
-        $product[$num]['mainImgType'] = $row['mainImgType'];
-        $product[$num]['contentImgType'] = $row['contentImgType'];
         $product[$num]['titleImg'] = $row['titleImg'];
-        $product[$num]['mainImg'] = $row['mainImg'];
-        $product[$num]['contentImg'] = $row['contentImg'];
         $product[$num]['soldOut'] = $row['soldOut'];
         $product[$num]['regiDate'] = $row['regiDate'];
       }
@@ -66,7 +58,7 @@
 
       
       
-      <table id="productTable" border="0">
+      <table id="productTable">
         <tr>
           <th>No</th>
           <th>사진</th>
@@ -86,7 +78,7 @@
             <?=$count ?>
           </td>
           <td id="secondTd">
-            <img src="data:image/<?=$titleImgType ?>;base64,<?php echo base64_encode($product[$count]['titleImg']); ?>" alt="Main Image" width="50px;">
+            <img src="data:image/<?=$product[$count]['titleImgType'] ?>;base64,<?php echo base64_encode($product[$count]['titleImg']); ?>" alt="Main Image" width="50px;">
           </td>
           <td id="thirdTd">
             <?=$product[$count]['productName'] ?>

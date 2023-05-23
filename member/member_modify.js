@@ -167,7 +167,7 @@ function modify(){
     label_pwd.style.fontSize = "8px";
     pwd.style.borderBottom = "1px solid red";
     err3 = 1;
-  } else if(pwd.value.length < 4){
+  } else if(pwd.value.length < 6){
     label_pwd.innerHTML = "비밀번호가 너무 짧습니다.";
     label_pwd.style.color = "red";
     label_pwd.style.fontSize = "8px";
