@@ -5,13 +5,13 @@
   padding-bottom: 50px;
 }
 #titleDiv{
-  border: 1px solid white;
+  border: 0px solid black;
   height: 100px;
 }
 #mainTitleDiv{
   border: 0px solid red;
   position: absolute;
-  margin-left: 560px;
+  margin-left: 610px;
   height: 100px;
 }
 #mainTitleDiv:hover{
