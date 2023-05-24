@@ -93,3 +93,115 @@
   margin-top: 3px;
   cursor: pointer;
 }
+#contentDiv{
+  border: 0px solid red;
+  width: 1000px;
+  height: 600px;
+  margin: auto;
+  padding-top: 50px;
+}
+#imgDiv{
+  border: 0px solid blue;
+  width: 500px;
+  height: 500px;
+  float: left;
+}
+#orderDiv{
+  border: 0px solid blue;
+  width: 495px;
+  height: 500px;
+  float: right;
+}
+#orderContentDiv{
+  border: 0px solid black;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  margin-top: 50px;
+}
+#artistNameId{
+  display: block;
+  margin-left: 30px;
+  margin-top: 30px;
+  font-size: 14px;
+}
+#productNameDiv{
+  height: 80px;
+}
+#detailNameId{
+  display: block;
+  margin-left: 30px;
+  font-weight: bold;
+  font-size: 25px;
+}
+#productPriceId{
+  display: block;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 22px;
+}
+#delDateId{
+  display: block;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  color: red;
+  font-weight: bold;
+  font-size: 13px;
+}
+#amountDiv{
+  border: 1px solid gray;
+  height: 100px;
+  width: 350px;
+  margin: auto;
+}
+#productNameId{
+  display: block;
+  margin-left: 10px;
+  margin-top: 20px;
+  color: gray;
+  font-weight: bold;
+}
+#momdifyAmount{
+  width: 80px;
+  height: 30px;
+  margin-left: 10px;
+  margin-top: 15px;
+  float: left;
+}
+.amountBtn{
+  border-radius: 10px;
+  border: 1px solid gray;
+  background-color: rgb(243, 243, 243);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+#amountInput{
+  width: 20px;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+#totalPriceDiv{
+  border: 0px solid red;
+  width: 120px;
+  height: 30px;
+  margin-top: 18px;
+  color: dimgray;
+  font-weight: bold;
+  font-size: 15px;
+  float: right;
+  text-align: right;
+  padding-right: 20px;
+}
+#totalPrice{
+  width: 70px;
+  color: dimgray;
+  border: none;
+  cursor: text;
+  outline: none;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: right;
+}

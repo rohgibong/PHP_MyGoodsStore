@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyGoodsStore</title>
   <link rel="stylesheet" href="productDetail.css">
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
   <?php
@@ -16,12 +17,43 @@
     $productCode = isset($_GET["productCode"]) ? $_GET["productCode"] : 0;
   ?>
   <script>
-    const productCode = <?php echo $productCode ?>;
+    const productCode = <?php echo $productCode ?>; 
     if(productCode <= 0){
       alert('잘못된 접근입니다.');
       location.href='../index.php';
     }
     const memberNo = <?php echo $memberNo ?>;
+  </script>
+  <?php
+    $currentDate = date('Y-m-d');
+    $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
+    $sql = "select * from storeproduct where productCode = $productCode";
+    $result = mysqli_query($con, $sql);
+    $row_cnt = mysqli_num_rows($result);
+
+    if($row_cnt != 0){
+      while($row = mysqli_fetch_assoc($result)){
+        $productName = $row['productName'];
+        $detailName = $row['detailName'];
+        $productPrice = $row['productPrice'];
+        $artistName = $row['artistName'];
+        $stock = $row['stock'];
+        $delPeriod = $row['delPeriod'];
+        $delPrice = $row['delPrice'];
+        $mainImgType = $row['mainImgType'];
+        $contentImgType = $row['contentImgType'];
+        $mainImg = $row['mainImg'];
+        $contentImg = $row['contentImg'];
+        $soldOut = $row['soldOut'];
+      }
+    }
+    $deliveryDate = date('Y-m-d', strtotime("+$delPeriod days", strtotime($currentDate)));
+    $delDate = explode("-", $deliveryDate);
+
+    mysqli_close($con);
+  ?>
+  <script>
+  let productPrice = <?php echo $productPrice ?>;
   </script>
   <div id="mainDiv">
     <div id="topDiv">
@@ -58,6 +90,32 @@
       </div>
     </div>
     
+    <div id="contentDiv">
+        <div id="imgDiv">
+          <img src="data:image/<?=$mainImgType ?>;base64,<?php echo base64_encode($mainImg); ?>" alt="Main Image" width="500px;">
+        </div>
+        <div id="orderDiv">
+            <div id="orderContentDiv">
+              <span id="artistNameId"><?=$artistName ?></span>
+              <div id="productNameDiv">
+                <span id="detailNameId"><?=$detailName ?></span>
+              </div>
+              <span id="productPriceId">\ <?php echo number_format($productPrice); ?>원</span>
+              <span id="delDateId"><?=$delDate[1] ?>월 <?=$delDate[2] ?>일 배송예정</span>
+              <div id="amountDiv">
+                <span id="productNameId"><?=$productName ?></span>
+                <div id="momdifyAmount">
+                  <button id="minusBtn" class="amountBtn">-</button>
+                  <input type="text" value="1" id="amountInput" oninput="this.value = this.value.replace(/\D/g, '');">
+                  <button id="plusBtn" class="amountBtn">+</button>
+                </div>
+                <div id="totalPriceDiv">
+                \<input type="text" value="<?php echo number_format($productPrice); ?>" id="totalPrice" readonly>원
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
     
 
   </div>
