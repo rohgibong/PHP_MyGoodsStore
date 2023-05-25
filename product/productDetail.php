@@ -49,6 +49,7 @@
     }
     $deliveryDate = date('Y-m-d', strtotime("+$delPeriod days", strtotime($currentDate)));
     $delDate = explode("-", $deliveryDate);
+    $point = $productPrice / 100;
 
     mysqli_close($con);
   ?>
@@ -101,6 +102,7 @@
                 <span id="detailNameId"><?=$detailName ?></span>
               </div>
               <span id="productPriceId">\ <?php echo number_format($productPrice); ?>원</span>
+              <span id="pointId">적립금 1% (<?=$point ?> P)</span>
               <span id="delDateId"><?=$delDate[1] ?>월 <?=$delDate[2] ?>일 배송예정</span>
               <div id="amountDiv">
                 <span id="productNameId"><?=$productName ?></span>
@@ -113,7 +115,21 @@
                 \<input type="text" value="<?php echo number_format($productPrice); ?>" id="totalPrice" readonly>원
                 </div>
               </div>
+              <span id="totalMent">TOTAL</span>
+              <div id="allTotalDiv">
+                \<input type="text" value="<?php echo number_format($productPrice); ?>" id="allTotal" readonly>원
+              </div><br>
+              <div id="btnDiv">
+                <button id="buyBtn">BUY NOW</button><br>
+                <div id="wishBtn">
+                  <img src="../img/heart.png" alt="wishImg" width="30px" id="wishImg">
+                </div>
+                <button id="addCartBtn">ADD CART</button>
+              </div>
             </div>
+        </div>
+        <div id="detailImgDiv">
+         <img src="data:image/<?=$contentImgType ?>;base64,<?php echo base64_encode($contentImg); ?>" alt="Content Image" width="800px;" id="detailImgId">
         </div>
     </div>
     

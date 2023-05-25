@@ -139,7 +139,15 @@
   margin-left: 30px;
   margin-bottom: 10px;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 24px;
+}
+#pointId{
+  display: block;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: gray;
 }
 #delDateId{
   display: block;
@@ -185,7 +193,7 @@
 }
 #totalPriceDiv{
   border: 0px solid red;
-  width: 120px;
+  width: 110px;
   height: 30px;
   margin-top: 18px;
   color: dimgray;
@@ -195,8 +203,8 @@
   text-align: right;
   padding-right: 20px;
 }
-#totalPrice{
-  width: 70px;
+#totalPrice, #allTotal{
+  width: 60px;
   color: dimgray;
   border: none;
   cursor: text;
@@ -204,4 +212,84 @@
   font-weight: bold;
   font-size: 16px;
   text-align: right;
+}
+#totalMent{
+  display: block;
+  float: left;
+  margin-left: 25px;
+  margin-top: 20px;
+  font-size: 23px;
+  font-weight: bold;
+}
+#allTotalDiv{
+  float: right;
+  margin-right: 25px;
+  margin-top: 20px;
+  font-size: 23px;
+  color: black;
+}
+#allTotal{
+  width: 90px;
+  font-size: 23px;
+  color: black;
+}
+#btnDiv{
+  border: 0px solid red;
+  width: 350px;
+  text-align: center;
+  margin-top: 40px;
+  margin-left: 25px;
+  height: 150px;
+}
+#buyBtn, #addCartBtn{
+  height: 50px;
+  width: 350px;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  margin-top: 10px;
+  border: 2px solid black;
+  transition: all 0.4s;
+}
+#wishBtn{
+  border: 2px solid black;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  float: left;
+  height: 47px;
+  width: 47px;
+  font-size: 36px;
+  background-color: white;
+}
+#addCartBtn{
+  width: 260px;
+  margin-top: 10px;
+  margin-right: 10px;
+  color: black;
+  background-color: white;
+  float: right;
+}
+#buyBtn:hover{
+  border: none;
+  background-color: rgb(99, 99, 99);
+  color: whitesmoke;
+}
+#addCartBtn:hover{
+  border: 2px solid rgb(225, 225, 225);
+  background-color: rgb(225, 225, 225);
+  color: rgb(84, 84, 84);
+}
+#detailImgDiv{
+  width: 1000px;
+  float: left;
+  margin-top: 100px;
+}
+#detailImgId{
+  margin-left: 100px;
 }
