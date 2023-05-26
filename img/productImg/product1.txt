@@ -4,7 +4,7 @@ detailName : YENA OFFICIAL LIGHT STICK
 price : 48000
 artistName : YENA
 imgInfo : 
-stock : 1000
+stock : 100
 soldOut : X
 cateCode : 4
 delPeriod 30

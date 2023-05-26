@@ -95,7 +95,7 @@
 }
 #contentDiv{
   border: 0px solid red;
-  width: 1000px;
+  width: 1040px;
   height: 600px;
   margin: auto;
   padding-top: 50px;
@@ -105,6 +105,7 @@
   width: 500px;
   height: 500px;
   float: left;
+  margin-left: 40px;
 }
 #orderDiv{
   border: 0px solid blue;
@@ -255,6 +256,97 @@
   border: 2px solid black;
   transition: all 0.4s;
 }
+input[id*="popup"], input[id*="addCartLabel"]{
+  display: none;
+}
+input[id*="popup"] + label, input[id*="addCartLabel"] + label{
+  display: inline-block;
+}
+input[id*="popup"] + label + div, input[id*="addCartLabel"] + label + div{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+input[id*="popup"]:checked + label + div, input[id*="addCartLabel"]:checked + label + div{
+  display: block;
+}
+input[id*="popup"] + label + div > div, input[id*="addCartLabel"] + label + div > div{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 300px;
+  background: #fff;
+  z-index: 2;
+}
+input[id*="popup"] + label + div > div > #closeLabel, input[id*="addCartLabel"] + label + div > div > #closeLabel{
+  position: absolute;
+  top: 0%;
+  left: 90%;
+  font-size: 30px;
+  transform: translate(30%, -30%);
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+}
+input[id*="popup"] + label + div > div > #continueLabel, input[id*="addCartLabel"] + label + div > div > #continueLabel{
+  position: absolute;
+  top: 70%;
+  left: 0%;
+  font-size: 15px;
+  font-weight: bold;
+  transform: translate(30%, -30%);
+  cursor: pointer;
+  z-index: 1;
+}
+input[id*="popup"] + label + div > div > #continueLabel > div, input[id*="addCartLabel"] + label + div > div > #continueLabel > div{
+  border: 2px solid black;
+  border-radius: 25px;
+  padding: 10px;
+  width: 100px;
+  margin-top: 10px;
+  margin-left: 60px;
+}
+#goWishBtn{
+  position: absolute;
+  border: 2px solid black;
+  width: 110px;
+  color: white;
+  background-color: black;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 10px;
+  margin-left: 258px;
+  cursor: pointer;
+}
+input[id*="popup"] + label + div > label, input[id*="addCartLabel"] + label + div > label{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+#wishImgFloat{
+  margin-top: 60px;
+}
+#wishMentFloatDiv{
+  border: 0px solid red;
+  margin: auto;
+  margin-top: 30px;
+  width: 350px;
+  height: 60px;
+}
+#wishMentFloatDiv > span{
+  font-weight: bold;
+}
 #wishBtn{
   border: 2px solid black;
   border-radius: 20px;
@@ -268,9 +360,11 @@
   background-color: white;
 }
 #addCartBtn{
-  width: 260px;
+  width: 240px;
+  line-height: 47px;
   margin-top: 10px;
   margin-right: 10px;
+  margin-left: 10px;
   color: black;
   background-color: white;
   float: right;
@@ -286,6 +380,7 @@
   color: rgb(84, 84, 84);
 }
 #detailImgDiv{
+  border: 0px solid red;
   width: 1000px;
   float: left;
   margin-top: 100px;

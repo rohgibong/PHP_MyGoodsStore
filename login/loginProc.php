@@ -1,6 +1,8 @@
 <?php
     $id = $_POST["id"];
     $pwd = $_POST["pwd"];
+    $previousPageUrl = $_POST["previousPageUrl"];
+    $previous = $_POST["previous"];
 
     $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
     $sql = "select memberNo, name from storemember where id = '$id' and pwd = '$pwd';";
@@ -25,12 +27,21 @@
       $_SESSION['name'] = $name;
       $_SESSION['id'] = $id;
       $_SESSION['pwd'] = $pwd;
-      echo "
-        <script>
-          alert('$name($id)님 환영합니다.');
-          location.href = '../index.php';
-        </script>
-      ";
+      if($previous == 'joinProc.php' || $previous == 'loginProc.php' || $previous == 'findIdProc.php' || $previous == 'changePwProc.php'){
+        echo "
+          <script>
+            alert('$name($id)님 환영합니다.');
+            location.href = '../index.php';
+          </script>
+        ";
+      } else {
+        echo "
+          <script>
+            alert('$name($id)님 환영합니다.');
+            location.href = '$previousPageUrl';
+          </script>
+        ";
+      }
     }
 
     mysqli_close($con);

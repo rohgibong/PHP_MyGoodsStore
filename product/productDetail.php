@@ -120,11 +120,58 @@
                 \<input type="text" value="<?php echo number_format($productPrice); ?>" id="allTotal" readonly>원
               </div><br>
               <div id="btnDiv">
-                <button id="buyBtn">BUY NOW</button><br>
-                <div id="wishBtn">
-                  <img src="../img/heart.png" alt="wishImg" width="30px" id="wishImg">
+                <button id="buyBtn" onClick="buy();">BUY NOW</button><br>
+                <input type="checkbox" id="popup">
+                <label for="popup">
+                  <div id="wishBtn" onClick="addWish();">
+                    <img src="../img/heart.png" alt="wishImg" width="30px" id="wishImg">
+                  </div>
+                </label>
+                <div>
+                  <div>
+                    <label for="popup" id="closeLabel">
+                      <img src="../img/cancel.png" alt="" width="20px">
+                    </label>
+                    <img src="../img/redheart.png" alt="" width="50px" id="wishImgFloat">
+                    <div id="wishMentFloatDiv">
+                      <span>
+                        선택하신 상품을 관심상품에 담았습니다. <br>
+                        지금 관심상품을 확인하시겠습니까?
+                      </span>
+                    </div>
+                    <label for="popup" id="continueLabel">
+                      <div>
+                        쇼핑 계속하기
+                      </div>
+                    </label>
+                    <div id="goWishBtn">관심상품 확인</div>
+                  </div>
+                  <label for="popup"></label>
                 </div>
-                <button id="addCartBtn">ADD CART</button>
+                <input type="checkbox" id="addCartLabel">
+                <label for="addCartLabel">
+                  <div id="addCartBtn" onClick="addCart();">ADD CART</div>
+                </label>
+                <div>
+                  <div>
+                    <label for="addCartLabel" id="closeLabel">
+                      <img src="../img/cancel.png" alt="" width="20px">
+                    </label>
+                    <img src="../img/cart.png" alt="" width="50px" id="wishImgFloat">
+                    <div id="wishMentFloatDiv">
+                      <span>
+                        장바구니에 상품이 정상적으로 담겼습니다.
+                      </span>
+                    </div>
+                    <label for="addCartLabel" id="continueLabel">
+                      <div>
+                        쇼핑 계속하기
+                      </div>
+                    </label>
+                    <div id="goWishBtn">장바구니 이동</div>
+                  </div>
+                  <label for="addCartLabel"></label>
+                </div>
               </div>
             </div>
         </div>
@@ -132,9 +179,13 @@
          <img src="data:image/<?=$contentImgType ?>;base64,<?php echo base64_encode($contentImg); ?>" alt="Content Image" width="800px;" id="detailImgId">
         </div>
     </div>
-    
-
   </div>
+
+  <form id="buyForm" method="post" action="pay.php">
+    <input type="hidden" id="memberNoData" name="memberNoData">
+    <input type="hidden" id="productCodeData" name="productCodeData">
+    <input type="hidden" id="amountData" name="amountData">
+  </form>
 <script src="productDetail.js"></script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+code : 
+name : 르세라핌 정규 앨범 UNFORGIVEN 정규 1집
+detailName : 르세라핌 정규 앨범 UNFORGIVEN 정규 1집
+price : 19800
+artistName : 르세라핌
+imgInfo : 
+stock : 100
+soldOut : X
+cateCode : 1
+delPeriod 5	
+delPrice : 3000
+regiDate : 

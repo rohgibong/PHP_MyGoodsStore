@@ -1,6 +1,20 @@
 let current = 1;
 let wishBtn = document.getElementById("wishBtn");
 let wishImg = document.getElementById("wishImg");
+let form = document.getElementById('buyForm');
+
+function moveUserPage(){
+  if(memberNo > 0){
+    location.href='../member/member_pwCheck.php';
+  } else {
+    location.href='../login/login.php';
+  }
+}
+
+function momveCartPage(){
+  alert("카트");
+}
+
 
 $('#plusBtn').click(function(){
   current++;
@@ -62,3 +76,36 @@ wishBtn.addEventListener("mouseover", function() {
 wishBtn.addEventListener("mouseout", function() {
   wishImg.src = "../img/heart.png";
 });
+
+function buy(){
+  $('#memberNoData').val(memberNo);
+  $('#productCodeData').val(productCode);
+  $('#amountData').val(current);
+  if(memberNo <= 0){
+    location.href="../login/login.php";
+  } else {
+    form.submit();
+  }
+}
+
+function addWish(){
+  let param = "memberNo=" + memberNo + "&productCode=" + productCode;
+  $.ajax({
+		type: "post",
+		data: param,
+		url: "addWishProc.php",
+  });
+}
+
+function addCart(){
+  console.log("addCart실행됨");
+  let param = "memberNo=" + memberNo + "&productCode=" + productCode + "&amount=" + current;
+  $.ajax({
+		type: "post",
+		data: param,
+		url: "addCartProc.php",
+    success: function(){
+      console.log("성공!");
+    }
+  });
+}

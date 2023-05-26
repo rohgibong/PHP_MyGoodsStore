@@ -77,7 +77,6 @@ function idCheck(){
 		data: param,
 		url: "join_idCheck.php",
 		success : function(result){
-      console.log(result);
 			if(result > 0){
         label_id.innerHTML = "이미 사용중인 아이디입니다.";
         label_id.style.color = "red";

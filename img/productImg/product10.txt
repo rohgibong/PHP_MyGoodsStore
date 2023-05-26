@@ -1,0 +1,12 @@
+code : 
+name : YENA 싱글 1집 Love War
+detailName : YENA 싱글 1집 Love War (Love Ver / War Ver)
+price : 11300
+artistName : YENA
+imgInfo : 
+stock : 100
+soldOut : X
+cateCode : 1
+delPeriod 5
+delPrice : 4000
+regiDate : 

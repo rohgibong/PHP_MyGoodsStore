@@ -22,15 +22,15 @@
     <div id="topDiv">
       <div id="topDivMent">
         <?php if($memberNo == 1 ): ?>
-            <a href="./manage/productList.php" id="productListBtn">상품관리</a>
-            <span id="adminMent">[관리자]</span><span id="myName"><?=$name ?>(<?=$id?>)님</span>
-            <a href="./login/logoutProc.php" id="logoutBtn">LOGOUT</a>
-          <?php elseif($memberNo > 1): ?>
-            <span id="myName"><?=$name ?>(<?=$id?>)님</span>
-            <a href="./login/logoutProc.php" id="logoutBtn" class="btnClass">LOGOUT</a>
-          <?php else: ?>
-            <a href="./login/login.php" id="loginBtn" class="btnClass">LOGIN</a> 
-            <a href="./join/join.php" id="joinBtn" class="btnClass">JOIN</a>
+          <a href="./manage/productList.php" id="productListBtn">상품관리</a>
+          <span id="adminMent">[관리자]</span><span id="myName"><?=$name ?>(<?=$id?>)님</span>
+          <a href="./login/logoutProc.php" id="logoutBtn">LOGOUT</a>
+        <?php elseif($memberNo > 1): ?>
+          <span id="myName"><?=$name ?>(<?=$id?>)님</span>
+          <a href="./login/logoutProc.php" id="logoutBtn" class="btnClass">LOGOUT</a>
+        <?php else: ?>
+          <a href="./login/login.php" id="loginBtn" class="btnClass">LOGIN</a> 
+          <a href="./join/join.php" id="joinBtn" class="btnClass">JOIN</a>
         <?php endif; ?>
       </div>
     </div>

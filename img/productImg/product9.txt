@@ -1,0 +1,12 @@
+code : 
+name : aespa SEASON GREETINGS
+detailName : aespa 2023 SEASON GREETINGS PHOTO PACK
+price : 13000
+artistName : aespa
+imgInfo : 
+stock : 100
+soldOut : X
+cateCode : 2
+delPeriod 7
+delPrice : 3500
+regiDate : 

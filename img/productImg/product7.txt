@@ -1,0 +1,12 @@
+code : 
+name : LE SSERAFIM 르세라핌 응원봉 Official Light Stick
+detailName : LE SSERAFIM 르세라핌 응원봉 Official Light Stick
+price : 65000
+artistName : 르세라핌
+imgInfo : 
+stock : 100
+soldOut : X
+cateCode : 4
+delPeriod 3
+delPrice : 3000
+regiDate : 

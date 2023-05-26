@@ -11,6 +11,8 @@
   <?php
     session_start();
     $memberNo = isset($_SESSION["memberNo"]) ? $_SESSION["memberNo"] : 0;
+    $previousPageUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 0;
+    $previous = explode('/', $previousPageUrl);
   ?>
   <script>
     const memberNo = <?php echo $memberNo ?>;
@@ -55,6 +57,9 @@
           <button type="button" onClick="location.href='../join/join.php'" id="joinBtn">JOIN US</button>
         </div>
       </div>
+      <input type="hidden" id="previous" name="previous" value="<?= end($previous) ?>">
+      <input type="hidden" id="previousPageUrl" name="previousPageUrl" value="<?=$previousPageUrl ?>">
+
     </form>
     
   </div>

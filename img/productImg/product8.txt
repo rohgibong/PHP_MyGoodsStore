@@ -1,0 +1,12 @@
+code : 
+name : T-SHIRT - The ReVe Festival 2022 - Birthday
+detailName : T-SHIRT - The ReVe Festival 2022 - Birthday
+price : 45000
+artistName : Red Velvet
+imgInfo : 
+stock : 100
+soldOut : X
+cateCode : 3
+delPeriod 7
+delPrice : 3500
+regiDate : 
