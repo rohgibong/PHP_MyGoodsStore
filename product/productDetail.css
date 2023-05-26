@@ -350,7 +350,7 @@ input[id*="popup"] + label + div > label, input[id*="addCartLabel"] + label + di
 #wishBtn{
   border: 2px solid black;
   border-radius: 20px;
-  margin-left: 10px;
+  margin-left: 5px;
   margin-top: 10px;
   cursor: pointer;
   float: left;
@@ -360,11 +360,11 @@ input[id*="popup"] + label + div > label, input[id*="addCartLabel"] + label + di
   background-color: white;
 }
 #addCartBtn{
-  width: 240px;
+  width: 270px;
   line-height: 47px;
   margin-top: 10px;
   margin-right: 10px;
-  margin-left: 10px;
+  margin-left: 5px;
   color: black;
   background-color: white;
   float: right;
