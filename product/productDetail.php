@@ -101,9 +101,10 @@
               <div id="productNameDiv">
                 <span id="detailNameId"><?=$detailName ?></span>
               </div>
-              <span id="productPriceId">\ <?php echo number_format($productPrice); ?>원</span>
+              <span id="productPriceId">\ <?php echo number_format($productPrice); ?></span>
               <span id="pointId">적립금 1% (<?=$point ?> P)</span>
               <span id="delDateId"><?=$delDate[1] ?>월 <?=$delDate[2] ?>일 배송예정</span>
+              <span id="delPriceId">배송비 \<?php echo number_format($delPrice); ?></span>
               <div id="amountDiv">
                 <span id="productNameId"><?=$productName ?></span>
                 <div id="momdifyAmount">
@@ -112,12 +113,12 @@
                   <button id="plusBtn" class="amountBtn">+</button>
                 </div>
                 <div id="totalPriceDiv">
-                \<input type="text" value="<?php echo number_format($productPrice); ?>" id="totalPrice" readonly>원
+                \<input type="text" value="<?php echo number_format($productPrice); ?>" id="totalPrice" readonly>
                 </div>
               </div>
               <span id="totalMent">TOTAL</span>
               <div id="allTotalDiv">
-                \<input type="text" value="<?php echo number_format($productPrice); ?>" id="allTotal" readonly>원
+                \<input type="text" value="<?php echo number_format($productPrice); ?>" id="allTotal" readonly>
               </div><br>
               <div id="btnDiv">
                 <button id="buyBtn" onClick="buy();">BUY NOW</button><br>
@@ -168,7 +169,7 @@
                         쇼핑 계속하기
                       </div>
                     </label>
-                    <div id="goWishBtn">장바구니 이동</div>
+                    <div id="goWishBtn" onClick="location.href='../cartPage/list.php'">장바구니 이동</div>
                   </div>
                   <label for="addCartLabel"></label>
                 </div>

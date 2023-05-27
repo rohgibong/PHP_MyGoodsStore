@@ -125,7 +125,7 @@
                     <?=$product[$count]['productName'] ?>
                   </span>
                   <span id="priceInfo">
-                    \<?php echo number_format($product[$count]['productPrice']); ?>원
+                    \<?php echo number_format($product[$count]['productPrice']); ?>
                   </span>
                 </div>
               </td>

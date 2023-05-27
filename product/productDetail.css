@@ -42,7 +42,7 @@
 #mainTitleDiv{
   border: 0px solid red;
   position: absolute;
-  margin-left: 560px;
+  margin-left: 565px;
   margin-top: 0px;
   height: 100px;
 }
@@ -153,10 +153,17 @@
 #delDateId{
   display: block;
   margin-left: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: red;
   font-weight: bold;
   font-size: 13px;
+}
+#delPriceId{
+  display: block;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: bold;
 }
 #amountDiv{
   border: 1px solid gray;
@@ -181,10 +188,14 @@
 .amountBtn{
   border-radius: 10px;
   border: 1px solid gray;
-  background-color: rgb(243, 243, 243);
+  background-color: white;
   width: 20px;
   height: 20px;
   cursor: pointer;
+  
+}
+.amountBtn:hover{
+  background-color: rgb(234, 234, 234);;
 }
 #amountInput{
   width: 20px;

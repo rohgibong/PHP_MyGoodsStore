@@ -78,5 +78,5 @@ function moveUserPage(){
 }
 
 function momveCartPage(){
-  alert("카트");
+  location.href='./cartPage/list.php';
 }

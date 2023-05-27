@@ -12,7 +12,7 @@ function moveUserPage(){
 }
 
 function momveCartPage(){
-  alert("카트");
+  location.href='../cartPage/list.php';
 }
 
 
@@ -98,14 +98,10 @@ function addWish(){
 }
 
 function addCart(){
-  console.log("addCart실행됨");
   let param = "memberNo=" + memberNo + "&productCode=" + productCode + "&amount=" + current;
   $.ajax({
 		type: "post",
 		data: param,
 		url: "addCartProc.php",
-    success: function(){
-      console.log("성공!");
-    }
   });
 }
