@@ -16,41 +16,73 @@
     $memberNoData = isset($_POST["memberNoData"]) ? $_POST["memberNoData"] : 0;
     $productCode = isset($_POST["productCodeData"]) ? $_POST["productCodeData"] : 0;
     $amount = isset($_POST["amountData"]) ? $_POST["amountData"] : 0;
+    $checkProduct = isset($_POST["checkProduct"]) ? $_POST["checkProduct"] : 0;
+    $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
+    $count = 0;
+    $num = 0;
+
+    if ($checkProduct != 0) {
+      foreach ($checkProduct as $arrProductCode) {
+        $sql = "select p.*, c.amount from storeproduct p join storecart c on p.productCode = c.productCode where c.memberNo = $memberNo and c.productCode = $arrProductCode";
+        $result = mysqli_query($con, $sql);
+        mysqli_num_rows($result);
+        while($row = mysqli_fetch_assoc($result)){
+          $product[$num]['productName'] = $row['productName'];
+          $product[$num]['detailName'] = $row['detailName'];
+          $product[$num]['productPrice'] = $row['productPrice'];
+          $product[$num]['artistName'] = $row['artistName'];
+          $product[$num]['stock'] = $row['stock'];
+          $product[$num]['cateCode'] = $row['cateCode'];
+          $product[$num]['delPeriod'] = $row['delPeriod'];
+          $product[$num]['delPrice'] = $row['delPrice'];
+          $product[$num]['titleImgType'] = $row['titleImgType'];
+          $product[$num]['mainImgType'] = $row['mainImgType'];
+          $product[$num]['contentImgType'] = $row['contentImgType'];
+          $product[$num]['titleImg'] = $row['titleImg'];
+          $product[$num]['mainImg'] = $row['mainImg'];
+          $product[$num]['contentImg'] = $row['contentImg'];
+          $product[$num]['soldOut'] = $row['soldOut'];
+          $product[$num]['regiDate'] = $row['regiDate'];
+          $product[$num]['amount'] = $row['amount'];
+          $num++;
+        }
+      }
+    }
   ?>
   <script>
     const memberNo = <?php echo $memberNo ?>;
     const memberNoData = <?php echo $memberNoData ?>;
-    if(memberNo <= 0 || memberNo != memberNoData){
-      alert('잘못된 접근입니다.');
-      location.href='../index.php';
-    }
+    // if(memberNo <= 0 || memberNo != memberNoData){
+    //   alert('잘못된 접근입니다.');
+    //   location.href='../index.php';
+    // }
   </script>
   <?php
-    $currentDate = date('Y-m-d');
-    $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
-    $sql = "select * from storeproduct where productCode = $productCode";
-    $result = mysqli_query($con, $sql);
-    $row_cnt = mysqli_num_rows($result);
+    // $currentDate = date('Y-m-d');
+    // $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
+    // $sql = "select * from storeproduct where productCode = $productCode";
+    // $result = mysqli_query($con, $sql);
+    // $row_cnt = mysqli_num_rows($result);
 
-    if($row_cnt != 0){
-      while($row = mysqli_fetch_assoc($result)){
-        $productName = $row['productName'];
-        $detailName = $row['detailName'];
-        $productPrice = $row['productPrice'];
-        $artistName = $row['artistName'];
-        $stock = $row['stock'];
-        $delPeriod = $row['delPeriod'];
-        $delPrice = $row['delPrice'];
-        $titleImgType = $row['titleImgType'];
-        $titleImg = $row['titleImg'];
-        $soldOut = $row['soldOut'];
-      }
-    }
-    $deliveryDate = date('Y-m-d', strtotime("+$delPeriod days", strtotime($currentDate)));
-    $delDate = explode("-", $deliveryDate);
-    $point = $productPrice / 100;
+    // if($row_cnt != 0){
+    //   while($row = mysqli_fetch_assoc($result)){
+    //     $productName = $row['productName'];
+    //     $detailName = $row['detailName'];
+    //     $productPrice = $row['productPrice'];
+    //     $artistName = $row['artistName'];
+    //     $stock = $row['stock'];
+    //     $delPeriod = $row['delPeriod'];
+    //     $delPrice = $row['delPrice'];
+    //     $titleImgType = $row['titleImgType'];
+    //     $titleImg = $row['titleImg'];
+    //     $soldOut = $row['soldOut'];
+    //   }
+    // }
+    // $deliveryDate = date('Y-m-d', strtotime("+$delPeriod days", strtotime($currentDate)));
+    // $delDate = explode("-", $deliveryDate);
+    // $point = $productPrice / 100;
 
-    mysqli_close($con);
+    // mysqli_close($con);
   ?>
   <div id="mainDiv">
     <div id="topDiv">
@@ -90,6 +122,19 @@
     <div id="contentDiv">
         <div id="subTitleDiv">
             <h1>Order</h1>
+            <?=$memberNoData ?>
+            <?=$productCode ?>
+            <?=$amount ?>
+            <?php while($count < $num):
+
+            ?>
+
+            <?=$product[$count]['productName'] ?>
+
+            <?php 
+            $count++;
+            endwhile;
+         ?>
         </div>
     </div>
   </div>

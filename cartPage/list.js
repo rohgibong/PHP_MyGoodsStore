@@ -46,13 +46,14 @@ function minus(amount, productCode, memberNo){
 
 $(document).ready(function(){
 	$("#checkAll").click(function(){
-		if($("#checkAll").prop("checked")){
-			$("input[name=checkProduct]").prop("checked", true);
-		} else{
-			$("input[name=checkProduct]").prop("checked", false);
-		}
+    if($("#checkAll").prop("checked")){
+      $("input[name='checkProduct\\[\\]']").prop("checked", true);
+    } else {
+      $("input[name='checkProduct\\[\\]']").prop("checked", false);
+    }
     priceCal();
-	});
+  });
+  
 	$(".checkboxClass").change(function(){
 		if($(".checkboxClass:checked").length == $(".checkboxClass").length){
 			$("#checkAll").prop("checked", true);
@@ -68,7 +69,7 @@ async function priceCal(){
   let totalPrice = 0;
   let temp = "";
 
-  let object = document.getElementsByName("checkProduct");
+  let object = document.getElementsByName("checkProduct[]");
   for(i = 0; i < object.length; i++){
     if(object[i].checked){
       let param = "productCode=" + object[i].value + "&memberNo=" + memberNo;
@@ -93,3 +94,61 @@ async function priceCal(){
   $('#allTotalPrice').val(totalPrice.toLocaleString());
 }
 
+function remove(){
+  if(confirm("선택하신 상품을 삭제하시겠습니까?")){
+    let object = document.getElementsByName("checkProduct[]");
+    for(i = 0; i < object.length; i++){
+      if(object[i].checked){
+        let param = "productCode=" + object[i].value + "&memberNo=" + memberNo;
+        $.ajax({
+          type: "post",
+          data: param,
+          url: "removeProc.php",
+          success: function(){
+            location.reload();
+          }
+        });
+      }
+    }
+  }
+}
+
+function removeOne(productCode){
+  if(confirm("선택하신 상품을 삭제하시겠습니까?")){
+    let param = "productCode=" + productCode + "&memberNo=" + memberNo;
+    $.ajax({
+      type: "post",
+      data: param,
+      url: "removeProc.php",
+      success: function(){
+        location.reload();
+      }
+    });
+  }
+}
+
+function selectOrder(){
+  let selectedItems = Array.from(document.querySelectorAll('input[name="checkProduct[]"]:checked'))
+  .map(function(checkbox) {
+    return checkbox.value;
+  });
+
+  if (selectedItems.length > 0) {
+    let form = document.createElement('form');
+    form.method = 'post';
+    form.action = '../product/pay.php';
+
+    selectedItems.forEach(function(item) {
+      let input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'checkProduct[]';
+      input.value = item;
+      form.appendChild(input);
+    });
+
+    document.body.appendChild(form);
+    form.submit();
+  } else {
+    alert('상품을 선택하세요.');
+  }
+}

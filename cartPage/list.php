@@ -89,6 +89,7 @@
       <?php
         if($num != 0):
       ?>
+      <form action="../product/pay.php" method="post" id="checkout-form">
       <table id="cartTable">
         <tr>
           <th>
@@ -96,7 +97,7 @@
           </th>
           <th>상품정보</th>
           <th>수량</th>
-          <th>배송비</th>
+          <th>배송비</th> 
           <th>주문금액</th>
         </tr>
         <?php
@@ -109,7 +110,7 @@
         ?>
         <tr>
           <td id="firstTd">
-            <input type="checkbox" name="checkProduct" id="checkProduct" class="checkboxClass" value="<?=$product[$count]['productCode']?>" checked>
+            <input type="checkbox" name="checkProduct[]" id="checkProduct" class="checkboxClass" value="<?=$product[$count]['productCode']?>" checked>
           </td>
           <td id="secondTd">
             <img src="data:image/<?=$product[$count]['titleImgType'] ?>;base64,<?php echo base64_encode($product[$count]['titleImg']); ?>" alt="Main Image" id="productImg" width="90px;">
@@ -118,9 +119,11 @@
                 <span id="artistNameSpan">
                   <?=$product[$count]['artistName'] ?>
                 </span>
-                <span id="productNameSpan">
-                <?=$product[$count]['productName'] ?>
+                <span id="productNameSpan" onClick="location.href='../product/productDetail.php?productCode=<?=$product[$count]['productCode']?>'">
+                  <?=$product[$count]['productName'] ?>
                 </span>
+                <br>
+                <button id="removeOneBtn" onClick="removeOne(<?=$product[$count]['productCode']?>);">삭제</button>
               </div>
             </div>
           </td>
@@ -140,8 +143,9 @@
             endwhile;
          ?>
       </table>
+      </form>
       <div id="removeBtnDiv">
-        <button>선택상품삭제</button>
+        <button onClick="remove();">선택상품삭제</button>
       </div>
       <div id="totalDiv">
           <div id="priceNumber">
@@ -164,18 +168,18 @@
           </div>
       </div>
       <div id="btnDiv">
-          <button>전체상품 주문</button>
-          <button>선택상품 주문</button>
-          <button>계속 쇼핑하기</button>
+          <button type="button" >전체상품 주문</button>
+          <button type="button" onClick="selectOrder();">선택상품 주문</button>
+          <button type="button" onClick="location.href='../index.php'">계속 쇼핑하기</button>
       </div>
       <?php
         else :
       ?>
-      <table>
-        <tr>
-          <td>비어있노</td>
-        </tr>
-      </table>
+      <div id="emptyDiv">
+        <img src="../img/sad.png" width="50px">
+        <span>앗! 장바구니가 비어 있어요!</span>
+        <button onClick="location.href='../index.php'">계속 쇼핑하기</button>
+      </div>
       <?php
         endif;
       ?>
