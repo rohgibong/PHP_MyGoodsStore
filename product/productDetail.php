@@ -106,7 +106,14 @@
               <span id="delDateId"><?=$delDate[1] ?>월 <?=$delDate[2] ?>일 배송예정</span>
               <span id="delPriceId">배송비 \<?php echo number_format($delPrice); ?></span>
               <div id="amountDiv">
-                <span id="productNameId"><?=$productName ?></span>
+                <span id="productNameId">
+                  <?=$productName ?>
+                </span>
+                <?php if($stock <= 10) : ?>
+                <span id="lastStock">
+                  (<?=$stock ?>개 남음)
+                </span>
+                <?php endif; ?>
                 <div id="momdifyAmount">
                   <button id="minusBtn" class="amountBtn">-</button>
                   <input type="text" value="1" id="amountInput" oninput="this.value = this.value.replace(/\D/g, '');">

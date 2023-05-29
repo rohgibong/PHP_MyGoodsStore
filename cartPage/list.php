@@ -121,15 +121,21 @@
                 </span>
                 <span id="productNameSpan" onClick="location.href='../product/productDetail.php?productCode=<?=$product[$count]['productCode']?>'">
                   <?=$product[$count]['productName'] ?>
+                  <?php if($product[$count]['stock'] <= 10) : ?>
+                    <span id="lastStock">
+                      (<?=$product[$count]['stock'] ?>개 남음)
+                    </span>
+                  <?php endif; ?>
                 </span>
+                
                 <br>
-                <button id="removeOneBtn" onClick="removeOne(<?=$product[$count]['productCode']?>);">삭제</button>
+                <button id="removeOneBtn" type="button" onClick="removeOne(<?=$product[$count]['productCode']?>);">삭제</button>
               </div>
             </div>
           </td>
           <td id="thirdTd">
             <button id="minusBtn" class="amountBtn" onClick="minus(<?=$product[$count]['amount']?>, <?=$product[$count]['productCode']?>, <?=$memberNo?>);">-</button>
-            <input type="text" value="<?=$product[$count]['amount']?>" id="amountInput" oninput="this.value = this.value.replace(/\D/g, '');">
+            <input type="text" value="<?=$product[$count]['amount']?>" id="amountInput" oninput="this.value = this.value.replace(/\D/g, '');" readonly>
             <button id="plusBtn" class="amountBtn" onClick="plus(<?=$product[$count]['amount']?>, <?=$product[$count]['productCode']?>, <?=$memberNo?>);">+</button>
           </td>
           <td id="fourthTd">
@@ -140,8 +146,8 @@
           </td>
         </tr>
         <?php 
-            endwhile;
-         ?>
+          endwhile;
+        ?>
       </table>
       </form>
       <div id="removeBtnDiv">
@@ -168,8 +174,8 @@
           </div>
       </div>
       <div id="btnDiv">
-          <button type="button" >전체상품 주문</button>
-          <button type="button" onClick="selectOrder();">선택상품 주문</button>
+          <button type="button" onClick="order(1);">전체상품 주문</button>
+          <button type="button" onClick="order(2);">선택상품 주문</button>
           <button type="button" onClick="location.href='../index.php'">계속 쇼핑하기</button>
       </div>
       <?php

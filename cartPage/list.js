@@ -95,60 +95,108 @@ async function priceCal(){
 }
 
 function remove(){
+  let count = 0;
+  let object = document.getElementsByName("checkProduct[]");
   if(confirm("선택하신 상품을 삭제하시겠습니까?")){
-    let object = document.getElementsByName("checkProduct[]");
     for(i = 0; i < object.length; i++){
       if(object[i].checked){
         let param = "productCode=" + object[i].value + "&memberNo=" + memberNo;
-        $.ajax({
-          type: "post",
-          data: param,
-          url: "removeProc.php",
-          success: function(){
-            location.reload();
-          }
-        });
+        removeProc(param);
+        count++;
       }
+    }
+    if(count == 0){
+      alert("선택한 상품이 없습니다.");
     }
   }
 }
 
 function removeOne(productCode){
+  let param;
   if(confirm("선택하신 상품을 삭제하시겠습니까?")){
-    let param = "productCode=" + productCode + "&memberNo=" + memberNo;
-    $.ajax({
-      type: "post",
-      data: param,
-      url: "removeProc.php",
-      success: function(){
-        location.reload();
-      }
-    });
+    param = "productCode=" + productCode + "&memberNo=" + memberNo;
+  } else {
+    param = "productCode=" + 0 + "&memberNo=" + memberNo;
   }
+  removeProc(param);
 }
 
-function selectOrder(){
-  let selectedItems = Array.from(document.querySelectorAll('input[name="checkProduct[]"]:checked'))
-  .map(function(checkbox) {
-    return checkbox.value;
+function removeProc(param){
+  $.ajax({
+    type: "post",
+    data: param,
+    url: "removeProc.php",
+    success: function(){
+      location.reload();
+    }
   });
+}
 
-  if (selectedItems.length > 0) {
-    let form = document.createElement('form');
-    form.method = 'post';
-    form.action = '../product/pay.php';
+function order(value){
+  let object = document.getElementsByName("checkProduct[]");
+  let hasInsufficientStock = false;
+  
+  let checkStock = function(i) {
+    if(object[i].checked){
+      let param = "productCode=" + object[i].value + "&memberNo=" + memberNo;
+      $.ajax({
+        type: "post",
+        data: param,
+        url: "stockSearchProc.php",
+        success: function(result){
+          result = +result;
+          if(result > 0){
+            alert("재고수량이 부족한 상품이 있습니다.\n수량을 수정해주세요.");
+            hasInsufficientStock = true;
+          }
+          if (i === object.length - 1) {
+            continueOrder();
+          }
+        }
+      });
+    } else if (i === object.length - 1) {
+      continueOrder();
+    }
+  }
+  let continueOrder = function() {
+    if (hasInsufficientStock) {
+      return;
+    }
 
-    selectedItems.forEach(function(item) {
-      let input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = 'checkProduct[]';
-      input.value = item;
-      form.appendChild(input);
-    });
+    let selectedItems;
+    if (value == 1) {
+      selectedItems = Array.from(document.querySelectorAll('input[name="checkProduct[]"]'))
+        .map(function(checkbox) {
+          return checkbox.value;
+        });
+    } else if (value == 2) {
+      selectedItems = Array.from(document.querySelectorAll('input[name="checkProduct[]"]:checked'))
+        .map(function(checkbox) {
+          return checkbox.value;
+        });
+    }
 
-    document.body.appendChild(form);
-    form.submit();
-  } else {
-    alert('상품을 선택하세요.');
+    if (selectedItems.length > 0) {
+      let form = document.createElement('form');
+      form.method = 'post';
+      form.action = '../product/pay.php';
+
+      selectedItems.forEach(function(item) {
+        let input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'checkProduct[]';
+        input.value = item;
+        form.appendChild(input);
+      });
+
+      document.body.appendChild(form);
+      form.submit();
+    } else {
+      alert('상품을 선택하세요.');
+    }
+  };
+
+  for (let i = 0; i < object.length; i++) {
+    checkStock(i);
   }
 }

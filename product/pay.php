@@ -27,63 +27,46 @@
         $result = mysqli_query($con, $sql);
         mysqli_num_rows($result);
         while($row = mysqli_fetch_assoc($result)){
+          $product[$num]['productCode'] = $row['productCode'];
           $product[$num]['productName'] = $row['productName'];
-          $product[$num]['detailName'] = $row['detailName'];
           $product[$num]['productPrice'] = $row['productPrice'];
           $product[$num]['artistName'] = $row['artistName'];
-          $product[$num]['stock'] = $row['stock'];
-          $product[$num]['cateCode'] = $row['cateCode'];
-          $product[$num]['delPeriod'] = $row['delPeriod'];
           $product[$num]['delPrice'] = $row['delPrice'];
           $product[$num]['titleImgType'] = $row['titleImgType'];
-          $product[$num]['mainImgType'] = $row['mainImgType'];
-          $product[$num]['contentImgType'] = $row['contentImgType'];
           $product[$num]['titleImg'] = $row['titleImg'];
-          $product[$num]['mainImg'] = $row['mainImg'];
-          $product[$num]['contentImg'] = $row['contentImg'];
-          $product[$num]['soldOut'] = $row['soldOut'];
-          $product[$num]['regiDate'] = $row['regiDate'];
           $product[$num]['amount'] = $row['amount'];
+          $product[$num]['totalPrice'] = $row['productPrice'] * $row['amount'];
           $num++;
         }
       }
+    } else if($productCode != 0) {  
+      $sql = "select * from storeproduct where productCode = $productCode";
+      $result = mysqli_query($con, $sql);
+      mysqli_num_rows($result);
+      while($row = mysqli_fetch_assoc($result)){
+        $product[$num]['productCode'] = $row['productCode'];
+        $product[$num]['productName'] = $row['productName'];
+        $product[$num]['productPrice'] = $row['productPrice'];
+        $product[$num]['artistName'] = $row['artistName'];
+        $product[$num]['delPrice'] = $row['delPrice'];
+        $product[$num]['titleImgType'] = $row['titleImgType'];
+        $product[$num]['titleImg'] = $row['titleImg'];
+        $product[$num]['amount'] = $amount;
+        $product[$num]['totalPrice'] = $row['productPrice'] * $amount;
+        $num++;
+      }
     }
+    mysqli_close($con);
   ?>
   <script>
     const memberNo = <?php echo $memberNo ?>;
-    const memberNoData = <?php echo $memberNoData ?>;
-    // if(memberNo <= 0 || memberNo != memberNoData){
-    //   alert('잘못된 접근입니다.');
-    //   location.href='../index.php';
-    // }
+    const checkProduct = <?php echo json_encode($checkProduct)?>;
+    const productCode = <?php echo $productCode ?>;
+    if(memberNo <= 0 || (checkProduct == 0 && productCode == 0)){
+      alert('잘못된 접근입니다.');
+      location.href='../index.php';
+    }
   </script>
-  <?php
-    // $currentDate = date('Y-m-d');
-    // $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
-    // $sql = "select * from storeproduct where productCode = $productCode";
-    // $result = mysqli_query($con, $sql);
-    // $row_cnt = mysqli_num_rows($result);
-
-    // if($row_cnt != 0){
-    //   while($row = mysqli_fetch_assoc($result)){
-    //     $productName = $row['productName'];
-    //     $detailName = $row['detailName'];
-    //     $productPrice = $row['productPrice'];
-    //     $artistName = $row['artistName'];
-    //     $stock = $row['stock'];
-    //     $delPeriod = $row['delPeriod'];
-    //     $delPrice = $row['delPrice'];
-    //     $titleImgType = $row['titleImgType'];
-    //     $titleImg = $row['titleImg'];
-    //     $soldOut = $row['soldOut'];
-    //   }
-    // }
-    // $deliveryDate = date('Y-m-d', strtotime("+$delPeriod days", strtotime($currentDate)));
-    // $delDate = explode("-", $deliveryDate);
-    // $point = $productPrice / 100;
-
-    // mysqli_close($con);
-  ?>
   <div id="mainDiv">
     <div id="topDiv">
       <div id="topDivMent">
@@ -120,22 +103,69 @@
     </div>
     
     <div id="contentDiv">
-        <div id="subTitleDiv">
-            <h1>Order</h1>
-            <?=$memberNoData ?>
-            <?=$productCode ?>
-            <?=$amount ?>
-            <?php while($count < $num):
+      <div id="subTitleDiv">
+          <h1>Order</h1>
+      </div>
+      <span id="orderTitle">주문내역</span>
+      <table id="orderTable" border="0">
+        <tr>
+          <th>이미지</th>
+          <th>상품정보</th>
+          <th>판매가</th>
+          <th>수량</th>
+          <th>배송비</th>
+          <th>합계</th>
+        </tr>
+        <?php while($count < $num): ?>
+        <tr>
+          <td id="firstTd">
+            <img src="data:image/<?=$product[$count]['titleImgType'] ?>;base64,<?php echo base64_encode($product[$count]['titleImg']); ?>" alt="Title Image" width="100px;">
+          </td>
+          <td id="secondTd">
+           <div id="secondTdDiv">
+              <div>
+                <span id="artistNameSpan" onClick="location.href='productDetail.php?productCode=<?=$product[$count]['productCode']?>'">
+                  <?=$product[$count]['artistName'] ?>
+                </span>
+                <span id="productNameSpan" onClick="location.href='productDetail.php?productCode=<?=$product[$count]['productCode']?>'">
+                  <?=$product[$count]['productName'] ?>
+                </span>
+              </div>
+            </div>
+            <!-- <?=$product[$count]['productName'] ?> -->
+          </td>
+          <td id="thirdTd">
+            \<?php echo number_format($product[$count]['productPrice']); ?>
+          </td>
+          <td id="fourthTd">
+            <?=$product[$count]['amount'] ?>
+          </td>
+          <td id="fifthTd">
+            \<?php echo number_format($product[$count]['delPrice']); ?>
+          </td>
+          <td id="sixthTd">
+            \<?php echo number_format($product[$count]['totalPrice']); ?>
+          </td>
+        </tr>
+        <input type="hidden" name="productCodes[]" value="<?=$product[$count]['productCode']?>">
+        <input type="hidden" name="amounts[]" value="<?=$product[$count]['amount']?>">
+        <?php 
+          $count++;
+          endwhile;
+        ?>
+      </table>
+      <!-- <?=$memberNoData ?>
+      <?=$productCode ?>
+      <?=$amount ?> -->
+            
+      
+      
+      
+      
+    </div>
 
-            ?>
-
-            <?=$product[$count]['productName'] ?>
-
-            <?php 
-            $count++;
-            endwhile;
-         ?>
-        </div>
+    <div id="btnDiv">
+      <button type="button" onClick="orderItem();">결제하기</button>
     </div>
   </div>
 <script src="pay.js"></script>

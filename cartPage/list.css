@@ -157,13 +157,25 @@ td{
   font-weight: bold;
   cursor: pointer;
 }
+#lastStock{
+  display: absolute;
+  font-size: 11px;
+  font-weight: bold;
+  color: red;
+}
 #removeOneBtn{
+  display: absolute;
+
   background-color: white;
   font-weight: bold;
   font-size: 12px;
   border-radius: 20px;
   padding: 4px 10px;
   cursor: pointer;
+  transition: 0.5s;
+}
+#removeOneBtn:hover{
+  background-color: rgb(231, 231, 231);
 }
 #thirdTd, #fourthTd, #fifthTd{
   width: 120px;
