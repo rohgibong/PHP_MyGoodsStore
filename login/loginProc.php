@@ -60,7 +60,6 @@
       $_SESSION['memberNo'] = $memberNo;
       $_SESSION['name'] = $name;
       $_SESSION['id'] = $id;
-      $_SESSION['pwd'] = $pwd;
       if($previous == 'joinProc.php' || $previous == 'loginProc.php' || $previous == 'findIdProc.php' || $previous == 'changePwProc.php'){
         echo "
           <script>
