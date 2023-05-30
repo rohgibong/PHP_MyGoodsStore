@@ -15,7 +15,7 @@ if(cateCode == 1){
 
 function moveUserPage(){
   if(memberNo > 0){
-    location.href='../member/member_pwCheck.php';
+    location.href='../member/member_myPage.php';
   } else {
     location.href='../login/login.php';
   }

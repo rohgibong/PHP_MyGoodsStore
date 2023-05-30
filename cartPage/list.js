@@ -1,12 +1,23 @@
-// let ment1 = document.getElementById("ment1");
-// let ment2 = document.getElementById("ment2");
-// let ment3 = document.getElementById("ment3");
+function moveUserPage(){
+  if(memberNo > 0){
+    location.href='../member/member_myPage.php';
+  } else {
+    location.href='../login/login.php';
+  }
+}
 
-// if(totalPrice > 100000){
-//   ment1.className="priceMentClass2";
-//   ment2.className="priceMentClass2";
-//   ment3.className="priceMentClass2";
-// }
+function momveCartPage(){
+  location.href='../cartPage/list.php';
+}
+
+function search(){
+  let searchValue = document.getElementById("searchInput").value;
+  if(searchValue == ""){
+    alert("검색어를 입력해주세요.");
+  } else {
+    location.href="../product/list.php?searchValue="+searchValue;
+  }
+}
 
 function plus(amount, productCode, memberNo){
   if(amount == 10){
