@@ -133,6 +133,19 @@
   float: right;
   padding-top: 30px;
 }
+#serachResult{
+  margin-left: 50px;
+  width: 800px;
+}
+#serachMent1{
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+}
+#serachMent2{
+  font-size: 20px;
+  font-weight: bold;
+}
 #totalMent{
   display: block;
   margin-left: 80px;

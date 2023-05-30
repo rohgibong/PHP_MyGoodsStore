@@ -65,7 +65,7 @@ function search(){
   if(searchValue == ""){
     alert("검색어를 입력해주세요.");
   } else {
-    alert(searchValue);
+    location.href="./product/list.php?searchValue="+searchValue;
   }
 }
 
