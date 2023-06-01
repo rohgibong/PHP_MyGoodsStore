@@ -1,6 +1,7 @@
 #mainDiv{
-  border: 0px solid red;
+  border: 1px solid red;
   width: 1300px;
+  padding-bottom: 100px;
   margin: auto;
 }
 #topDiv{
@@ -96,7 +97,6 @@
 #contentDiv{
   border: 0px solid red;
   width: 1300px;
-  height: 600px;
   margin: auto;
   padding-top: 20px;
 }
@@ -109,26 +109,37 @@
 #subTitleDiv > h1{
   font-size: 40px;
 }
-#orderTitle{
+#orderTitle, #delInfoTitle{
   display: block;
   font-weight: bold;
   margin-top: 30px;
   margin-left: 100px;
   margin-bottom: 10px;
 }
-#orderTable{
+#orderSubMent{
+  display: block;
+  float: right;
+  color: lightgray;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: -25px;
+  margin-right: 100px;
+}
+#orderTable, #delInfoTable{
   width: 1100px;
-  margin: auto;
   text-align: center;
   border-collapse: collapse;
 }
-th{
+#orderTable{
+  margin: auto;
+}
+.orderTh{
   border-top: 2px solid black;
   border-bottom: 1px solid lightgray;
   height: 50px;
   padding-top: 30px;
 }
-td{
+.orderTd{
   padding-top: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid lightgray;
@@ -143,7 +154,7 @@ td{
   border: 0px solid red;
   width: 500px;
   height: 90px;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 10px;
   float: left;
 }
@@ -152,19 +163,113 @@ td{
   width: 500px;
   height: 70px;
   margin-top: 15px;
+  cursor: pointer;
+}
+#secondTdDiv > div:hover{
+  text-decoration: underline;
 }
 #artistNameSpan{
   display: block;
   font-size: 12px;
   font-weight: bold;
   color: gray;
-  cursor: pointer;
 }
 #productNameSpan{
   display: block;
   font-weight: bold;
-  cursor: pointer;
 }
 #fourthTd{
   width: 70px;
+}
+#totalTd{
+  height: 50px;
+}
+#totalDiv{
+  border: 0px solid red;
+  width: 600px;
+  height: 30px;
+  float: right;
+  margin-top: 5px;
+  font-weight: bold;
+}
+#totalDiv > span{ 
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#totalPriceSpan{
+  color: red;
+  font-size: 20px;
+}
+#delInfoDiv{
+  border: 1px solid red;
+  width: 1300px;
+  height: 600px;
+}
+#delInfoTitle{
+  margin-left: 70px;
+  margin-top: 100px;
+}
+#delInfoTable{
+  border-top: 2px solid black;
+  width: 600px;
+  margin-left: 70px;
+  float: left;
+}
+.delInfoName, #addressName{
+  height: 50px;
+  width: 120px;
+  font-size: 14px;
+  text-align: left;
+  padding-left: 20px;
+  font-weight: bold;
+  color: rgb(72, 72, 72);
+}
+.delInfoTd{
+  height: 50px;
+  text-align: left;
+  color: rgb(72, 72, 72);
+}
+#addressName{
+  height: 150px;
+}
+#delTextArea{
+  font-size: 16px;
+  font-weight: bold;
+}
+#payMentDiv{
+  border: 1px solid red;
+  float: right;
+  width: 500px;
+  height: 370px;
+  margin-right: 70px;
+}
+#priceDiv{
+  border: 1px solid blue;
+  width: 1300px;
+  height: 100px;
+}
+#btnDiv{
+  border: 1px solid red;
+  width: 1300px;
+  height: 100px;
+  text-align: center;
+}
+#payBtn{
+  height: 50px;
+  width: 250px;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  margin-top: 10px;
+  border: 2px solid black;
+  transition: all 0.4s;
+}
+#payBtn:hover{
+  border: none;
+  background-color: rgb(99, 99, 99);
+  color: whitesmoke;
 }

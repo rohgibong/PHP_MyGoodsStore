@@ -11,6 +11,7 @@
   <?php
     session_start();
     $memberNo = isset($_SESSION["memberNo"]) ? $_SESSION["memberNo"] : 0;
+    $pageNumber = isset($_GET["pageNumber"]) ? $_GET["pageNumber"] : 1;
   ?>
   <script>
     const memberNo = <?php echo $memberNo ?>;
@@ -20,8 +21,11 @@
     }
   </script>
   <?php
+    $pageSet = 5;
+    $startNum = ($pageSet * ($pageNumber-1) + 1);
+    $endNum = $pageSet * $pageNumber;
     $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
-    $sql = "select * from storeproduct order by soldout desc, regidate desc";
+    $sql = "select * from (select row_number() over(order by soldout desc, regiDate desc) as rowNum, p.* from storeproduct p) as subquery where rowNum >= $startNum and rowNum <= $endNum;";
     $result = mysqli_query($con, $sql);
     $row_cnt = mysqli_num_rows($result);
     $count = 0;
@@ -30,6 +34,7 @@
     if($row_cnt != 0){
       while($row = mysqli_fetch_assoc($result)){
         $num++;
+        $product[$num]['rowNum'] = $row['rowNum'];
         $product[$num]['productCode'] = $row['productCode'];
         $product[$num]['productName'] = $row['productName'];
         $product[$num]['artistName'] = $row['artistName'];
@@ -40,7 +45,18 @@
         $product[$num]['soldOut'] = $row['soldOut'];
         $product[$num]['regiDate'] = $row['regiDate'];
       }
+    } else {
+      echo '<script>alert("잘못된 접근입니다.");location.href="../index.php";</script>';
     }
+    $sql = "select count(*) from storeproduct;";
+    $result2 = mysqli_query($con, $sql);
+    $productCount = mysqli_fetch_array($result2)[0];
+    if($productCount == 0){
+      $pageCount = 1;
+    } else {
+      $pageCount = floor(($productCount-1) / $pageSet) + 1;
+    }
+    
     mysqli_close($con);
   ?>
   <div id="mainDiv">
@@ -55,9 +71,6 @@
       <div id="titleMentDiv">
         <span id="titleMent">상품 리스트</span>
       </div>
-
-      
-      
       <table id="productTable">
         <tr>
           <th>No</th>
@@ -75,7 +88,7 @@
         ?>
         <tr id="productTr" onClick="move(<?=$product[$count]['productCode']?>);">
           <td id="firstTd">
-            <?=$count ?>
+            <?=$product[$count]['rowNum'] ?>
           </td>
           <td id="secondTd">
             <img src="data:image/<?=$product[$count]['titleImgType'] ?>;base64,<?php echo base64_encode($product[$count]['titleImg']); ?>" alt="Main Image" width="50px;">
@@ -112,10 +125,25 @@
         <?php endwhile; ?>
       </table>
       
-      <!-- 
-      <img src="data:image/jpg;base64,<?php echo base64_encode($mainImg); ?>" alt="Main Image" width="50px;">
-      <img src="data:image/jpg;base64,<?php echo base64_encode($contentImg); ?>" alt="Main Image" width="50px;"> -->
-
+      <div id="pageDiv">
+        <?php if($pageNumber > 1) : ?>
+          <span class="arrowBtn" onClick="location.href='productList.php?pageNumber=<?=$pageNumber-1 ?>'">< 이전</span>
+        <?php else : ?>
+          <span class="arrowBtn" id="noName">< 이전</span>
+        <?php endif ; ?>
+        
+        <?php for($page = 1; $page < $pageCount+1; $page++) : ?>
+          <span id="pageSpan" onClick="location.href='productList.php?pageNumber=<?=$page ?>'">
+            <?=$page ?>
+          </span>
+        <?php endfor; ?>
+        
+        <?php if($pageNumber < $pageCount) : ?>
+          <span class="arrowBtn" onClick="location.href='productList.php?pageNumber=<?=$pageNumber+1 ?>'">다음 ></span>
+        <?php else : ?>
+          <span class="arrowBtn" id="noName">다음 ></span>
+        <?php endif ; ?>
+      </div>
         
        
       <div id="btnDiv">

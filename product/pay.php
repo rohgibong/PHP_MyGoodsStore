@@ -20,6 +20,8 @@
     $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
     $count = 0;
     $num = 0;
+    $pricePlus = 0;
+    $delPlus = 0;
 
     if ($checkProduct != 0) {
       foreach ($checkProduct as $arrProductCode) {
@@ -55,6 +57,20 @@
         $product[$num]['totalPrice'] = $row['productPrice'] * $amount;
         $num++;
       }
+    }
+
+    $sql = "select * from storemember where memberNo = $memberNo";
+    $result = mysqli_query($con, $sql);
+    mysqli_num_rows($result);
+    while($row = mysqli_fetch_assoc($result)){
+      $name = $row['name'];
+      $address1 = $row['address1'];
+      $address2 = $row['address2'];
+      $address3 = $row['address3'];
+      $address4 = $row['address4'];
+      $phone1 = $row['phone1'];
+      $phone2 = $row['phone2'];
+      $phone3 = $row['phone3'];
     }
     mysqli_close($con);
   ?>
@@ -107,21 +123,26 @@
           <h1>Order</h1>
       </div>
       <span id="orderTitle">주문내역</span>
+      <span id="orderSubMent">상품의 옵션 및 수량 변경은 상품상세 또는 장바구니에서 가능합니다.</span>
       <table id="orderTable" border="0">
         <tr>
-          <th>이미지</th>
-          <th>상품정보</th>
-          <th>판매가</th>
-          <th>수량</th>
-          <th>배송비</th>
-          <th>합계</th>
+          <th class="orderTh">이미지</th>
+          <th class="orderTh">상품정보</th>
+          <th class="orderTh">판매가</th>
+          <th class="orderTh">수량</th>
+          <th class="orderTh">배송비</th>
+          <th class="orderTh">합계</th>
         </tr>
-        <?php while($count < $num): ?>
+        <?php
+          while($count < $num): 
+          $pricePlus = $pricePlus + $product[$count]['totalPrice'];
+          $delPlus = $delPlus + $product[$count]['delPrice'];
+        ?>
         <tr>
-          <td id="firstTd">
+          <td id="firstTd" class="orderTd">
             <img src="data:image/<?=$product[$count]['titleImgType'] ?>;base64,<?php echo base64_encode($product[$count]['titleImg']); ?>" alt="Title Image" width="100px;">
           </td>
-          <td id="secondTd">
+          <td id="secondTd" class="orderTd">
            <div id="secondTdDiv">
               <div>
                 <span id="artistNameSpan" onClick="location.href='productDetail.php?productCode=<?=$product[$count]['productCode']?>'">
@@ -132,18 +153,17 @@
                 </span>
               </div>
             </div>
-            <!-- <?=$product[$count]['productName'] ?> -->
           </td>
-          <td id="thirdTd">
+          <td id="thirdTd" class="orderTd">
             \<?php echo number_format($product[$count]['productPrice']); ?>
           </td>
-          <td id="fourthTd">
+          <td id="fourthTd" class="orderTd">
             <?=$product[$count]['amount'] ?>
           </td>
-          <td id="fifthTd">
+          <td id="fifthTd" class="orderTd">
             \<?php echo number_format($product[$count]['delPrice']); ?>
           </td>
-          <td id="sixthTd">
+          <td id="sixthTd" class="orderTd">
             \<?php echo number_format($product[$count]['totalPrice']); ?>
           </td>
         </tr>
@@ -153,21 +173,74 @@
           $count++;
           endwhile;
         ?>
+        <tr>
+          <td colspan="6" id="totalTd" class="orderTd">
+            <div id="totalDiv">
+              <span> 
+                상품합계 &nbsp; \<?php echo number_format($pricePlus); ?>
+              </span>
+              +
+              <span>
+                배송비 &nbsp; \<?php echo number_format($delPlus); ?>
+              </span>
+              =
+              <span>
+                총 합계
+              </span>
+              <span id="totalPriceSpan">
+                \<?php echo number_format($pricePlus+$delPlus); ?>
+              </span>
+            </div>
+          </td>
+        </tr>
       </table>
-      <!-- <?=$memberNoData ?>
-      <?=$productCode ?>
-      <?=$amount ?> -->
-            
+      
+      <div id="delInfoDiv">
+        <span id="delInfoTitle">배송 정보</span>
+        <table id="delInfoTable" border="1">
+          <tr>
+            <td class="delInfoName">받으시는 분</td>
+            <td class="delInfoTd"><?=$name ?></td>
+          </tr>
+          <tr>
+            <td id="addressName" rowspan="3">주소</td>
+            <td class="delInfoTd"><?=$address1 ?></td>
+          </tr>
+          <tr>
+            <td class="delInfoTd"><?=$address2 ?></td>
+          </tr>
+          <tr>
+            <td class="delInfoTd"><?=$address3 ?> <?=$address4 ?></td>
+          </tr>
+          <tr>
+            <td class="delInfoName">연락처</td>
+            <td class="delInfoTd"><?=$phone1 ?>-<?=$phone2 ?>-<?=$phone3 ?></td>
+          </tr>
+          <tr>
+            <td class="delInfoName">배송메시지</td>
+            <td class="delInfoTd">
+              <textarea name="delTextArea" id="delTextArea" cols="40" rows="5" placeholder="ex)부재 시 문 앞에 놓아주세요."></textarea>
+            </td>
+          </tr>
+        </table>
+        
+        <div id="payMentDiv">
+          
+          </div>
+        </div>
+        <div id="priceDiv">
+
+        </div>
+      </div>
       
       
       
       
+    <div id="btnDiv">
+      <button type="button" id="payBtn" onClick="orderItem();">결제하기</button>
+    </div>
     </div>
 
-    <div id="btnDiv">
-      <button type="button" onClick="orderItem();">결제하기</button>
-    </div>
-  </div>
 <script src="pay.js"></script>
 </body>
 </html>

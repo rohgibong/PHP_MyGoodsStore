@@ -106,9 +106,9 @@
         <div class="subTitle" id="subTitle4" onClick="location.href='list.php?cateCode=4'">
             CONCERT
         </div>
-        <div class="subTitle" id="subTitle5" onClick="location.href='../funding/list.php'">
+        <!-- <div class="subTitle" id="subTitle5" onClick="location.href='../funding/list.php'">
             FUNDING
-        </div>
+        </div> -->
         <div class="subTitle" id="subTitle6" onClick="location.href='../eventPage/list.php'">
             EVENT
         </div>

@@ -1,0 +1,12 @@
+code : 
+name : (여자)아이들 미니 6집 I feel 퀸카
+detailName : (여자)아이들 미니 6집 I feel 퀸카 Queen Ver
+price : 16700
+artistName : (여자)아이들
+imgInfo : 
+stock : 100
+soldOut : X
+cateCode : 1
+delPeriod 3
+delPrice : 2000
+regiDate : 

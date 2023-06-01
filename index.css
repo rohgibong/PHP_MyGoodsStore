@@ -108,8 +108,9 @@
   text-align: center;
 }
 .categoryName{
-  margin-left: 50px;
-  margin-right: 50px;
+  /* 펀딩이 있었을 때는 left, right 50px */
+  margin-left: 70px;
+  margin-right: 70px;
   transition: all 0.4s;
 }
 .categoryName:hover{
