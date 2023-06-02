@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyGoodsStore</title>
-  <link rel="stylesheet" href="member_orderPage.css">
+  <link rel="stylesheet" href="member_wishList.css">
 </head>
 <body>
 <?php
@@ -124,66 +124,21 @@
           </div>
         </div>
       </div>
-      <div id="orderPageDiv">
-        <div id="recentOrderTitle">
-          주문내역
+      <div id="wishListDiv">
+        <div id="wishListTitle">
+          위시리스트
           <div>
             <span onClick="location.href='../index.php'">HOME</span>
             >
             <span onClick="location.href='member_myPage.php'">MY PAGE</span>
             >
-            <span onClick="location.href='member_orderPage.php'">ORDER</span>
+            <span onClick="location.href='member_wishList.php'">WISH</span>
           </div>
         </div>
-        <table id="orderTable">
-          <?php if($num > 0):?>
-          <tr>
-            <th>
-              주문일자
-            </th>
-            <th>
-              주문정보
-            </th>
-            <th>
-              결제금액
-            </th>
-            <th>
-              주문상세
-            </th>
-          </tr>
-          <?php
-            while($count < $num):
-            $orderPrice = $product[$count]['orderPrice'] + $product[$count]['delPrice']
-          ?>
-          <tr>
-            <td id="orderTableFirst" class="tdClass">
-              <?=$product[$count]['orderDate'] ?>
-            </td>
-            <td id="orderTableSecond" class="tdClass" onClick="location.href='../product/productDetail.php?productCode=<?=$product[$count]['productCode'] ?>'">
-              <?=$product[$count]['productName'] ?>
-            </td>
-            <td class="tdClass">
-              \<?php echo number_format($orderPrice); ?>
-            </td>
-            <td class="tdClass">
-              <button type="button" onClick="" id="viewBtn">VIEW</button>
-            </td>
-          </tr>
-          <?php
-            $count++;
-            endwhile;
-          ?>
-          <?php else: ?>
-          <tr>
-            <td id="noOrderTd">
-              주문내역이 없습니다.
-            </td>
-          </tr>
-          <?php endif; ?>
-        </table>
-    </div>
+        
+      </div>
 
   </div>
-<script src="member_orderPage.js"></script>
+<script src="member_wishList.js"></script>
 </body>
 </html>

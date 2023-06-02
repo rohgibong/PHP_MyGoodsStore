@@ -93,7 +93,11 @@
     
     <div id="contentDiv">
         <div id="imgDiv">
-          <img src="data:image/<?=$mainImgType ?>;base64,<?php echo base64_encode($mainImg); ?>" alt="Main Image" width="500px;">
+          <?php if($soldOut == 'O'): ?>
+            <img src="data:image/<?=$mainImgType ?>;base64,<?php echo base64_encode($mainImg); ?>" alt="Main Image" width="500px;" id="soldOutImgId">
+          <?php else: ?>
+            <img src="data:image/<?=$mainImgType ?>;base64,<?php echo base64_encode($mainImg); ?>" alt="Main Image" width="500px;">
+          <?php endif; ?>
         </div>
         <div id="orderDiv">
             <div id="orderContentDiv">
@@ -101,7 +105,11 @@
               <div id="productNameDiv">
                 <span id="detailNameId"><?=$detailName ?></span>
               </div>
-              <span id="productPriceId">\ <?php echo number_format($productPrice); ?></span>
+              <?php if($soldOut == 'O'): ?>
+                <span id="productPriceId">SOLD OUT</span>
+              <?php else: ?>
+                <span id="productPriceId">\ <?php echo number_format($productPrice); ?></span>
+              <?php endif; ?>
               <span id="pointId">적립금 1% (<?=$point ?> P)</span>
               <span id="delDateId"><?=$delDate[1] ?>월 <?=$delDate[2] ?>일 배송예정</span>
               <span id="delPriceId">배송비 \<?php echo number_format($delPrice); ?></span>
@@ -128,7 +136,11 @@
                 \<input type="text" value="<?php echo number_format($productPrice); ?>" id="allTotal" readonly>
               </div><br>
               <div id="btnDiv">
-                <button id="buyBtn" onClick="buy();">BUY NOW</button><br>
+                <?php if($soldOut == 'O'): ?>
+                  <button id="buyBtn">BUY NOW</button><br>
+                <?php else: ?>
+                  <button id="buyBtn" onClick="buy();">BUY NOW</button><br>
+                <?php endif; ?>
                 <input type="checkbox" id="popup">
                 <label for="popup">
                   <div id="wishBtn" onClick="addWish();">

@@ -107,6 +107,12 @@
   float: left;
   margin-left: 40px;
 }
+#soldOutImgId{
+  margin-left: 21px;
+  margin-top: -10px;
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
 #orderDiv{
   border: 0px solid blue;
   width: 495px;

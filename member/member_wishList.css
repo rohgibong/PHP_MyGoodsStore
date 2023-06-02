@@ -153,13 +153,13 @@
   font-weight: bold;
   font-size: 20px;
 }
-#orderPageDiv{
+#wishListDiv{
   border: 0px solid red;
   width: 1100px;
   margin: auto;
   padding-top: 20px;
 }
-#recentOrderTitle{
+#wishListTitle{
   border-bottom: 2px solid black;
   margin: auto;
   width: 1100px;
@@ -168,60 +168,13 @@
   font-size: 18px;
   padding-bottom: 10px;
 }
-#recentOrderTitle > div{
+#wishListTitle > div{
   margin-right: 15px;
   margin-top: -30px;
   font-size: 13px;
   float: right;
   cursor: default;
 }
-#recentOrderTitle > div > span{
+#wishListTitle > div > span{
   cursor: pointer;
-}
-#orderTable{
-  width: 1100px;
-  margin: auto;
-  border-collapse: collapse;
-  margin-bottom: 150px;
-  text-align: center;
-}
-th{
-  border-bottom: 1px solid lightgray;
-  height: 50px;
-  font-size: 15px;
-}
-#orderTableFirst{
-  height: 50px;
-  width: 150px;
-  text-align: center;
-}
-#orderTableSecond{
-  text-align: left;
-  padding-left: 20px;
-  cursor: pointer;
-  font-weight: bold;
-}
-#orderTableSecond:hover{
-  text-decoration: underline;
-}
-#viewBtn{
-  background-color: white;
-  height: 25px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.5s;
-}
-#viewBtn:hover{
-  background-color: rgb(230, 230, 230);
-}
-.tdClass{
-  border-bottom: 1px solid lightgray;
-}
-#noOrderTd{
-  height: 300px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: rgb(183, 183, 183);
 }

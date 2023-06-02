@@ -197,7 +197,7 @@
       
       <div id="delInfoDiv">
         <span id="delInfoTitle">배송 정보</span>
-        <table id="delInfoTable" border="1">
+        <table id="delInfoTable" border="0">
           <tr>
             <td class="delInfoName">받으시는 분</td>
             <td class="delInfoTd"><?=$name ?></td>
@@ -226,7 +226,7 @@
         
         <div id="payMentDiv">
           
-          </div>
+        </div>
         </div>
         <div id="priceDiv">
 
