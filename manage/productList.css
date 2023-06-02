@@ -96,6 +96,17 @@ td{
   margin-left: 10px;
   margin-right: 10px;
 }
+.arrowBtn{
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#noName{
+  color: white;
+  user-select: none;
+  cursor: default;
+}
 #btnDiv{
   border-top: 2px solid lightgray;
   margin: auto;
@@ -110,15 +121,4 @@ td{
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-}
-.arrowBtn{
-  font-weight: bold;
-  cursor: pointer;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-#noName{
-  color: white;
-  user-select: none;
-  cursor: default;
 }

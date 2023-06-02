@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyGoodsStore</title>
-  <link rel="stylesheet" href="member_myPage.css">
+  <link rel="stylesheet" href="member_orderPage.css">
 </head>
 <body>
 <?php
@@ -49,22 +49,6 @@
       $product[$num]['orderPrice'] = $row['orderPrice'];
       $product[$num]['orderDate'] = $row['orderDate'];
       $num++;
-    }
-  }
-  $sql = "select p.* from storeproduct p, storewish w where p.productCode = w.productCode and w.memberNo = $memberNo order by w.regiDate desc limit 5";
-  $result3 = mysqli_query($con, $sql);
-  $row_cnt = mysqli_num_rows($result3);
-  $count2 = 0;
-  $num2 = 0;
-  if($row_cnt != 0){
-    while($row = mysqli_fetch_assoc($result3)){
-      $wish[$num2]['productCode'] = $row['productCode'];
-      $wish[$num2]['productName'] = $row['productName'];
-      $wish[$num2]['productPrice'] = $row['productPrice'];
-      $wish[$num2]['artistName'] = $row['artistName'];
-      $wish[$num2]['titleImgType'] = $row['titleImgType'];
-      $wish[$num2]['titleImg'] = $row['titleImg'];
-      $num2++;
     }
   }
   mysqli_close($con);
@@ -140,27 +124,15 @@
           </div>
         </div>
       </div>
-      <div id="sideDiv">
-          <div id="sideTitleDiv" onClick="location.href='member_myPage.php'">
-              MY PAGE
-          </div>
-          <div id="sideContentDiv">
-              <div onClick="location.href='member_orderPage.php'">
-                주문내역
-              </div>
-              <div onClick="location.href='member_wishList.php'">
-                위시리스트
-              </div>
-              <div onClick="location.href='member_pwCheck.php'">
-                회원정보 수정
-              </div>
-          </div>
-      </div>
       <div id="myPageDiv">
         <div id="recentOrderTitle">
           최근 주문상품
-          <div onClick="location.href='member_orderPage.php'">
-            더보기 >
+          <div>
+            <span onClick="location.href='../index.php'">HOME</span>
+            >
+            <span onClick="location.href='member_myPage.php'">MY PAGE</span>
+            >
+            <span onClick="location.href='member_orderPage.php'">ORDER</span>
           </div>
         </div>
         <table id="orderTable">
@@ -181,9 +153,6 @@
           </tr>
           <?php
             while($count < $num):
-              if($num > 5){
-                $num = 5;
-              }
             $orderPrice = $product[$count]['orderPrice'] + $product[$count]['delPrice']
           ?>
           <tr>
@@ -212,56 +181,9 @@
           </tr>
           <?php endif; ?>
         </table>
-        <div id="wishTitle">
-          위시리스트
-          <div onClick="location.href='member_wishList.php'">
-            더보기 >
-          </div>
-        </div>
-        <table id="wishTable">
-          <?php if($num2 > 0):?>
-          <tr>
-          <?php
-            while($count2 < $num2):
-          ?>
-            <td class="wishItemsTd" onClick="location.href='../product/productDetail.php?productCode=<?=$wish[$count2]['productCode'] ?>'">
-              <img src="data:image/<?=$wish[$count2]['titleImgType'] ?>;base64,<?php echo base64_encode($wish[$count2]['titleImg']); ?>" alt="Title Image" id="productImg" width="130px;">
-              <div id="wishItemsDiv">
-                <div id="nameDiv">
-                  <span id="wishSpan1"><?=$wish[$count2]['artistName']?></span>
-                  <span id="wishSpan2"><?=$wish[$count2]['productName']?></span>
-                </div>
-                <div id="priceDiv">
-                  <span id="wishSpan3">\<?php echo number_format($wish[$count2]['productPrice']); ?></span>
-                </div>
-              </div>
-            </td>
-          <?php
-            $count2++;
-            endwhile;
-          ?>
-          <?php
-            while($count2 < 5):
-          ?>
-          <td class="wishItemsTd">
-          </td>
-          <?php
-            $count2++;
-            endwhile;
-          ?>
-          </tr>
-          <?php else: ?>
-          <tr>
-            <td id="noOrderTd">
-              위시리스트 내역이 없습니다.
-            </td>
-          </tr>
-          <?php endif; ?>
-        </table>
-      </div>
     </div>
 
   </div>
-<script src="member_myPage.js"></script>
+<script src="member_orderPage.js"></script>
 </body>
 </html>

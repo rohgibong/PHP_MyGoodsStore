@@ -49,7 +49,7 @@
       <label id="label_pwd"></label>
       <div id="btnDiv">
         <button type="button" onClick="check();" id="checkBtn">확인</button>
-        <button type="button" onClick="location.href='../index.php';" id="cancelBtn">취소</button>
+        <button type="button" onClick="location.href='member_myPage.php';" id="cancelBtn">취소</button>
       </div>
     </div>
   </form>

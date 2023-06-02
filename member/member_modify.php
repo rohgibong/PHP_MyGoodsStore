@@ -143,7 +143,7 @@
         <div id="btnDiv">
          <button type="button" onClick="modify();" id="modifyBtn">확인</button>
           
-          <button type="button" onClick="location.href='../index.php';" id="cancelBtn">취소</button>
+          <button type="button" onClick="location.href='member_myPage.php';" id="cancelBtn">취소</button>
         </div>
         <span id="deleteMemberBtn" onClick="deleteMember();">회원탈퇴</span>
     </div>

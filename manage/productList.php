@@ -56,6 +56,10 @@
     } else {
       $pageCount = floor(($productCount-1) / $pageSet) + 1;
     }
+
+    if($pageNumber < 1 || $pageNumber > $pageCount){
+      echo '<script>alert("잘못된 접근입니다.");location.href="../index.php";</script>';
+    }
     
     mysqli_close($con);
   ?>

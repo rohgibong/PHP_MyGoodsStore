@@ -15,6 +15,7 @@
     $id = isset($_SESSION["memberNo"]) ? $_SESSION["id"] : 0;
     $cateCode = isset($_GET["cateCode"]) ? $_GET["cateCode"] : 0;
     $searchValue = isset($_GET["searchValue"]) ? $_GET["searchValue"] : 0;
+    $pageNumber = isset($_GET["pageNumber"]) ? $_GET["pageNumber"] : 1;
     $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
     $sql = "";
   ?>
@@ -28,10 +29,13 @@
     const memberNo = <?php echo $memberNo ?>;
   </script>
   <?php
+    $pageSet = 6;
+    $startNum = ($pageSet * ($pageNumber-1) + 1);
+    $endNum = $pageSet * $pageNumber;
     if($searchValue == 0){
-      $sql = "select * from storeproduct where cateCode = $cateCode order by soldout desc, regidate desc;";
+      $sql = "select * from (select row_number() over(order by soldout desc, regiDate desc) as rowNum, p.* from storeproduct p where cateCode = $cateCode) as subquery where rowNum >= $startNum and rowNum <= $endNum;";
     } else {
-      $sql = "select * from storeproduct where productName like '%$searchValue%' order by soldout desc, regidate desc;";
+      $sql = "select * from (select row_number() over(order by soldout desc, regiDate desc) as rowNum, p.* from storeproduct p where productName like '%$searchValue%') as subquery where rowNum >= $startNum and rowNum <= $endNum;";
     }
     $result = mysqli_query($con, $sql);
     $row_cnt = mysqli_num_rows($result);
@@ -49,6 +53,23 @@
         $product[$num]['titleImg'] = $row['titleImg'];
         $product[$num]['soldOut'] = $row['soldOut'];
       }
+    }
+    
+    if($searchValue == 0){
+      $sql = "select count(*) from storeproduct where cateCode = $cateCode;";
+    } else {
+      $sql = "select count(*) from storeproduct where productName like '%$searchValue%';";
+    }
+    $result2 = mysqli_query($con, $sql);
+    $productCount = mysqli_fetch_array($result2)[0];
+    if($productCount == 0){
+      $pageCount = 1;
+    } else {
+      $pageCount = floor(($productCount-1) / $pageSet) + 1;
+    }
+    
+    if($pageNumber < 1 || $pageNumber > $pageCount){
+      echo '<script>alert("잘못된 접근입니다.");location.href="../index.php";</script>';
     }
     mysqli_close($con);
   ?>
@@ -126,7 +147,7 @@
           </div>
         <?php endif; ?>
         <span id="totalMent">
-          Total : <?=$num ?>
+          Total : <?=$productCount ?>
         </span>
         <table id="productTable">
           <?php
@@ -137,7 +158,12 @@
             <tr>
           <?php endif; ?>
               <td class="productTd" onClick="location.href='productDetail.php?productCode=<?=$product[$count]['productCode'] ?>'">
-                <img src="data:image/<?=$product[$count]['titleImgType'] ?>;base64,<?php echo base64_encode($product[$count]['titleImg']); ?>" alt="Main Image" id="imgId"><br>
+                <?php if($product[$count]['soldOut'] == 'O'): ?>
+                  <img src="data:image/<?=$product[$count]['titleImgType'] ?>;base64,<?php echo base64_encode($product[$count]['titleImg']); ?>" alt="Main Image" id="soldOutImgId">
+                <?php else: ?>
+                  <img src="data:image/<?=$product[$count]['titleImgType'] ?>;base64,<?php echo base64_encode($product[$count]['titleImg']); ?>" alt="Main Image" id="imgId">
+                <?php endif; ?>
+                <br>
                 <div id="productInfo">
                   <span id="artistInfo">
                     <?=$product[$count]['artistName'] ?>
@@ -146,12 +172,47 @@
                     <?=$product[$count]['productName'] ?>
                   </span>
                   <span id="priceInfo">
-                    \<?php echo number_format($product[$count]['productPrice']); ?>
+                  <?php if($product[$count]['soldOut'] == 'O'): ?>
+                    <span>SOLD OUT<span>
+                  <?php else: ?>
+                    \<?php echo number_format($product[$count]
+                    ['productPrice']); ?>
+                  <?php endif; ?>
                   </span>
                 </div>
               </td>
           <?php endwhile; ?>
         </table>
+
+        <div id="pageDiv">
+          <?php if($pageNumber > 1 && $cateCode != 0) : ?>
+            <span class="arrowBtn" onClick="location.href='list.php?cateCode=<?=$cateCode?>&pageNumber=<?=$pageNumber-1 ?>'">< 이전</span>
+          <?php elseif($pageNumber > 1 && $cateCode == 0) : ?>
+            <span class="arrowBtn" onClick="location.href='list.php?searchValue=<?=$searchValue?>&pageNumber=<?=$pageNumber-1 ?>'">< 이전</span>
+          <?php else : ?>
+            <span class="arrowBtn" id="noName">< 이전</span>
+          <?php endif ; ?>
+          
+          <?php for($page = 1; $page < $pageCount+1; $page++) : ?>
+            <?php if($cateCode != 0 && $productCount != 0) : ?>
+              <span id="pageSpan" onClick="location.href='list.php?cateCode=<?=$cateCode?>&pageNumber=<?=$page ?>'">
+                <?=$page ?>
+              </span>
+            <?php elseif($searchValue != 0 && $productCount != 0) : ?>
+              <span id="pageSpan" onClick="location.href='list.php?searchValue=<?=$searchValue?>&pageNumber=<?=$page ?>'">
+                <?=$page ?> 
+              </span>
+            <?php endif ; ?>
+          <?php endfor; ?>
+          
+          <?php if($pageNumber < $pageCount && $cateCode != 0) : ?>
+            <span class="arrowBtn" onClick="location.href='list.php?cateCode=<?=$cateCode?>&pageNumber=<?=$pageNumber+1 ?>'">다음 ></span>
+          <?php elseif($pageNumber < $pageCount && $cateCode == 0) : ?>
+              <span class="arrowBtn" onClick="location.href='list.php?searchValue=<?=$searchValue?>&pageNumber=<?=$pageNumber+1 ?>'">다음 ></span>
+          <?php else : ?>
+            <span class="arrowBtn" id="noName">다음 ></span>
+          <?php endif ; ?>
+        </div>
       </div>
 
     </div>
