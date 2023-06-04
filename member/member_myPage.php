@@ -32,7 +32,7 @@
        $level = $row['level'];
     }
   }
-  $sql = "select p.*, o.amount, o.orderPrice, o.orderDate from storeproduct p join storeorder o on p.productCode = o.productCode where memberNo = $memberNo order by o.orderDate desc";
+  $sql = "select p.*, o.orderNo, o.amount, o.orderPrice, o.orderDate from storeproduct p join storeorder o on p.productCode = o.productCode where memberNo = $memberNo order by o.orderDate desc";
   $result2 = mysqli_query($con, $sql);
   $row_cnt = mysqli_num_rows($result2);
   $count = 0;
@@ -45,6 +45,7 @@
       $product[$num]['delPrice'] = $row['delPrice'];
       $product[$num]['titleImgType'] = $row['titleImgType'];
       $product[$num]['titleImg'] = $row['titleImg'];
+      $product[$num]['orderNo'] = $row['orderNo'];
       $product[$num]['amount'] = $row['amount'];
       $product[$num]['orderPrice'] = $row['orderPrice'];
       $product[$num]['orderDate'] = $row['orderDate'];
@@ -92,7 +93,7 @@
       </div>
       <div id="usercartDiv">
         <img src="../img/user.png" alt="userImg" width="35px" id="userImg" onClick="moveUserPage();">
-        <img src="../img/basket.png" alt="basketImg" width="50px" id="basketImg" onClick="momveCartPage();">
+        <img src="../img/basket.png" alt="basketImg" width="50px" id="basketImg" onClick="moveCartPage();">
       </div>
       <div id="searchDiv">
         <input type="text" name="searchInput" id="searchInput" onkeydown="if(event.keyCode==13) search();">  
@@ -197,7 +198,7 @@
               \<?php echo number_format($orderPrice); ?>
             </td>
             <td class="tdClass">
-              <button type="button" onClick="" id="viewBtn">VIEW</button>
+              <button type="button" onClick="location.href='member_orderDetail.php?orderNo=<?=$product[$count]['orderNo'] ?>'" id="viewBtn">VIEW</button>
             </td>
           </tr>
           <?php

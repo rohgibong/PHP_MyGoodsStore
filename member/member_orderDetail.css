@@ -1,8 +1,9 @@
 #mainDiv{
   border: 0px solid red;
   width: 1300px;
-  height: 750px;
+  height: 900px;
   margin: auto;
+  padding-bottom: 50px;
 }
 #topDiv{
   border-top: 1px solid black;
@@ -95,85 +96,9 @@
   cursor: pointer;
 }
 #contentDiv{
-  border: 0px solid red;
+  border: 1px solid red;
   width: 1300px;
   height: 500px;
   margin: auto;
   margin-top: 20px;
-  
-}
-#sideDiv{
-  border-right: 1px solid black;
-  width: 200px;
-  height: 500px;
-  float: left;
-  padding-top: 50px;
-}
-.subTitle{
-  border: 0px solid purple;
-  height: 40px;
-  line-height: 40px;
-  width: 170px;
-  padding-left: 30px;
-  margin-bottom: 20px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.changeTitle{
-  height: 60px;
-  line-height: 60px;
-  width: 170px;
-  padding-left: 30px;
-  margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 25px;
-  cursor: pointer;
-}
-#eventDiv{
-  border: 0px solid red;
-  width: 1095px;
-  height: 500px;
-  float: right;
-  padding-top: 50px;
-}
-#eventTableMent{
-  display: block;
-  margin-left: 50px;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-#eventPlace{
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-  width: 1000px;
-  height: 400px;
-  margin: auto;
-}
-#eventTable{
-  width: 1000px;
-  margin: auto;
-}
-#emtpyTd{
-  height: 400px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: rgb(183, 183, 183);
-}
-#writeDiv{
-  border: 0px solid red;
-  height: 30px;
-  width: 1000px;
-  margin: auto;
-  margin-top: 10px;
-  text-align: right;
-}
-#writeDiv > button{
-  background-color: white;
-  font-weight: bold;
-  font-size: 14px;
-  height: 30px;
-  width: 80px;
-  border-radius: 20px;
-  cursor: pointer;
 }

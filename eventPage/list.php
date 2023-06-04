@@ -79,8 +79,23 @@
         </div>
       </div>
 
-      <div id="productDiv">
-        이벤트페이지
+      <div id="eventDiv">
+        <span id="eventTableMent">진행중인 이벤트</span>
+        <div id="eventPlace">
+          <table id="eventTable">
+            <tr>
+              <td id="emtpyTd">
+                진행중인 이벤트가 없습니다.
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div id="writeDiv">
+          <?php if ($memberNo == 1) : ?>
+          <button>등록하기</button>
+          <?php endif; ?>
+        </div>
       </div>
     </div>
 
