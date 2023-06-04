@@ -182,7 +182,7 @@
   width: 1100px;
   margin: auto;
   border-collapse: collapse;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
   text-align: center;
 }
 th{
@@ -224,4 +224,29 @@ th{
   font-size: 18px;
   font-weight: bold;
   color: rgb(183, 183, 183);
+}
+#pageDiv{
+  border: 0px solid red;
+  height: 30px;
+  width: 1200px;
+  margin: auto;
+  margin-top: 30px;
+  text-align: center;
+}
+#pageSpan{
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.arrowBtn{
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#noName{
+  color: white;
+  user-select: none;
+  cursor: default;
 }

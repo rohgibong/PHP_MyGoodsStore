@@ -219,22 +219,11 @@
           <tr>
             <td class="delInfoName">배송메시지</td>
             <td class="delInfoTd">
-              <textarea name="delTextArea" id="delTextArea" cols="40" rows="5" placeholder="ex)부재 시 문 앞에 놓아주세요."></textarea>
+              <textarea name="delTextArea" id="delTextArea" cols="50" rows="5" placeholder="ex)부재 시 문 앞에 놓아주세요."></textarea>
             </td>
           </tr>
         </table>
-        
-        <div id="payMentDiv">
-          
-        </div>
-        </div>
-        <div id="priceDiv">
-
-        </div>
       </div>
-      
-      
-      
       
     <div id="btnDiv">
       <button type="button" id="payBtn" onClick="orderItem();">결제하기</button>

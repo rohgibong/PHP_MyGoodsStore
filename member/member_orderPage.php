@@ -13,6 +13,7 @@
   $memberNo = isset($_SESSION["memberNo"]) ? $_SESSION["memberNo"] : 0;
   $name = isset($_SESSION["memberNo"]) ? $_SESSION["name"] : 0;
   $id = isset($_SESSION["memberNo"]) ? $_SESSION["id"] : 0;
+  $pageNumber = isset($_GET["pageNumber"]) ? $_GET["pageNumber"] : 1;
 ?>
 <script>
   const memberNo = <?php echo $memberNo ?>;
@@ -21,6 +22,9 @@
   }
 </script>
 <?php
+  $pageSet = 10;
+  $startNum = ($pageSet * ($pageNumber-1) + 1);
+  $endNum = $pageSet * $pageNumber;
   $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
   $sql = "select * from storemember where memberNo = $memberNo;";
   $result = mysqli_query($con, $sql);
@@ -32,7 +36,7 @@
        $level = $row['level'];
     }
   }
-  $sql = "select p.*, o.amount, o.orderPrice, o.orderDate from storeproduct p join storeorder o on p.productCode = o.productCode where memberNo = $memberNo order by o.orderDate desc";
+  $sql = "select * from (select row_number() over (order by o.orderDate desc) as rownum, p.*, o.amount, o.orderPrice, o.orderDate from storeproduct p join storeorder o on p.productCode = o.productCode where memberNo = $memberNo) as subquery where rowNum >= $startNum and rowNum <= $endNum;";
   $result2 = mysqli_query($con, $sql);
   $row_cnt = mysqli_num_rows($result2);
   $count = 0;
@@ -51,6 +55,18 @@
       $num++;
     }
   }
+  $sql = "select count(*) from storeorder where memberNo = $memberNo;";
+    $result3 = mysqli_query($con, $sql);
+    $productCount = mysqli_fetch_array($result3)[0];
+    if($productCount == 0){
+      $pageCount = 1;
+    } else {
+      $pageCount = floor(($productCount-1) / $pageSet) + 1;
+    }
+
+    if($pageNumber < 1 || $pageNumber > $pageCount){
+      echo '<script>alert("잘못된 접근입니다.");location.href="../index.php";</script>';
+    }
   mysqli_close($con);
 ?>
 <div id="mainDiv">
@@ -111,7 +127,7 @@
           <div>
             <span id="countSpan" onClick="location.href='member_orderPage.php'">
               주문내역 <br>
-              <span><?=$num ?></span>
+              <span><?=$productCount ?></span>
             </span>
             <span id="pointSpan">
               포인트 <br>
@@ -181,6 +197,25 @@
           </tr>
           <?php endif; ?>
         </table>
+        <div id="pageDiv">
+        <?php if($pageNumber > 1) : ?>
+          <span class="arrowBtn" onClick="location.href='member_orderPage.php?pageNumber=<?=$pageNumber-1 ?>'">< 이전</span>
+        <?php else : ?>
+          <span class="arrowBtn" id="noName">< 이전</span>
+        <?php endif ; ?>
+        
+        <?php for($page = 1; $page < $pageCount+1; $page++) : ?>
+          <span id="pageSpan" onClick="location.href='member_orderPage.php?pageNumber=<?=$page ?>'">
+            <?=$page ?>
+          </span>
+        <?php endfor; ?>
+        
+        <?php if($pageNumber < $pageCount) : ?>
+          <span class="arrowBtn" onClick="location.href='member_orderPage.php?pageNumber=<?=$pageNumber+1 ?>'">다음 ></span>
+        <?php else : ?>
+          <span class="arrowBtn" id="noName">다음 ></span>
+        <?php endif ; ?>
+      </div>
     </div>
 
   </div>

@@ -243,7 +243,7 @@
           <?php
             while($count2 < 5):
           ?>
-          <td class="wishItemsTd">
+          <td class="emptywishItemsTd">
           </td>
           <?php
             $count2++;

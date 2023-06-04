@@ -164,7 +164,7 @@
                         쇼핑 계속하기
                       </div>
                     </label>
-                    <div id="goWishBtn">관심상품 확인</div>
+                    <div id="goWishBtn" onClick="location.href='../member/member_wishList.php'">관심상품 확인</div>
                   </div>
                   <label for="popup"></label>
                 </div>

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyGoodsStore</title>
   <link rel="stylesheet" href="member_wishList.css">
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 <?php
@@ -13,6 +14,7 @@
   $memberNo = isset($_SESSION["memberNo"]) ? $_SESSION["memberNo"] : 0;
   $name = isset($_SESSION["memberNo"]) ? $_SESSION["name"] : 0;
   $id = isset($_SESSION["memberNo"]) ? $_SESSION["id"] : 0;
+  $pageNumber = isset($_GET["pageNumber"]) ? $_GET["pageNumber"] : 1;
 ?>
 <script>
   const memberNo = <?php echo $memberNo ?>;
@@ -21,6 +23,9 @@
   }
 </script>
 <?php
+  $pageSet = 12;
+  $startNum = ($pageSet * ($pageNumber-1) + 1);
+  $endNum = $pageSet * $pageNumber;
   $con = mysqli_connect("localhost", "user1", "12345", "phpfinalproject");
   $sql = "select * from storemember where memberNo = $memberNo;";
   $result = mysqli_query($con, $sql);
@@ -32,25 +37,36 @@
        $level = $row['level'];
     }
   }
-  $sql = "select p.*, o.amount, o.orderPrice, o.orderDate from storeproduct p join storeorder o on p.productCode = o.productCode where memberNo = $memberNo order by o.orderDate desc";
+  $sql = "select * from (select row_number() over (order by w.regidate desc) as rowNum, p.* from storeproduct p, storewish w where p.productCode = w.productCode and w.memberNo = $memberNo) as subquery where rowNum >= $startNum and rowNum <= $endNum;";
   $result2 = mysqli_query($con, $sql);
   $row_cnt = mysqli_num_rows($result2);
   $count = 0;
-  $num = 0;
+  $num= 0;
   if($row_cnt != 0){
     while($row = mysqli_fetch_assoc($result2)){
-      $product[$num]['productCode'] = $row['productCode'];
-      $product[$num]['productName'] = $row['productName'];
-      $product[$num]['productPrice'] = $row['productPrice'];
-      $product[$num]['delPrice'] = $row['delPrice'];
-      $product[$num]['titleImgType'] = $row['titleImgType'];
-      $product[$num]['titleImg'] = $row['titleImg'];
-      $product[$num]['amount'] = $row['amount'];
-      $product[$num]['orderPrice'] = $row['orderPrice'];
-      $product[$num]['orderDate'] = $row['orderDate'];
+      $wish[$num]['productCode'] = $row['productCode'];
+      $wish[$num]['productName'] = $row['productName'];
+      $wish[$num]['productPrice'] = $row['productPrice'];
+      $wish[$num]['artistName'] = $row['artistName'];
+      $wish[$num]['titleImgType'] = $row['titleImgType'];
+      $wish[$num]['titleImg'] = $row['titleImg'];
       $num++;
     }
   }
+  $sql = "select count(*) from storewish where memberNo = $memberNo;";
+  $result3 = mysqli_query($con, $sql);
+  $productCount = mysqli_fetch_array($result3)[0];
+  if($productCount == 0){
+    $pageCount = 1;
+  } else {
+    $pageCount = floor(($productCount-1) / $pageSet) + 1;
+  }
+  if($pageNumber < 1 || $pageNumber > $pageCount){
+    echo '<script>alert("잘못된 접근입니다.");location.href="../index.php";</script>';
+  }
+  $sql = "select count(*) from storeorder where memberNo = $memberNo;";
+  $result4 = mysqli_query($con, $sql);
+  $orderCount = mysqli_fetch_array($result4)[0];
   mysqli_close($con);
 ?>
 <div id="mainDiv">
@@ -111,7 +127,7 @@
           <div>
             <span id="countSpan" onClick="location.href='member_orderPage.php'">
               주문내역 <br>
-              <span><?=$num ?></span>
+              <span><?=$orderCount ?></span>
             </span>
             <span id="pointSpan">
               포인트 <br>
@@ -133,9 +149,74 @@
             <span onClick="location.href='member_myPage.php'">MY PAGE</span>
             >
             <span onClick="location.href='member_wishList.php'">WISH</span>
+            <br>
+            <br>
+            <?php if($num != 0) : ?>
+            <button type="button" id="deleteAllBtn" onClick="deleteAll();">전체상품 삭제</button>
+            <?php endif; ?>
           </div>
         </div>
+        <table id="wishTable">
+          <?php if($num > 0):?>
+            <?php
+              while($count < $num):
+              if ($count % 6 == 0) echo '<tr>';
+            ?>
+            <td class="wishItemsTd">
+              <img src="data:image/<?=$wish[$count]['titleImgType'] ?>;base64,<?php echo base64_encode($wish[$count]['titleImg']); ?>" alt="Title Image" id="productImg" width="130px;">
+              <div id="wishItemsDiv" onClick="location.href='../product/productDetail.php?productCode=<?=$wish[$count]['productCode'] ?>'">
+                <div id="nameDiv">
+                  <span id="wishSpan1"><?=$wish[$count]['artistName']?></span>
+                  <span id="wishSpan2"><?=$wish[$count]['productName']?></span>
+                </div>
+                <div id="priceDiv">
+                  <span id="wishSpan3">\<?php echo number_format($wish[$count]['productPrice']); ?></span>
+                </div>
+              </div>
+              <div id="deleteDiv">
+                <button type="button" id="deleteBtn" onClick="deleteOne('<?=$wish[$count]['productCode'] ?>');">삭제</button>
+              </div>
+            </td>
+            <?php
+              $count++;
+              if ($count % 6 == 0 || $count == $num):
+                while($count % 6 != 0):
+            ?>
+            <td class="emptywishItemsTd"></td>
+            <?php
+                $count++;
+                endwhile;
+                echo '</tr>';
+              endif;
+              endwhile;
+            ?>
+          <?php else: ?>
+          <tr>
+            <td id="noWishTd">
+              위시리스트 내역이 없습니다.
+            </td>
+          </tr>
+          <?php endif; ?>
+        </table>
+        <div id="pageDiv">
+        <?php if($pageNumber > 1) : ?>
+          <span class="arrowBtn" onClick="location.href='member_wishList.php?pageNumber=<?=$pageNumber-1 ?>'">< 이전</span>
+        <?php else : ?>
+          <span class="arrowBtn" id="noName">< 이전</span>
+        <?php endif ; ?>
         
+        <?php for($page = 1; $page < $pageCount+1; $page++) : ?>
+          <span id="pageSpan" onClick="location.href='member_wishList.php?pageNumber=<?=$page ?>'">
+            <?=$page ?>
+          </span>
+        <?php endfor; ?>
+        
+        <?php if($pageNumber < $pageCount) : ?>
+          <span class="arrowBtn" onClick="location.href='member_wishList.php?pageNumber=<?=$pageNumber+1 ?>'">다음 ></span>
+        <?php else : ?>
+          <span class="arrowBtn" id="noName">다음 ></span>
+        <?php endif ; ?>
+      </div>
       </div>
 
   </div>
