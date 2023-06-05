@@ -1,0 +1,12 @@
+code : 
+name : 에스파 aespa 공식응원봉 OFFICIAL LIGHT STICK
+detailName : 에스파 aespa 공식응원봉 OFFICIAL LIGHT STICK
+price : 59000
+artistName : aespa
+imgInfo : 
+stock : 100
+soldOut : X
+cateCode : 4
+delPeriod 15
+delPrice : 3500
+regiDate : 

@@ -1,0 +1,12 @@
+code : 
+name : 뉴진스 (NewJeans) OMG 디토 위버스앨범
+detailName : 뉴진스 (NewJeans) OMG 디토 위버스앨범
+price : 9100
+artistName : NewJeans
+imgInfo : 
+stock : 100
+soldOut : X
+cateCode : 1
+delPeriod 7
+delPrice : 3500
+regiDate : 

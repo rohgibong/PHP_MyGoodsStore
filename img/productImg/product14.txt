@@ -1,0 +1,12 @@
+code : 
+name : 볼빨간사춘기 BOL4 - 미니앨범 사랑 zip
+detailName : 볼빨간사춘기 BOL4 - 미니앨범 사랑 zip
+price : 11300
+artistName : 볼빨간사춘기
+imgInfo : 
+stock : 100
+soldOut : X
+cateCode : 1
+delPeriod 10
+delPrice : 3500
+regiDate : 

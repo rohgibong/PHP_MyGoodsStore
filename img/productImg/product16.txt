@@ -1,0 +1,12 @@
+code : 
+name : IVE 아이브 응원봉 Official Light Stick
+detailName : IVE 아이브 응원봉 Official Light Stick
+price : 43900
+artistName : 아이브
+imgInfo : 
+stock : 100
+soldOut : X
+cateCode : 4
+delPeriod 3
+delPrice : 3000
+regiDate : 

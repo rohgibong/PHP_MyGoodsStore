@@ -1,0 +1,12 @@
+code : 
+name : 에스파 미니 3집 MY WORLD 마이 월드 스파이시
+detailName : 에스파 미니 3집 MY WORLD 마이 월드 스파이시
+price : 15100
+artistName : aespa
+imgInfo : 
+stock : 100
+soldOut : X
+cateCode : 1
+delPeriod 5
+delPrice : 3000
+regiDate : 
