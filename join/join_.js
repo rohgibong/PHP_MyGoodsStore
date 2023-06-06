@@ -294,9 +294,9 @@ function join(){
       pwd.style.borderBottom = "1px solid lightgray";
       err5 = 0;
     }
+    
+    if(address1.value == "" || address2.value == "" || address3.value == ""){
   }
-
-  if(address1.value == "" || address2.value == "" || address3.value == ""){
     label_address.innerHTML = "주소를 입력해주세요.";
     label_address.style.color = "red";
     label_address.style.fontSize = "8px";

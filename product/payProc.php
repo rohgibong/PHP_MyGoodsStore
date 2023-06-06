@@ -42,7 +42,6 @@
     $sql = "insert into storeorder(memberNo, productCode, amount, orderPrice, orderDate) values ($memberNo, ".$productCodes[$i].", ".$amounts[$i].", $orderPrice, '$orderDate')";
     mysqli_query($con, $sql);
 
-
     //3.(재고 업데이트)
     if($stock <= 0){
       $soldOut = "O";

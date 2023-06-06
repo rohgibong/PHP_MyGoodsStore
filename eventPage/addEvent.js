@@ -19,7 +19,7 @@ function moveUserPage(){
   }
 }
 
-function momveCartPage(){
+function moveCartPage(){
   location.href='../cartPage/list.php';
 }
 
