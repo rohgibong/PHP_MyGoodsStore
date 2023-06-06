@@ -92,7 +92,7 @@
       </div>
       <div id="usercartDiv">
         <img src="../img/user.png" alt="userImg" width="35px" id="userImg" onClick="moveUserPage();">
-        <img src="../img/basket.png" alt="basketImg" width="50px" id="basketImg" onClick="momveCartPage();">
+        <img src="../img/basket.png" alt="basketImg" width="50px" id="basketImg" onClick="moveCartPage();">
       </div>
       <div id="searchDiv">
         <input type="text" name="searchInput" id="searchInput" onkeydown="if(event.keyCode==13) search();">  
@@ -198,26 +198,26 @@
           </tr>
           <?php endif; ?>
         </table>
-        <div id="pageDiv">
-        <?php if($pageNumber > 1) : ?>
-          <span class="arrowBtn" onClick="location.href='member_wishList.php?pageNumber=<?=$pageNumber-1 ?>'">< 이전</span>
-        <?php else : ?>
-          <span class="arrowBtn" id="noName">< 이전</span>
-        <?php endif ; ?>
-        
-        <?php for($page = 1; $page < $pageCount+1; $page++) : ?>
-          <span id="pageSpan" onClick="location.href='member_wishList.php?pageNumber=<?=$page ?>'">
-            <?=$page ?>
-          </span>
-        <?php endfor; ?>
-        
-        <?php if($pageNumber < $pageCount) : ?>
-          <span class="arrowBtn" onClick="location.href='member_wishList.php?pageNumber=<?=$pageNumber+1 ?>'">다음 ></span>
-        <?php else : ?>
-          <span class="arrowBtn" id="noName">다음 ></span>
-        <?php endif ; ?>
       </div>
-      </div>
+      <div id="pageDiv">
+      <?php if($pageNumber > 1) : ?>
+        <span class="arrowBtn" onClick="location.href='member_wishList.php?pageNumber=<?=$pageNumber-1 ?>'">< 이전</span>
+      <?php else : ?>
+        <span class="arrowBtn" id="noName">< 이전</span>
+      <?php endif ; ?>
+      
+      <?php for($page = 1; $page < $pageCount+1; $page++) : ?>
+        <span id="pageSpan" onClick="location.href='member_wishList.php?pageNumber=<?=$page ?>'">
+          <?=$page ?>
+        </span>
+      <?php endfor; ?>
+      
+      <?php if($pageNumber < $pageCount) : ?>
+        <span class="arrowBtn" onClick="location.href='member_wishList.php?pageNumber=<?=$pageNumber+1 ?>'">다음 ></span>
+      <?php else : ?>
+        <span class="arrowBtn" id="noName">다음 ></span>
+      <?php endif ; ?>
+    </div>
 
   </div>
 <script src="member_wishList.js"></script>

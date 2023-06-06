@@ -96,43 +96,72 @@
 }
 #contentDiv{
   border: 0px solid red;
-  width: 1300px;
-  height: 500px;
+  width: 1000px;
   margin: auto;
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+#contentDiv > h2{
+  margin-left: 50px;
+}
+#contentDiv > hr{
+  border: 1px solid black;
+}
+#titleInput{
+  border: none;
+  outline: none;
+  border-bottom: 1px solid lightgray;
+  margin-left: 50px;
+  margin-top: 40px;
+  padding-left: 10px;
+  font-weight: bold;
+  width: 700px;
+  height: 30px;
+}
+.dateMent{
+  margin-left: 50px;
+  font-weight: bold;
+}
+.dateInput{
+  margin-top: 40px;
+  height: 30px;
+  width: 150px;
+  font-weight: bold;
+}
+#contentInput{
+  border: 1px solid lightgray;
+  margin-left: 50px;
   margin-top: 20px;
-  
-}
-#sideDiv{
-  border-right: 1px solid black;
-  width: 200px;
-  height: 500px;
-  float: left;
-  padding-top: 50px;
-}
-.subTitle{
-  border: 0px solid purple;
-  height: 40px;
-  line-height: 40px;
-  width: 170px;
-  padding-left: 30px;
-  margin-bottom: 20px;
   font-weight: bold;
-  cursor: pointer;
+  font-size: 16px;
+  padding: 20px;
+  outline: none;
 }
-.changeTitle{
-  height: 60px;
-  line-height: 60px;
-  width: 170px;
-  padding-left: 30px;
-  margin-bottom: 20px;
+#btnDiv{
+  border: 0px solid red;
+  margin: auto;
+  margin-top: 50px;
+  width: 800px;
+  height: 70px;
+  text-align: center;
+}
+#btnDiv > button{
+  height: 50px;
+  width: 250px;
+  font-size: 17px;
   font-weight: bold;
-  font-size: 25px;
+  color: black;
+  background-color: white;
+  border: none;
   cursor: pointer;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 2px solid black;
+  transition: all 0.4s;
 }
-#productDiv{
-  border: 1px solid red;
-  width: 1095px;
-  height: 500px;
-  float: right;
-  padding-top: 50px;
+#btnDiv > button:hover{
+  background-color: black;
+  color: white;
 }

@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyGoodsStore</title>
-  <link rel="stylesheet" href="list.css">
+  <link rel="stylesheet" href="addEvent.css">
 </head>
 <body>
   <?php
@@ -16,6 +16,10 @@
   ?>
   <script>
     const memberNo = <?php echo $memberNo ?>;
+    if(memberNo != 1){
+      alert('잘못된 접근입니다.');
+      location.href='../index.php';
+    }
   </script>
   <?php
   
@@ -43,7 +47,7 @@
       </div>
       <div id="usercartDiv">
         <img src="../img/user.png" alt="userImg" width="35px" id="userImg" onClick="moveUserPage();">
-        <img src="../img/basket.png" alt="basketImg" width="50px" id="basketImg" onClick="momveCartPage();">
+        <img src="../img/basket.png" alt="basketImg" width="50px" id="basketImg" onClick="moveCartPage();">
       </div>
       <div id="searchDiv">
         <input type="text" name="searchInput" id="searchInput" onkeydown="if(event.keyCode==13) search()">  
@@ -57,33 +61,29 @@
     </div>
 
     <div id="contentDiv">
-
-      <div id="sideDiv">
-        <div class="subTitle" onClick="location.href='../product/list.php?cateCode=1'">
-            MUSIC
-        </div>
-        <div class="subTitle" onClick="location.href='../product/list.php?cateCode=2'">
-            PHOTO
-        </div>
-        <div class="subTitle" onClick="location.href='../product/list.php?cateCode=3'">
-            FASHION
-        </div>
-        <div class="subTitle" onClick="location.href='../product/list.php?cateCode=4'">
-            CONCERT
-        </div>
-        <div class="changeTitle" onClick="location.href='list.php'">
-            FUNDING
-        </div>
-        <div class="subTitle" onClick="location.href='../eventPage/list.php'">
-            EVENT
-        </div>
-      </div>
-
-      <div id="productDiv">
-        펀딩페이지
-      </div>
+        <h2>이벤트 등록</h2>
+        <hr>
+        <form name="eventForm" action="addEventProc.php" method="post">
+          <input type="hidden" id="memberNo" name="memberNo" value="<?=$memberNo ?>">
+          <input type="text" id="titleInput" name="titleInput" placeholder="T i t l e">
+          <br>
+          <label for="startDate" class="dateMent">시작일 : </label>
+          <input type="date" id="startDate" name="startDate" class="dateInput">
+          <label for="endDate" class="dateMent">종료일 : </label>
+          <input type="date" id="endDate" name="endDate" class="dateInput">
+          <br>
+          <textarea name="contentInput" id="contentInput" cols="95" rows="15"></textarea>
+          <br>
+          <div id="btnDiv">
+            <button type="button" onClick="location.href='list.php';">취소하기</button>
+            <button type="button" onClick="addEvent();">등록하기</button>
+          </div>
+        </form>
+        
     </div>
+    
+
   </div>
-<script src="list.js"></script>
+<script src="addEvent.js"></script>
 </body>
 </html>

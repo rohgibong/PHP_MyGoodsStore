@@ -29,6 +29,6 @@
   mysqli_close($con);
 ?>
 <script>
-  alert("가입이 완료되었습니다.\n로그인 페이지로 이동합니다.");
+  alert("가입이 완료되었습니다.\n오픈 이벤트로 2000포인트가 지급되었습니다!\n로그인 페이지로 이동합니다.");
   location.href="../login/login.php";
 </script>

@@ -3,7 +3,6 @@
   width: 1300px;
   height: 750px;
   margin: auto;
-  padding-bottom: 50px;
 }
 #topDiv{
   border-top: 1px solid black;
@@ -97,135 +96,72 @@
 }
 #contentDiv{
   border: 0px solid red;
-  width: 1300px;
-  height: 500px;
+  width: 1000px;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 50px;
+  padding-bottom: 50px;
 }
-#sideDiv{
-  border-right: 1px solid black;
-  width: 200px;
-  height: 500px;
-  float: left;
-  padding-top: 50px;
-}
-.subTitle{
-  border: 0px solid purple;
-  height: 40px;
-  line-height: 40px;
-  width: 170px;
-  padding-left: 30px;
-  margin-bottom: 20px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.changeTitle{
-  height: 60px;
-  line-height: 60px;
-  width: 170px;
-  padding-left: 30px;
-  margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 25px;
-  cursor: pointer;
-}
-#eventDiv{
-  border: 0px solid red;
-  width: 1095px;
-  height: 500px;
-  float: right;
-  padding-top: 50px;
-}
-#eventTableMent{
-  display: block;
+#contentDiv > h2{
   margin-left: 50px;
-  margin-bottom: 10px;
-  font-weight: bold;
 }
-#eventPlace{
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-  width: 1000px;
-  height: 440px;
-  margin: auto;
+#contentDiv > hr{
+  border: 1px solid black;
 }
-#eventTable{
-  width: 1000px;
-  margin: auto;
-  border-collapse: collapse;
-}
-#emtpyTd{
-  height: 440px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: rgb(183, 183, 183);
-}
-.tdClass{
-  height: 37px;
+#titleInput{
+  border: none;
+  outline: none;
   border-bottom: 1px solid lightgray;
-}
-th{
-  border-bottom: 1px solid black;
-  height: 40px;
-}
-#NoId{
-  text-align: center;
+  margin-left: 50px;
+  margin-top: 40px;
+  padding-left: 10px;
   font-weight: bold;
-  width: 100px;
-}
-#titleId{
-  padding-left: 20px;
-}
-#titleSpan{
-  cursor: pointer;
-}
-#titleSpan:hover{
-  text-decoration: underline;
-}
-#dateId{
-  text-align: center;
-  width: 220px;
-}
-#writeDiv{
-  border: 0px solid red;
+  width: 700px;
   height: 30px;
-  width: 1000px;
-  margin: auto;
-  margin-top: 10px;
-  text-align: right;
 }
-#writeDiv > button{
+.dateMent{
+  margin-left: 50px;
+  font-weight: bold;
+}
+.dateInput{
+  margin-top: 40px;
+  height: 30px;
+  width: 150px;
+  font-weight: bold;
+}
+#contentInput{
+  border: 1px solid lightgray;
+  margin-left: 50px;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 20px;
+  outline: none;
+}
+#btnDiv{
+  border: 0px solid red;
+  margin: auto;
+  margin-top: 50px;
+  width: 800px;
+  height: 70px;
+  text-align: center;
+}
+#btnDiv > button{
+  height: 50px;
+  width: 250px;
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
   background-color: white;
-  font-weight: bold;
-  font-size: 14px;
-  height: 30px;
-  width: 80px;
-  border-radius: 20px;
+  border: none;
   cursor: pointer;
-}
-#pageDiv{
-  border: 0px solid red;
-  height: 30px;
-  width: 900px;
-  margin: auto;
+  border-radius: 30px;
   margin-top: 10px;
-  text-align: center;
-}
-#pageSpan{
-  cursor: pointer;
-  font-weight: bold;
   margin-left: 10px;
   margin-right: 10px;
+  border: 2px solid black;
+  transition: all 0.4s;
 }
-.arrowBtn{
-  font-weight: bold;
-  cursor: pointer;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-#noName{
+#btnDiv > button:hover{
+  background-color: black;
   color: white;
-  user-select: none;
-  cursor: default;
 }

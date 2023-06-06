@@ -96,7 +96,7 @@
       </div>
       <div id="usercartDiv">
         <img src="../img/user.png" alt="userImg" width="35px" id="userImg" onClick="moveUserPage();">
-        <img src="../img/basket.png" alt="basketImg" width="50px" id="basketImg" onClick="momveCartPage();">
+        <img src="../img/basket.png" alt="basketImg" width="50px" id="basketImg" onClick="moveCartPage();">
       </div>
       <div id="searchDiv">
         <?php if($searchValue == 0): ?>

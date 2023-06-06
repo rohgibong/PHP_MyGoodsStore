@@ -182,7 +182,7 @@
               \<?php echo number_format($orderPrice); ?>
             </td>
             <td class="tdClass">
-              <button type="button" onClick="" id="viewBtn">VIEW</button>
+              <button type="button" id="viewBtn">VIEW</button>
             </td>
           </tr>
           <?php

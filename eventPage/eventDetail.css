@@ -1,7 +1,7 @@
 #mainDiv{
   border: 0px solid red;
   width: 1300px;
-  height: 900px;
+  height: 750px;
   margin: auto;
   padding-bottom: 50px;
 }
@@ -96,9 +96,56 @@
   cursor: pointer;
 }
 #contentDiv{
-  border: 1px solid red;
+  border: 0px solid red;
   width: 1300px;
-  height: 500px;
+  height: 600px;
   margin: auto;
   margin-top: 20px;
+}
+#eventTable{
+  border-collapse: collapse;
+  margin: auto;
+  margin-top: 50px;
+  border-top: 1px solid gray;
+}
+td{
+  border-bottom: 1px solid gray;
+}
+#titleId{
+  height: 80px;
+  width: 1000px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+}
+#dateId{
+  height: 50px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+#dateId > span {
+  display: block;
+  float: right;
+  margin-right: 30px;
+}
+#contentId{
+  height: 350px;
+  padding-left: 20px;
+}
+#btnDiv{
+  border: 0px solid red;
+  height: 50px;
+  width: 1000px;
+  margin: auto;
+  text-align: right;
+}
+#btnDiv > button{
+  margin-top: 10px;
+  margin-right: 10px;
+  height: 30px;
+  width: 60px;
+  border-radius: 20px;
+  background-color: white;
+  font-weight: bold;
+  cursor: pointer;
 }

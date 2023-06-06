@@ -45,8 +45,6 @@
         $product[$num]['soldOut'] = $row['soldOut'];
         $product[$num]['regiDate'] = $row['regiDate'];
       }
-    } else {
-      echo '<script>alert("잘못된 접근입니다.");location.href="../index.php";</script>';
     }
     $sql = "select count(*) from storeproduct;";
     $result2 = mysqli_query($con, $sql);
@@ -90,7 +88,7 @@
           while($count < $num): 
           $count++;
         ?>
-        <tr id="productTr" onClick="move(<?=$product[$count]['productCode']?>);">
+        <tr id="productTr">
           <td id="firstTd">
             <?=$product[$count]['rowNum'] ?>
           </td>
