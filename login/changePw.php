@@ -35,7 +35,7 @@
   </div>
 
   <form name="changeForm" action="changePwProc.php" method="post">
-    <input type="text" name="memberNo" id="memberNo" value="<?=$memberNo?>">
+    <input type="hidden" name="memberNo" id="memberNo" value="<?=$memberNo?>">
     <div id="changeDiv">
 
       <h1>Change PW</h1>

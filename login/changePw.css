@@ -23,13 +23,11 @@
   border-radius: 10px;
 }
 #contentDiv{
-  border: 0px solid lightgray;
   width: 500px;
   height: 210px;
   margin: auto;
 }
 #contentNameDiv{
-  border: 0px solid red;
   width: 120px;
   height: 100px;
   float: left;
@@ -41,7 +39,6 @@
   font-size: 17px;
 }
 #contentInDiv{
-  border: 0px solid blue;
   width: 340px;
   height: 100px;
   float: right;
@@ -49,12 +46,10 @@
   margin-top: 70px;
 }
 #content1{
-  border: 0px solid red;
   height: 50px;
   margin-top: -7px;
 }
 #content2{
-  border: 0px solid red;
   height: 50px;
   margin-top: 15px;
 }

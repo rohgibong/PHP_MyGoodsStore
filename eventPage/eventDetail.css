@@ -1,5 +1,4 @@
 #mainDiv{
-  border: 0px solid red;
   width: 1300px;
   height: 750px;
   margin: auto;
@@ -42,7 +41,6 @@
   border-bottom: 1px solid black;
 }
 #mainTitleDiv{
-  border: 0px solid red;
   position: absolute;
   margin-left: 565px;
   margin-top: 0px;
@@ -52,7 +50,6 @@
   cursor: pointer;
 }
 #usercartDiv{
-  border: 0px solid red;
   float: right;
   width: 120px;
   height: 50px;
@@ -96,7 +93,6 @@
   cursor: pointer;
 }
 #contentDiv{
-  border: 0px solid red;
   width: 1300px;
   height: 600px;
   margin: auto;
@@ -133,7 +129,6 @@ td{
   padding-left: 20px;
 }
 #btnDiv{
-  border: 0px solid red;
   height: 50px;
   width: 1000px;
   margin: auto;

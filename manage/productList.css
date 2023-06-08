@@ -1,15 +1,12 @@
 #mainDiv{
-  border: 0px solid red;
   width: 1400px;
   margin: auto;
   padding-bottom: 50px;
 }
 #titleDiv{
-  border: 0px solid black;
   height: 100px;
 }
 #mainTitleDiv{
-  border: 0px solid red;
   position: absolute;
   margin-left: 610px;
   height: 100px;
@@ -83,7 +80,6 @@ td{
   background-color: rgb(245, 245, 245);
 }
 #pageDiv{
-  border: 0px solid red;
   height: 30px;
   width: 1200px;
   margin: auto;

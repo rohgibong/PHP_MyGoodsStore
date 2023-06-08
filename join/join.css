@@ -1,16 +1,13 @@
 #mainDiv{
-  border: 0px solid red;
   width: 1000px;
   margin: auto;
   padding-bottom: 50px;
 }
 #titleDiv{
-  border: 0px solid black;
   height: 130px;
   margin-top: 20px;
 }
 #mainTitleDiv{
-  border: 0px solid blue;
   width: 180px;
   height: 100px;
   margin: auto;
@@ -42,7 +39,6 @@ h1{
   margin-left: 40px;
 }
 #contentDiv{
-  border: 0px solid red;
   width: 400px;
   height: 500px;
   float: right;

@@ -48,14 +48,12 @@
   font-weight: bold;
 }
 #contentDiv{
-  border: 0px solid red;
   width: 500px;
   height: 130px;
   margin: auto;
   margin-top: 50px;
 }
 #contentNameDiv{
-  border: 0px solid red;
   width: 100px;
   height: 100px;
   float: left;
@@ -66,24 +64,20 @@
   font-size: 17px;
 }
 #contentInDiv{
-  border: 0px solid blue;
   width: 340px;
   height: 100px;
   float: right;
   text-align: left;
 }
 #content1{
-  border: 0px solid red;
   height: 50px;
   margin-top: -7px;
 }
 #content2{
-  border: 0px solid red;
   height: 50px;
   margin-top: 15px;
 }
 #content3{
-  border: 0px solid red;
   height: 50px;
   margin-top: 16px;
 }

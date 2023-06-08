@@ -1,5 +1,4 @@
 #mainDiv{
-  border: 0px solid red;
   width: 1300px;
   margin: auto;
 }
@@ -40,7 +39,6 @@
   border-bottom: 1px solid black;
 }
 #mainTitleDiv{
-  border: 0px solid red;
   position: absolute;
   margin-left: 565px;
   margin-top: 0px;
@@ -50,7 +48,6 @@
   cursor: pointer;
 }
 #usercartDiv{
-  border: 0px solid red;
   float: right;
   width: 120px;
   height: 50px;
@@ -94,14 +91,12 @@
   cursor: pointer;
 }
 #contentDiv{
-  border: 0px solid red;
   width: 1040px;
   height: 600px;
   margin: auto;
   padding-top: 50px;
 }
 #imgDiv{
-  border: 0px solid blue;
   width: 500px;
   height: 500px;
   float: left;
@@ -114,13 +109,11 @@
   filter: grayscale(100%);
 }
 #orderDiv{
-  border: 0px solid blue;
   width: 495px;
   height: 500px;
   float: right;
 }
 #orderContentDiv{
-  border: 0px solid black;
   width: 400px;
   height: 400px;
   margin: auto;
@@ -216,7 +209,6 @@
   outline: none;
 }
 #totalPriceDiv{
-  border: 0px solid red;
   width: 110px;
   height: 30px;
   margin-top: 28px;
@@ -258,7 +250,6 @@
   color: black;
 }
 #btnDiv{
-  border: 0px solid red;
   width: 350px;
   text-align: center;
   margin-top: 40px;
@@ -361,7 +352,6 @@ input[id*="popup"] + label + div > label, input[id*="addCartLabel"] + label + di
   margin-top: 60px;
 }
 #wishMentFloatDiv{
-  border: 0px solid red;
   margin: auto;
   margin-top: 30px;
   width: 350px;
@@ -403,7 +393,6 @@ input[id*="popup"] + label + div > label, input[id*="addCartLabel"] + label + di
   color: rgb(84, 84, 84);
 }
 #detailImgDiv{
-  border: 0px solid red;
   width: 1000px;
   float: left;
   margin-top: 100px;
